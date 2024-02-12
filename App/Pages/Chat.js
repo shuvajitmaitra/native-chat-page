@@ -12,6 +12,7 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+import PersonChats from "../Component/PersonChats";
 
 const Chat = () => {
   return (
@@ -26,6 +27,7 @@ const Chat = () => {
       >
         Recent
       </Text>
+      <PersonChats />
     </View>
   );
 };
