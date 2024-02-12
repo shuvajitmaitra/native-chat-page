@@ -27,7 +27,7 @@ const Chat = () => {
       >
         Recent
       </Text>
-      <PersonChats />
+      <PersonChats profileName="Anamika Rahman" />
     </View>
   );
 };

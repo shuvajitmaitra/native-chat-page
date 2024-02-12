@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   topContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: responsiveWidth(4),
+    gap: responsiveWidth(2.2),
     alignItems: "center",
   },
 
@@ -47,9 +47,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#27ac1f",
     alignItems: "center",
     gap: responsiveWidth(2.6),
-    padding: responsiveWidth(2.8),
+    paddingVertical: responsiveWidth(2.5),
     paddingHorizontal: responsiveWidth(4),
-    borderRadius: responsiveWidth(1.8),
+    borderRadius: responsiveWidth(1.5),
   },
   inputField: {
     flexDirection: "row",
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
     flex: 1,
-    borderRadius: responsiveWidth(1.8),
+    borderRadius: responsiveWidth(2),
   },
   inputFieldIcon: {
     fontSize: responsiveFontSize(2.6),
