@@ -7,27 +7,27 @@ import {
 } from "react-native-responsive-dimensions";
 
 const PersonChats = ({
-  isPersonActive = false,
-  isMessageSeen = false,
-  isChatClicked = false,
-  profileName,
+  isPersonActive = false, // isPersonActive means that the user is active or inactive if you pass "true" as props it will show you green state otherwise it will show gray status means inactive status means
+  numberOfPendingMessage = 0, // numberOfPendingMessage means how many pending messages. I pass the number of pending messages from the props
+  isMessageSeen = false, // isMessageSeen means if the seen the message text will normal and if it not clicked messages will be shown as bold text
+  isChatClicked = false, // isChatClicked means it clicked or not if it was clicked its background will be white otherwise it will be gray
+  profileName = "", // profileName means the name of person. We can the group name or chat name through the props.
+  profileImage,
+  messageText = "Hey, I am here...",
 }) => {
   const newProfileName =
-    profileName.length > 14 ? `${profileName.slice(0, 14)}...` : profileName;
+    profileName.length > 15 ? `${profileName.slice(0, 15)}...` : profileName;
 
   return (
     <View
       style={[
         styles.container,
-        { backgroundColor: isChatClicked ? "" : "white" },
+        { backgroundColor: isChatClicked ? "white" : "#F2F2F2" },
       ]}
     >
       <View style={styles.subContainer}>
         <View style={styles.profileImageContainer}>
-          <Image
-            style={styles.profileImage}
-            source={require("../../assets/women1.png")}
-          />
+          <Image style={styles.profileImage} source={profileImage} />
           <View
             style={[
               styles.activeDot,
@@ -43,14 +43,18 @@ const PersonChats = ({
               color: isMessageSeen ? "rgba(0, 0, 0, 0.7)" : "black",
             }}
           >
-            Hey, I am here...
+            {messageText}
           </Text>
         </View>
       </View>
       <View style={styles.timeContainer}>
         <Text style={styles.messageTime}>10:30 AM</Text>
         <View style={styles.messageNumberContainer}>
-          {isMessageSeen ? <></> : <Text style={styles.messageNumber}>5</Text>}
+          {numberOfPendingMessage ? (
+            <Text style={styles.messageNumber}>{numberOfPendingMessage}</Text>
+          ) : (
+            <></>
+          )}
         </View>
       </View>
     </View>
