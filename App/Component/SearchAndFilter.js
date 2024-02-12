@@ -40,9 +40,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: responsiveWidth(4),
     alignItems: "center",
-    margin: responsiveWidth(4),
-    // borderColor: "red",
-    // borderWidth: 1,
   },
 
   filterButton: {
