@@ -34,13 +34,14 @@ const Chat = () => {
       >
         Recent
       </Text>
+      {/* I can do with single one components. I was confused so that i make it in two components. One is "PersonChats" and other one is "GroupChats" */}
       <PersonChats
-        profileName="Anamika Rahman"
-        profileImage={women1}
-        numberOfPendingMessage={0}
-        isMessageSeen={true}
-        isPersonActive={true}
-        isChatClicked={true}
+        profileName="Anamika Rahman" //Using this props i passed the name of the person
+        profileImage={women1} // Passed the image of the person
+        numberOfPendingMessage={0} // Number of pending messages
+        isMessageSeen={true} // Message seen  or not seen. If person see the message text will normal
+        isPersonActive={true} // Is the person active or not active. if active person see green status or not active person can see gray status.
+        isChatClicked={true} // is the chat clicked or not. if clicked background will be white otherwise it will be gray
       />
       <GroupChats
         GroupName="Developer Group"
