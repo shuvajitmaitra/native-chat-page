@@ -14,6 +14,7 @@ const PersonChats = ({
   profileName = "", // profileName means the name of person. We can the group name or chat name through the props.
   profileImage,
   messageText = "Hey, I am here...",
+  messagingTime,
 }) => {
   const words = profileName.split(" ");
   const sortName = words.map((word) => word.charAt(0)).join("");
@@ -59,7 +60,7 @@ const PersonChats = ({
         </View>
       </View>
       <View style={styles.timeContainer}>
-        <Text style={styles.messageTime}>10:30 AM</Text>
+        <Text style={styles.messageTime}>{messagingTime}</Text>
         <View style={styles.messageNumberContainer}>
           {numberOfPendingMessage ? (
             <Text style={styles.messageNumber}>{numberOfPendingMessage}</Text>

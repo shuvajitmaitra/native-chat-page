@@ -33,6 +33,7 @@ const TotalChats = () => {
         isMessageSeen={true} // Message seen  or not seen. If person see the message text will normal
         isPersonActive={true} // Is the person active or not active. if active person see green status or not active person can see gray status.
         isChatClicked={true} // is the chat clicked or not. if clicked background will be white otherwise it will be gray
+        messagingTime="10:30 AM"
       />
       <Chat
         profileName="Developer Group"
@@ -41,6 +42,7 @@ const TotalChats = () => {
         isMessageSeen={false}
         isPersonActive={true}
         isChatClicked={false}
+        messagingTime="Yesterday"
       />
       <Chat
         profileName="Priyanka Parvej"
@@ -49,6 +51,7 @@ const TotalChats = () => {
         isMessageSeen={true}
         isPersonActive={false}
         isChatClicked={false}
+        messagingTime="Jan 12, 2024"
       />
       <Chat
         profileName="Anna Roji"
@@ -58,6 +61,7 @@ const TotalChats = () => {
         isMessageSeen={false}
         isPersonActive={true}
         isChatClicked={false}
+        messagingTime="Jan 12, 2024"
       />
       <Chat
         profileName="Jakia Jemmy"
@@ -66,6 +70,7 @@ const TotalChats = () => {
         isMessageSeen={true}
         isPersonActive={false}
         isChatClicked={false}
+        messagingTime="Jan 12, 2024"
       />
       <Chat
         profileName="Annamika Moni Rahman"
@@ -74,6 +79,7 @@ const TotalChats = () => {
         isMessageSeen={true}
         isPersonActive={true}
         isChatClicked={false}
+        messagingTime="Jan 12, 2024"
       />
       <Chat
         profileName="Engineer Group"
@@ -82,6 +88,7 @@ const TotalChats = () => {
         isMessageSeen={false}
         isPersonActive={true}
         isChatClicked={false}
+        messagingTime="Jan 12, 2024"
       />
       <Chat
         profileName="AR"
@@ -90,6 +97,7 @@ const TotalChats = () => {
         isMessageSeen={true}
         isPersonActive={true}
         isChatClicked={false}
+        messagingTime="Jan 12, 2024"
       />
     </ScrollView>
   );
