@@ -1,11 +1,4 @@
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ScrollView, StyleSheet, Text } from "react-native";
 import React from "react";
 import SearchAndFilter from "../Component/SearchAndFilter";
 import {
@@ -13,10 +6,9 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
-import PersonChats from "../Component/PersonChats";
-import GroupChats from "../Component/GroupChats";
+import Chat from "../Component/Chat";
 
-const Chat = () => {
+const TotalChats = () => {
   const women1 = require("../../assets/women1.png");
   const women2 = require("../../assets/women2.png");
   const women3 = require("../../assets/women3.png");
@@ -34,8 +26,7 @@ const Chat = () => {
       >
         Recent
       </Text>
-      {/* I can do with single one components. I was confused so that i make it in two components. One is "PersonChats" and other one is "GroupChats" */}
-      <PersonChats
+      <Chat
         profileName="Anamika Rahman" //Using this props i passed the name of the person
         profileImage={women1} // Passed the image of the person
         numberOfPendingMessage={0} // Number of pending messages
@@ -43,15 +34,15 @@ const Chat = () => {
         isPersonActive={true} // Is the person active or not active. if active person see green status or not active person can see gray status.
         isChatClicked={true} // is the chat clicked or not. if clicked background will be white otherwise it will be gray
       />
-      <GroupChats
-        GroupName="Developer Group"
+      <Chat
+        profileName="Developer Group"
         messageText="SR sent a video"
         numberOfPendingMessage={5}
         isMessageSeen={false}
         isPersonActive={true}
         isChatClicked={false}
       />
-      <PersonChats
+      <Chat
         profileName="Priyanka Parvej"
         profileImage={women2}
         numberOfPendingMessage={0}
@@ -59,7 +50,7 @@ const Chat = () => {
         isPersonActive={false}
         isChatClicked={false}
       />
-      <PersonChats
+      <Chat
         profileName="Anna Roji"
         profileImage={women3}
         messageText="AR sent a photo"
@@ -68,7 +59,7 @@ const Chat = () => {
         isPersonActive={true}
         isChatClicked={false}
       />
-      <PersonChats
+      <Chat
         profileName="Jakia Jemmy"
         profileImage={women4}
         numberOfPendingMessage={0}
@@ -76,7 +67,7 @@ const Chat = () => {
         isPersonActive={false}
         isChatClicked={false}
       />
-      <PersonChats
+      <Chat
         profileName="Annamika Moni Rahman"
         profileImage={women5}
         numberOfPendingMessage={2}
@@ -84,15 +75,15 @@ const Chat = () => {
         isPersonActive={true}
         isChatClicked={false}
       />
-      <GroupChats
-        GroupName="Engineer Group"
+      <Chat
+        profileName="Engineer Group"
         messageText="SR sent a video"
         numberOfPendingMessage={5}
         isMessageSeen={false}
         isPersonActive={true}
         isChatClicked={false}
       />
-      <PersonChats
+      <Chat
         profileName="AR"
         profileImage={women1}
         numberOfPendingMessage={2}
@@ -104,11 +95,11 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default TotalChats;
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "F8F8F8",
-    margin: responsiveWidth(4),
+    paddingHorizontal: responsiveWidth(4),
   },
 });

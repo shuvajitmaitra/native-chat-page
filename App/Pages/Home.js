@@ -6,7 +6,7 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Chat")}
+        onPress={() => navigation.navigate("TotalChats")}
         style={{
           backgroundColor: "#27ac1f",
           width: responsiveScreenWidth(50),

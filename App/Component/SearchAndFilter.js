@@ -9,6 +9,7 @@ import React from "react";
 import { Feather } from "@expo/vector-icons";
 import {
   responsiveFontSize,
+  responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: responsiveWidth(2.2),
     alignItems: "center",
+    paddingTop: responsiveHeight(3.5),
   },
 
   filterButton: {

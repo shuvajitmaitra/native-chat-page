@@ -15,6 +15,8 @@ const PersonChats = ({
   profileImage,
   messageText = "Hey, I am here...",
 }) => {
+  const words = profileName.split(" ");
+  const sortName = words.map((word) => word.charAt(0)).join("");
   const newProfileName =
     profileName.length > 15 ? `${profileName.slice(0, 15)}...` : profileName;
 
@@ -27,7 +29,16 @@ const PersonChats = ({
     >
       <View style={styles.subContainer}>
         <View style={styles.profileImageContainer}>
-          <Image style={styles.profileImage} source={profileImage} />
+          <>
+            {profileImage ? (
+              <Image style={styles.profileImage} source={profileImage} />
+            ) : (
+              <View style={styles.altOfProfileImage}>
+                <Text style={styles.sortName}>{sortName}</Text>
+              </View>
+            )}
+          </>
+
           <View
             style={[
               styles.activeDot,
@@ -77,6 +88,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: responsiveWidth(4),
   },
+  altOfProfileImage: {
+    width: responsiveWidth(10),
+    height: responsiveWidth(10),
+    borderRadius: responsiveWidth(100),
+    position: "relative",
+    backgroundColor: "rgba(35, 67, 56, 1)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sortName: {
+    color: "white",
+    fontWeight: "600",
+    fontSize: responsiveFontSize(2.5),
+  },
   profileImage: {
     width: responsiveWidth(10),
     height: responsiveWidth(10),
@@ -88,7 +113,6 @@ const styles = StyleSheet.create({
     width: responsiveWidth(2.8),
     height: responsiveWidth(2.8),
     borderRadius: responsiveWidth(100),
-
     position: "absolute",
     bottom: responsiveWidth(0.9),
     right: -2,
