@@ -1,11 +1,22 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import Chat from "./Chat";
+import { responsiveScreenWidth } from "react-native-responsive-dimensions";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Chat />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Chat")}
+        style={{
+          backgroundColor: "#27ac1f",
+          width: responsiveScreenWidth(50),
+          alignItems: "center",
+          borderRadius: 10,
+          padding: responsiveScreenWidth(3),
+        }}
+      >
+        <Text style={{ color: "#ffff" }}>Chat</Text>
+      </TouchableOpacity>
     </View>
   );
 };
