@@ -25,7 +25,7 @@ const PersonChats = ({
     <View
       style={[
         styles.container,
-        { backgroundColor: isChatClicked ? "white" : "#F2F2F2" },
+        { backgroundColor: isChatClicked ? "white" : "#F8F8F8" },
       ]}
     >
       <View style={styles.subContainer}>
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: responsiveWidth(4),
-    paddingVertical: responsiveWidth(4),
+    paddingVertical: responsiveWidth(3.3),
     borderRadius: responsiveWidth(2),
   },
   subContainer: {
@@ -100,8 +100,7 @@ const styles = StyleSheet.create({
   },
   sortName: {
     color: "white",
-    fontWeight: "600",
-    fontSize: responsiveFontSize(2.5),
+    fontSize: responsiveFontSize(2),
   },
   profileImage: {
     width: responsiveWidth(10),
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
     borderColor: "#ffffff",
   },
   profileName: {
-    fontSize: responsiveWidth(5.3),
+    fontSize: responsiveFontSize(2.4),
     fontWeight: "500",
     color: "black",
   },
@@ -136,11 +135,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   messageNumber: {
-    paddingHorizontal: responsiveWidth(1.2),
+    paddingHorizontal: responsiveWidth(1.3),
+    paddingVertical: responsiveWidth(0.1),
     backgroundColor: "#27ac1f",
     textAlign: "center",
     color: "#ffffff",
     borderRadius: responsiveWidth(100),
-    fontSize: responsiveFontSize(1.4),
+    fontSize: responsiveFontSize(1.5),
   },
 });

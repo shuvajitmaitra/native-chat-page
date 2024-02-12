@@ -19,9 +19,9 @@ const TotalChats = () => {
       <SearchAndFilter />
       <Text
         style={{
-          fontWeight: "bold",
-          marginVertical: responsiveHeight(2),
-          fontSize: responsiveFontSize(3),
+          fontWeight: "600",
+          marginVertical: responsiveHeight(2.5),
+          fontSize: responsiveFontSize(2.7),
         }}
       >
         Recent
@@ -92,7 +92,7 @@ const TotalChats = () => {
       />
       <Chat
         profileName="AR"
-        profileImage={women1}
+        profileImage={women5}
         numberOfPendingMessage={2}
         isMessageSeen={true}
         isPersonActive={true}
@@ -107,7 +107,7 @@ export default TotalChats;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "F8F8F8",
+    backgroundColor: "#F8F8F8",
     paddingHorizontal: responsiveWidth(4),
   },
 });

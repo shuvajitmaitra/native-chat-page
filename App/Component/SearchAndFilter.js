@@ -17,7 +17,11 @@ const SearchAndFilter = () => {
   return (
     <View style={styles.topContainer}>
       <View style={styles.inputField}>
-        <TextInput style={styles.textInput} placeholder="Search..." />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Search..."
+          placeholderTextColor="rgba(99, 99, 99, 1)"
+        />
         <Feather style={styles.inputFieldIcon} name="search" />
       </View>
       <TouchableOpacity style={styles.filterButton}>
@@ -41,7 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: responsiveWidth(2.2),
     alignItems: "center",
-    paddingTop: responsiveHeight(3.5),
+    paddingTop: responsiveHeight(3),
   },
 
   filterButton: {
@@ -49,7 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#27ac1f",
     alignItems: "center",
     gap: responsiveWidth(2.6),
-    paddingVertical: responsiveWidth(2.5),
+    paddingVertical: responsiveWidth(2.6),
     paddingHorizontal: responsiveWidth(4),
     borderRadius: responsiveWidth(1.5),
   },
@@ -57,27 +61,27 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "F2F2F2",
-    padding: responsiveWidth(2.3),
-    paddingHorizontal: responsiveWidth(4),
+    backgroundColor: "#F2F2F2",
+    padding: responsiveWidth(1.5),
+    paddingHorizontal: responsiveWidth(3.3),
     borderWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
     flex: 1,
     borderRadius: responsiveWidth(2),
   },
   inputFieldIcon: {
-    fontSize: responsiveFontSize(2.6),
-    color: "gray",
+    fontSize: responsiveFontSize(2.5),
+    color: "rgba(99, 99, 99, 1)",
   },
   textInput: {
-    fontSize: responsiveFontSize(1.9),
+    fontSize: responsiveFontSize(1.6),
   },
   filterButtonIcon: {
-    fontSize: responsiveFontSize(2.2),
+    fontSize: responsiveFontSize(2),
     color: "white",
   },
   filterButtonText: {
-    fontSize: responsiveFontSize(2.2),
+    fontSize: responsiveFontSize(1.9),
     color: "white",
   },
 });
