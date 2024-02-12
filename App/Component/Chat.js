@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   },
   timeContainer: {
     alignItems: "flex-end",
-    gap: responsiveHeight(1),
+    gap: responsiveHeight(1.2),
   },
   messageNumberContainer: {
     alignItems: "center",
