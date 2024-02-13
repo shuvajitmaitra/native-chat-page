@@ -38,17 +38,54 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
                 <RadioButton
                   value="admin"
                   color="green"
-                  style={{ backgroundColor: "green" }}
+                  uncheckedColor="rgba(0, 0, 0, 0.2)"
                 />
-                <Text style={styles.radioText}>Admin</Text>
+                <Text
+                  style={[
+                    styles.radioText,
+                    {
+                      color: value === "admin" ? "black" : "rgba(0, 0, 0, 0.6)",
+                    },
+                  ]}
+                >
+                  Admin
+                </Text>
               </View>
               <View style={styles.radioButton}>
-                <RadioButton color="green" value="moderator" />
-                <Text style={styles.radioText}>Moderator</Text>
+                <RadioButton
+                  color="green"
+                  value="moderator"
+                  uncheckedColor="rgba(0, 0, 0, 0.2)"
+                />
+                <Text
+                  style={[
+                    styles.radioText,
+                    {
+                      color:
+                        value === "moderator" ? "black" : "rgba(0, 0, 0, 0.6)",
+                    },
+                  ]}
+                >
+                  Moderator
+                </Text>
               </View>
               <View style={styles.radioButton}>
-                <RadioButton color="green" value="member" />
-                <Text style={styles.radioText}>Member</Text>
+                <RadioButton
+                  color="green"
+                  value="member"
+                  uncheckedColor="rgba(0, 0, 0, 0.2)"
+                />
+                <Text
+                  style={[
+                    styles.radioText,
+                    {
+                      color:
+                        value === "member" ? "black" : "rgba(0, 0, 0, 0.6)",
+                    },
+                  ]}
+                >
+                  Member
+                </Text>
               </View>
             </RadioButton.Group>
           </View>
