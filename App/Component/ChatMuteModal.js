@@ -56,7 +56,7 @@ const ChatMuteModal = ({ toggleModal, isModalVisible }) => {
             >
               <View style={styles.radioButton}>
                 <RadioButton
-                  value="admin"
+                  value="hour"
                   color="#27ac1f"
                   uncheckedColor="rgba(0, 0, 0, 0.2)"
                 />
@@ -64,17 +64,34 @@ const ChatMuteModal = ({ toggleModal, isModalVisible }) => {
                   style={[
                     styles.radioText,
                     {
-                      color: value === "admin" ? "black" : "rgba(0, 0, 0, 0.6)",
+                      color: value === "hour" ? "black" : "rgba(0, 0, 0, 0.6)",
                     },
                   ]}
                 >
-                  Admin
+                  For 1 hour
                 </Text>
               </View>
               <View style={styles.radioButton}>
                 <RadioButton
                   color="#27ac1f"
-                  value="moderator"
+                  value="day"
+                  uncheckedColor="rgba(0, 0, 0, 0.2)"
+                />
+                <Text
+                  style={[
+                    styles.radioText,
+                    {
+                      color: value === "day" ? "black" : "rgba(0, 0, 0, 0.6)",
+                    },
+                  ]}
+                >
+                  For 1 day
+                </Text>
+              </View>
+              <View style={styles.radioButton}>
+                <RadioButton
+                  color="#27ac1f"
+                  value="always"
                   uncheckedColor="rgba(0, 0, 0, 0.2)"
                 />
                 <Text
@@ -82,17 +99,17 @@ const ChatMuteModal = ({ toggleModal, isModalVisible }) => {
                     styles.radioText,
                     {
                       color:
-                        value === "moderator" ? "black" : "rgba(0, 0, 0, 0.6)",
+                        value === "always" ? "black" : "rgba(0, 0, 0, 0.6)",
                     },
                   ]}
                 >
-                  Moderator
+                  Mute until i turn back on
                 </Text>
               </View>
               <View style={styles.radioButton}>
                 <RadioButton
                   color="#27ac1f"
-                  value="member"
+                  value="custom"
                   uncheckedColor="rgba(0, 0, 0, 0.2)"
                 />
                 <Text
@@ -100,11 +117,11 @@ const ChatMuteModal = ({ toggleModal, isModalVisible }) => {
                     styles.radioText,
                     {
                       color:
-                        value === "member" ? "black" : "rgba(0, 0, 0, 0.6)",
+                        value === "custom" ? "black" : "rgba(0, 0, 0, 0.6)",
                     },
                   ]}
                 >
-                  Member
+                  Custom time
                 </Text>
               </View>
             </RadioButton.Group>
@@ -147,15 +164,15 @@ const styles = StyleSheet.create({
   modalChild: {
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
-    paddingHorizontal: responsiveWidth(4.5),
-    // paddingVertical: responsiveHeight(0.8),
+    paddingHorizontal: responsiveWidth(5),
+    paddingVertical: responsiveHeight(0.8),
   },
   modalHeading: {
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
     paddingVertical: responsiveHeight(2),
-    marginHorizontal: responsiveWidth(1),
+    // marginHorizontal: responsiveWidth(1),
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.15)",
     gap: responsiveWidth(2),
@@ -168,19 +185,29 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(2.5),
     color: "rgba(71, 71, 72, 1)",
   },
+  //  -------------------------------------------------------------
+  // Modal description
+  // -------------------------------------------------------------
+  modalDescriptionText: {
+    color: "rgba(0, 0, 0, 0.7)",
+    fontSize: responsiveFontSize(1.9),
+    fontWeight: "600",
+    paddingVertical: responsiveHeight(2),
+  },
+
+  //  -------------------------------------------------------------
+  // Modal description
+  // -------------------------------------------------------------
   radioButton: {
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
   },
   buttonGroup: {
-    borderBottomWidth: 1,
-    borderColor: "rgba(0, 0, 0, 0.15)",
-    paddingVertical: responsiveHeight(2.5),
-    marginHorizontal: responsiveWidth(-2),
+    marginHorizontal: responsiveWidth(-1),
   },
   radioText: {
-    fontSize: responsiveFontSize(2.2),
+    fontSize: responsiveFontSize(2),
   },
   buttonContainer: {
     flexDirection: "row",
