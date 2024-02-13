@@ -1,14 +1,10 @@
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Modal from "react-native-modal";
 import React, { useState } from "react";
 import {
   responsiveHeight,
-  responsiveScreenHeight,
   responsiveScreenWidth,
-  responsiveWidth,
 } from "react-native-responsive-dimensions";
 import RoleAssignModal from "../Component/RoleAssignModal";
-import MyComponent from "../Component/MyComponent";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -38,7 +34,6 @@ const Home = ({ navigation }) => {
         toggleModal={toggleModal}
         isModalVisible={isModalVisible}
       />
-      <MyComponent />
     </View>
   );
 };
