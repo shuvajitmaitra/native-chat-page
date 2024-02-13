@@ -1,11 +1,11 @@
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 import {
   responsiveHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import RoleAssignModal from "../Component/RoleAssignModal";
-import CustomModalButton from "../Component/CustomButton";
+import ChatMuteModal from "../Component/ChatMuteModal";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -35,7 +35,14 @@ const Home = ({ navigation }) => {
         toggleModal={toggleModal}
         isModalVisible={isModalVisible}
       />
-      <CustomModalButton />
+      <TouchableOpacity style={styles.roleAssign} onPress={toggleModal}>
+        <Text style={{ color: "#ffff" }}>Chat Mute</Text>
+      </TouchableOpacity>
+
+      <ChatMuteModal
+        toggleModal={toggleModal}
+        isModalVisible={isModalVisible}
+      />
     </View>
   );
 };
