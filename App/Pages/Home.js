@@ -51,7 +51,9 @@ const Home = ({ navigation }) => {
       </TouchableOpacity>
       <StatusBar
         backgroundColor={
-          isModalVisible || isMuteModalVisible ? "rgb(74, 76, 76)" : "black"
+          isModalVisible || isMuteModalVisible
+            ? "rgb(74, 76, 76)"
+            : "rgb(0, 0, 0)"
         }
       />
       <ChatMuteModal
