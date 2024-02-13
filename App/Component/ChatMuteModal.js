@@ -12,7 +12,7 @@ import { RadioButton, Text } from "react-native-paper";
 import CustomModalButton from "./CustomButton";
 
 const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
-  const [value, setValue] = React.useState("first");
+  const [value, setValue] = React.useState("hour");
 
   return (
     <Modal isVisible={isMuteModalVisible}>

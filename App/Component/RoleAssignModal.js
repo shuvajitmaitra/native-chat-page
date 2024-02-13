@@ -13,7 +13,7 @@ import { RadioButton, Text } from "react-native-paper";
 import CustomModalButton from "./CustomButton";
 
 const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
-  const [value, setValue] = React.useState("first");
+  const [value, setValue] = React.useState("admin");
 
   return (
     <Modal isVisible={isModalVisible}>
