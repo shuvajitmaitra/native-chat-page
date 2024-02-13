@@ -92,11 +92,13 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
           </View>
           <View style={styles.buttonContainer}>
             <CustomModalButton
+              toggleModal={toggleModal}
               textColor="#27ac1f"
               backgroundColor="rgba(39, 172, 31, 0.1)"
               buttonText="Cancel"
             />
             <CustomModalButton
+              toggleModal={toggleModal}
               textColor="white"
               backgroundColor="#27ac1f"
               buttonText="Save"

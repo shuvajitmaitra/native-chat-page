@@ -5,9 +5,15 @@ import {
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 
-const CustomModalButton = ({ textColor, backgroundColor, buttonText }) => {
+const CustomModalButton = ({
+  textColor,
+  backgroundColor,
+  buttonText,
+  toggleModal,
+}) => {
   return (
     <TouchableOpacity
+      onPress={toggleModal}
       style={[styles.button, { backgroundColor: backgroundColor }]}
     >
       <Text style={[styles.buttonText, { color: textColor }]}>
