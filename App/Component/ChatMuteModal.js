@@ -11,11 +11,11 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import { RadioButton, Text } from "react-native-paper";
 import CustomModalButton from "./CustomButton";
 
-const ChatMuteModal = ({ toggleModal, isModalVisible }) => {
+const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
   const [value, setValue] = React.useState("first");
 
   return (
-    <Modal isVisible={isModalVisible}>
+    <Modal isVisible={isMuteModalVisible}>
       <View style={styles.modalContainer}>
         <View style={styles.modalChild}>
           {/* --------------------- */}
@@ -23,7 +23,7 @@ const ChatMuteModal = ({ toggleModal, isModalVisible }) => {
           {/* --------------------- */}
 
           <View style={styles.modalHeading}>
-            <TouchableOpacity onPress={toggleModal}>
+            <TouchableOpacity onPress={toggleMuteModal}>
               <FontAwesome6
                 name="arrow-left-long"
                 style={styles.modalArrowIcon}
@@ -103,7 +103,7 @@ const ChatMuteModal = ({ toggleModal, isModalVisible }) => {
                     },
                   ]}
                 >
-                  Mute until i turn back on
+                  Mute until I turn back on
                 </Text>
               </View>
               <View style={styles.radioButton}>
@@ -143,13 +143,13 @@ const ChatMuteModal = ({ toggleModal, isModalVisible }) => {
 
           <View style={styles.buttonContainer}>
             <CustomModalButton
-              toggleModal={toggleModal}
+              toggleModal={toggleMuteModal}
               textColor="#27ac1f"
               backgroundColor="rgba(39, 172, 31, 0.1)"
               buttonText="Cancel"
             />
             <CustomModalButton
-              toggleModal={toggleModal}
+              toggleModal={toggleMuteModal}
               textColor="white"
               backgroundColor="#27ac1f"
               buttonText="Save"
@@ -165,7 +165,7 @@ export default ChatMuteModal;
 
 const styles = StyleSheet.create({
   modalContainer: {
-    height: responsiveScreenHeight(100),
+    // height: responsiveScreenHeight(100),
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

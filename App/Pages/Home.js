@@ -1,4 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import {
   responsiveHeight,
@@ -9,10 +15,15 @@ import ChatMuteModal from "../Component/ChatMuteModal";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
+  const [isMuteModalVisible, setMuteModalVisible] = useState(false);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
+  const toggleMuteModal = () => {
+    setMuteModalVisible(!isMuteModalVisible);
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -35,13 +46,17 @@ const Home = ({ navigation }) => {
         toggleModal={toggleModal}
         isModalVisible={isModalVisible}
       />
-      <TouchableOpacity style={styles.roleAssign} onPress={toggleModal}>
+      <TouchableOpacity style={styles.roleAssign} onPress={toggleMuteModal}>
         <Text style={{ color: "#ffff" }}>Chat Mute</Text>
       </TouchableOpacity>
-
+      <StatusBar
+        backgroundColor={
+          isModalVisible || isMuteModalVisible ? "rgb(74, 76, 76)" : "#F5FCFF"
+        }
+      />
       <ChatMuteModal
-        toggleModal={toggleModal}
-        isModalVisible={isModalVisible}
+        toggleMuteModal={toggleMuteModal}
+        isMuteModalVisible={isMuteModalVisible}
       />
     </View>
   );
