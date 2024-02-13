@@ -10,6 +10,7 @@ import {
 } from "react-native-responsive-dimensions";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { RadioButton, Text } from "react-native-paper";
+import CustomModalButton from "./CustomButton";
 
 const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
   const [value, setValue] = React.useState("first");
@@ -37,7 +38,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
               <View style={styles.radioButton}>
                 <RadioButton
                   value="admin"
-                  color="green"
+                  color="#27ac1f"
                   uncheckedColor="rgba(0, 0, 0, 0.2)"
                 />
                 <Text
@@ -53,7 +54,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
               </View>
               <View style={styles.radioButton}>
                 <RadioButton
-                  color="green"
+                  color="#27ac1f"
                   value="moderator"
                   uncheckedColor="rgba(0, 0, 0, 0.2)"
                 />
@@ -71,7 +72,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
               </View>
               <View style={styles.radioButton}>
                 <RadioButton
-                  color="green"
+                  color="#27ac1f"
                   value="member"
                   uncheckedColor="rgba(0, 0, 0, 0.2)"
                 />
@@ -88,6 +89,18 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
                 </Text>
               </View>
             </RadioButton.Group>
+          </View>
+          <View style={styles.buttonContainer}>
+            <CustomModalButton
+              textColor="#27ac1f"
+              backgroundColor="rgba(39, 172, 31, 0.1)"
+              buttonText="Cancel"
+            />
+            <CustomModalButton
+              textColor="white"
+              backgroundColor="#27ac1f"
+              buttonText="Save"
+            />
           </View>
         </View>
       </View>
@@ -107,10 +120,9 @@ const styles = StyleSheet.create({
 
   modalChild: {
     backgroundColor: "#FFFFFF",
-    height: responsiveScreenHeight(40),
-    width: responsiveScreenWidth(90),
     borderRadius: 10,
-    padding: responsiveScreenWidth(3),
+    paddingHorizontal: responsiveWidth(4.5),
+    paddingVertical: responsiveHeight(0.8),
   },
   modalHeading: {
     flexDirection: "row",
@@ -142,5 +154,11 @@ const styles = StyleSheet.create({
   },
   radioText: {
     fontSize: responsiveFontSize(2.2),
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    gap: responsiveWidth(2.5),
+    justifyContent: "center",
+    paddingVertical: responsiveHeight(2.5),
   },
 });

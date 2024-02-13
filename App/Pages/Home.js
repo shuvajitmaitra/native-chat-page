@@ -5,6 +5,7 @@ import {
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import RoleAssignModal from "../Component/RoleAssignModal";
+import CustomModalButton from "../Component/CustomButton";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -34,6 +35,7 @@ const Home = ({ navigation }) => {
         toggleModal={toggleModal}
         isModalVisible={isModalVisible}
       />
+      <CustomModalButton />
     </View>
   );
 };
