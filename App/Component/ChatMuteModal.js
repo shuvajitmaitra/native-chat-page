@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import Modal from "react-native-modal";
 import React from "react";
 import {
@@ -127,6 +127,16 @@ const ChatMuteModal = ({ toggleModal, isModalVisible }) => {
             </RadioButton.Group>
           </View>
 
+          {/* -------------------------- */}
+          {/* ------- Add note Box ------- */}
+          {/* --------------------------- */}
+          <View style={styles.noteContainer}>
+            <Text style={styles.noteTitle}>Add a note (optional)</Text>
+            <TextInput
+              placeholder="Describe the reason"
+              style={styles.noteTextArea}
+            />
+          </View>
           {/* --------------------- */}
           {/* Modal Button Container */}
           {/* --------------------- */}
@@ -164,7 +174,7 @@ const styles = StyleSheet.create({
   modalChild: {
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
-    paddingHorizontal: responsiveWidth(5),
+    paddingHorizontal: responsiveWidth(5.3),
     paddingVertical: responsiveHeight(0.8),
   },
   modalHeading: {
@@ -182,7 +192,8 @@ const styles = StyleSheet.create({
     color: "rgba(71, 71, 72, 1)",
   },
   modalHeadingText: {
-    fontSize: responsiveFontSize(2.5),
+    fontSize: responsiveFontSize(2.4),
+    fontWeight: "600",
     color: "rgba(71, 71, 72, 1)",
   },
   //  -------------------------------------------------------------
@@ -196,7 +207,7 @@ const styles = StyleSheet.create({
   },
 
   //  -------------------------------------------------------------
-  // Modal description
+  // Modal radio button
   // -------------------------------------------------------------
   radioButton: {
     flexDirection: "row",
@@ -207,8 +218,32 @@ const styles = StyleSheet.create({
     marginHorizontal: responsiveWidth(-1),
   },
   radioText: {
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveFontSize(1.9),
   },
+
+  //  -------------------------------------------------------------
+  // Modal Note area
+  // -------------------------------------------------------------
+  noteContainer: {},
+  noteTitle: {
+    fontWeight: "600",
+    fontSize: responsiveFontSize(1.9),
+    paddingVertical: responsiveWidth(4),
+  },
+  noteTextArea: {
+    backgroundColor: "rgba(248, 248, 248, 1)",
+    paddingHorizontal: responsiveWidth(4),
+    paddingTop: responsiveHeight(0.6),
+    paddingBottom: responsiveHeight(7),
+    marginBottom: responsiveHeight(1.4),
+    borderRadius: responsiveWidth(3),
+    borderWidth: 1,
+    borderColor: "rgba(238, 238, 238, 1)",
+    fontSize: responsiveFontSize(1.9),
+  },
+  //  -------------------------------------------------------------
+  // Modal Button area
+  // -------------------------------------------------------------
   buttonContainer: {
     flexDirection: "row",
     gap: responsiveWidth(2.5),
