@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import {
+  responsiveFontSize,
   responsiveHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
@@ -26,29 +27,9 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("TotalChats")}
-        style={{
-          backgroundColor: "#27ac1f",
-          width: responsiveScreenWidth(50),
-          alignItems: "center",
-          borderRadius: 10,
-          padding: responsiveScreenWidth(3),
-        }}
-      >
-        <Text style={{ color: "#ffff" }}>Chat</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.roleAssign} onPress={toggleModal}>
-        <Text style={{ color: "#ffff" }}>Role Assign</Text>
-      </TouchableOpacity>
-
-      <RoleAssignModal
-        toggleModal={toggleModal}
-        isModalVisible={isModalVisible}
-      />
-      <TouchableOpacity style={styles.roleAssign} onPress={toggleMuteModal}>
-        <Text style={{ color: "#ffff" }}>Chat Mute</Text>
-      </TouchableOpacity>
+      {/* -------------------------- */}
+      {/* ----------- Here is the status bar Color defined ----------- */}
+      {/* -------------------------- */}
       <StatusBar
         backgroundColor={
           isModalVisible || isMuteModalVisible
@@ -56,10 +37,51 @@ const Home = ({ navigation }) => {
             : "rgb(0, 0, 0)"
         }
       />
+
+      {/* -------------------------- */}
+      {/* ----------- All Chat Navigation Here ----------- */}
+      {/* -------------------------- */}
+      <TouchableOpacity
+        onPress={() => navigation.navigate("TotalChats")}
+        style={styles.navigationButton}
+      >
+        <Text style={styles.navigationButtonText}>Chat</Text>
+      </TouchableOpacity>
+
+      {/* -------------------------- */}
+      {/* ----------- Role assign modal ----------- */}
+      {/* -------------------------- */}
+      <TouchableOpacity style={styles.navigationButton} onPress={toggleModal}>
+        <Text style={styles.navigationButtonText}>Role Assign Modal</Text>
+      </TouchableOpacity>
+
+      <RoleAssignModal
+        toggleModal={toggleModal}
+        isModalVisible={isModalVisible}
+      />
+
+      {/* -------------------------- */}
+      {/* ----------- Chat Mute Modal  ----------- */}
+      {/* -------------------------- */}
+      <TouchableOpacity
+        style={styles.navigationButton}
+        onPress={toggleMuteModal}
+      >
+        <Text style={styles.navigationButtonText}>Chat Mute Modal</Text>
+      </TouchableOpacity>
       <ChatMuteModal
         toggleMuteModal={toggleMuteModal}
         isMuteModalVisible={isMuteModalVisible}
       />
+      {/* -------------------------- */}
+      {/* ----------- Thead Component Navigation Here ----------- */}
+      {/* -------------------------- */}
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Thread")}
+        style={styles.navigationButton}
+      >
+        <Text style={styles.navigationButtonText}>Thread</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -73,12 +95,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#F5FCFF",
   },
-  roleAssign: {
+  navigationButton: {
     marginTop: responsiveHeight(2),
     backgroundColor: "#27ac1f",
     width: responsiveScreenWidth(50),
     alignItems: "center",
     borderRadius: 10,
     padding: responsiveScreenWidth(3),
+  },
+  navigationButtonText: {
+    color: "white",
+    fontSize: responsiveFontSize(2),
+    fontWeight: "600",
   },
 });
