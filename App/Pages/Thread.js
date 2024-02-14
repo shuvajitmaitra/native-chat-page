@@ -10,9 +10,11 @@ import React from "react";
 import {
   responsiveFontSize,
   responsiveHeight,
+  responsiveScreenHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 import ThreadComments from "../Component/ThreadComments";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const Thread = () => {
   const threadData = [
@@ -53,7 +55,7 @@ const Thread = () => {
     },
   ];
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View>
         <View style={styles.profileImageContainer}>
           {/* -------------------------- */}
@@ -103,11 +105,12 @@ const Thread = () => {
       {/* -------------------------- */}
       {/* ----------- Comment Box ----------- */}
       {/* -------------------------- */}
-
+      <View style={{ flexGrow: 1 }}></View>
       <View style={styles.commentContainer}>
-        <TextInput style={styles.inputText} />
+        <TextInput style={styles.inputText} placeholder="Message..." />
+        <FontAwesome5 name="smile" size={24} style={styles.smileEmoji} />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -117,6 +120,7 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: responsiveWidth(4),
     paddingHorizontal: responsiveWidth(5),
+    height: responsiveScreenHeight(85),
   },
   profileImageContainer: {
     flexDirection: "row",
@@ -162,15 +166,23 @@ const styles = StyleSheet.create({
     paddingBottom: responsiveHeight(2),
   },
   inputText: {
-    height: responsiveHeight(4.5),
+    height: responsiveHeight(5),
     width: responsiveWidth(90),
     backgroundColor: "white",
     borderRadius: 100,
-    shadowColor: "green",
+    shadowColor: "black",
     shadowOffset: { width: 6, height: 6 },
-    shadowOpacity: 1,
-    // shadowRadius: 100,
+    shadowOpacity: 0.6,
     elevation: 1,
+    paddingLeft: responsiveWidth(9.5),
+    position: "relative",
+  },
+  smileEmoji: {
+    position: "absolute",
+    top: responsiveHeight(1.1),
+    left: responsiveWidth(2.4),
+    fontSize: responsiveFontSize(2.5),
+    color: "rgba(0, 0, 0, 0.7)",
   },
   commentContainer: {},
 });
