@@ -4,9 +4,10 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import {
   responsiveFontSize,
   responsiveHeight,
@@ -15,6 +16,8 @@ import {
 } from "react-native-responsive-dimensions";
 import ThreadComments from "../Component/ThreadComments";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { Foundation } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 const Thread = () => {
   const threadData = [
@@ -54,6 +57,15 @@ const Thread = () => {
       isPersonActive: false,
     },
   ];
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
   return (
     <View style={styles.container}>
       <View>
@@ -106,9 +118,36 @@ const Thread = () => {
       {/* ----------- Comment Box ----------- */}
       {/* -------------------------- */}
       <View style={{ flexGrow: 1 }}></View>
-      <View style={styles.commentContainer}>
-        <TextInput style={styles.inputText} placeholder="Message..." />
-        <FontAwesome5 name="smile" size={24} style={styles.smileEmoji} />
+      <View style={styles.replayContainer}>
+        <TouchableOpacity>
+          <FontAwesome5 name="smile" style={styles.emojiIcon} />
+        </TouchableOpacity>
+        <TextInput
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          style={styles.replayInput}
+          placeholder="Add a reply..."
+          focusable
+        />
+        {isFocused ? (
+          <TouchableOpacity>
+            <Feather
+              name="send"
+              size={24}
+              style={styles.sentIcon}
+              color="black"
+            />
+          </TouchableOpacity>
+        ) : (
+          <>
+            <TouchableOpacity>
+              <Foundation name="paperclip" style={styles.clipIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Feather name="mic" style={styles.micIcon} />
+            </TouchableOpacity>
+          </>
+        )}
       </View>
     </View>
   );
@@ -121,6 +160,7 @@ const styles = StyleSheet.create({
     paddingVertical: responsiveWidth(4),
     paddingHorizontal: responsiveWidth(5),
     height: responsiveScreenHeight(85),
+    backgroundColor: "#F8F8F8",
   },
   profileImageContainer: {
     flexDirection: "row",
@@ -156,7 +196,7 @@ const styles = StyleSheet.create({
   threadText: {
     fontSize: responsiveFontSize(2.1),
     color: "rgba(11, 42, 70, 1)",
-    paddingVertical: responsiveHeight(2.8),
+    paddingVertical: responsiveHeight(2.5),
   },
   replayCountText: {
     color: "rgba(39, 172, 31, 1)",
@@ -165,24 +205,60 @@ const styles = StyleSheet.create({
     borderBottomColor: "rgba(0, 0, 0, 0.1)",
     paddingBottom: responsiveHeight(2),
   },
-  inputText: {
+  //   inputText: {
+  //     height: responsiveHeight(5),
+  //     width: responsiveWidth(90),
+  //     backgroundColor: "white",
+  //     borderRadius: 100,
+  //     shadowColor: "black",
+  //     shadowOffset: { width: 6, height: 6 },
+  //     shadowOpacity: 0.6,
+  //     elevation: 1,
+  //     paddingLeft: responsiveWidth(9.5),
+  //     position: "relative",
+  //   },
+  //   smileEmoji: {
+  //     // position: "absolute",
+  //     // top: responsiveHeight(1.1),
+  //     // left: responsiveWidth(2.4),
+  //     fontSize: responsiveFontSize(2.5),
+  //     color: "rgba(0, 0, 0, 0.7)",
+  //   },
+
+  replayContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: responsiveWidth(3),
     height: responsiveHeight(5),
     width: responsiveWidth(90),
     backgroundColor: "white",
     borderRadius: 100,
-    shadowColor: "black",
-    shadowOffset: { width: 6, height: 6 },
-    shadowOpacity: 0.6,
-    elevation: 1,
-    paddingLeft: responsiveWidth(9.5),
-    position: "relative",
+    shadowColor: "rgba(0, 0, 0, 0.2)",
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.1,
+    elevation: 3,
   },
-  smileEmoji: {
-    position: "absolute",
-    top: responsiveHeight(1.1),
-    left: responsiveWidth(2.4),
-    fontSize: responsiveFontSize(2.5),
+  replayInput: {
+    backgroundColor: "white",
+    width: responsiveWidth(62),
+  },
+  sentIcon: {
+    fontSize: responsiveFontSize(2.8),
+    color: "rgba(39, 172, 31, 1)",
+    transform: [{ rotate: "45deg" }],
+    paddingHorizontal: responsiveWidth(2),
+  },
+  emojiIcon: {
+    fontSize: responsiveFontSize(2.3),
     color: "rgba(0, 0, 0, 0.7)",
   },
-  commentContainer: {},
+  clipIcon: {
+    fontSize: responsiveFontSize(2.7),
+    color: "rgba(0, 0, 0, 0.7)",
+  },
+  micIcon: {
+    fontSize: responsiveFontSize(2.4),
+    color: "rgba(0, 0, 0, 0.7)",
+  },
 });

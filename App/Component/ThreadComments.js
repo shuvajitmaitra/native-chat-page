@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: responsiveHeight(1.3),
+    paddingVertical: responsiveHeight(1),
   },
   profileImageContainer: {
     flexDirection: "row",
