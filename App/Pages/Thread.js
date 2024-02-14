@@ -103,8 +103,9 @@ const Thread = () => {
       {/* -------------------------- */}
       {/* ----------- Comment Box ----------- */}
       {/* -------------------------- */}
-      <View>
-        <TextInput />
+
+      <View style={styles.commentContainer}>
+        <TextInput style={styles.inputText} />
       </View>
     </ScrollView>
   );
@@ -160,4 +161,16 @@ const styles = StyleSheet.create({
     borderBottomColor: "rgba(0, 0, 0, 0.1)",
     paddingBottom: responsiveHeight(2),
   },
+  inputText: {
+    height: responsiveHeight(4.5),
+    width: responsiveWidth(90),
+    backgroundColor: "white",
+    borderRadius: 100,
+    shadowColor: "green",
+    shadowOffset: { width: 6, height: 6 },
+    shadowOpacity: 1,
+    // shadowRadius: 100,
+    elevation: 1,
+  },
+  commentContainer: {},
 });
