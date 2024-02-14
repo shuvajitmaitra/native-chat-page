@@ -1,6 +1,7 @@
 import {
   Image,
   Keyboard,
+  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -75,7 +76,7 @@ const Thread = () => {
       "keyboardDidHide",
       () => {
         if (textInputRef.current) {
-          textInputRef.current.blur(); // Unfocus the TextInput
+          textInputRef.current.blur();
         }
       }
     );
@@ -85,7 +86,7 @@ const Thread = () => {
     };
   }, []);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View>
         <View style={styles.profileImageContainer}>
           {/* -------------------------- */}
@@ -167,7 +168,7 @@ const Thread = () => {
           </>
         )}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: responsiveWidth(4),
     paddingHorizontal: responsiveWidth(5),
-    height: responsiveScreenHeight(85),
+    height: responsiveScreenHeight(86),
     backgroundColor: "#F8F8F8",
   },
   profileImageContainer: {
@@ -218,30 +219,10 @@ const styles = StyleSheet.create({
   },
   replayCountText: {
     color: "rgba(39, 172, 31, 1)",
-    // fontSize: responsiveFontSize(1.6),
     borderBottomWidth: 1,
     borderBottomColor: "rgba(0, 0, 0, 0.1)",
     paddingBottom: responsiveHeight(2),
   },
-  //   inputText: {
-  //     height: responsiveHeight(5),
-  //     width: responsiveWidth(90),
-  //     backgroundColor: "white",
-  //     borderRadius: 100,
-  //     shadowColor: "black",
-  //     shadowOffset: { width: 6, height: 6 },
-  //     shadowOpacity: 0.6,
-  //     elevation: 1,
-  //     paddingLeft: responsiveWidth(9.5),
-  //     position: "relative",
-  //   },
-  //   smileEmoji: {
-  //     // position: "absolute",
-  //     // top: responsiveHeight(1.1),
-  //     // left: responsiveWidth(2.4),
-  //     fontSize: responsiveFontSize(2.5),
-  //     color: "rgba(0, 0, 0, 0.7)",
-  //   },
 
   replayContainer: {
     flexDirection: "row",
