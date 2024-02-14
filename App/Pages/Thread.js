@@ -127,7 +127,6 @@ const Thread = () => {
           onBlur={handleBlur}
           style={styles.replayInput}
           placeholder="Add a reply..."
-          focusable
         />
         {isFocused ? (
           <TouchableOpacity>
@@ -244,7 +243,7 @@ const styles = StyleSheet.create({
     width: responsiveWidth(62),
   },
   sentIcon: {
-    fontSize: responsiveFontSize(2.8),
+    fontSize: responsiveFontSize(2.7),
     color: "rgba(39, 172, 31, 1)",
     transform: [{ rotate: "45deg" }],
     paddingHorizontal: responsiveWidth(2),
