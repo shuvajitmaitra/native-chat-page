@@ -16,7 +16,8 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
-      }
+      },
+      "SoftwareKeyboardLayoutMode": "pan"
     },
     "web": {}
   }

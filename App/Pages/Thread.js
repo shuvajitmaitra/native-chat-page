@@ -1,5 +1,6 @@
 import {
   Image,
+  Keyboard,
   ScrollView,
   StyleSheet,
   Text,
@@ -7,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   responsiveFontSize,
   responsiveHeight,
@@ -66,6 +67,23 @@ const Thread = () => {
   const handleBlur = () => {
     setIsFocused(false);
   };
+
+  const textInputRef = useRef(null);
+
+  useEffect(() => {
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        if (textInputRef.current) {
+          textInputRef.current.blur(); // Unfocus the TextInput
+        }
+      }
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+    };
+  }, []);
   return (
     <View style={styles.container}>
       <View>
@@ -125,6 +143,7 @@ const Thread = () => {
         <TextInput
           onFocus={handleFocus}
           onBlur={handleBlur}
+          ref={textInputRef}
           style={styles.replayInput}
           placeholder="Add a reply..."
         />
