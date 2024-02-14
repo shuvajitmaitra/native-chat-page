@@ -1,4 +1,11 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React from "react";
 import {
   responsiveFontSize,
@@ -12,42 +19,42 @@ const Thread = () => {
     {
       profileName: "Priyanka Parvej",
       profileImage: require("../../assets/women2.png"),
-      messageText: "Hello",
-      messagingTime: "Just now",
+      comments: "Hello",
+      commentsTimes: "Just now",
       isPersonActive: false,
     },
     {
       profileName: "Priyanka Parvej",
       profileImage: require("../../assets/women2.png"),
-      messageText: "Hello",
-      messagingTime: "Yesterday",
+      comments: "Hello",
+      commentsTimes: "Yesterday",
       isPersonActive: false,
     },
     {
       profileName: "Priyanka Parvej",
       profileImage: require("../../assets/women2.png"),
-      messageText: "Hello",
-      messagingTime: "Jan 12, 2024",
+      comments: "Hello",
+      commentsTimes: "Jan 12, 2024",
       isPersonActive: false,
     },
     {
       profileName: "Priyanka Parvej",
       profileImage: require("../../assets/women2.png"),
-      messageText: "Hello",
-      messagingTime: "Jan 12, 2024",
+      comments: "Hello",
+      commentsTimes: "Jan 12, 2024",
       isPersonActive: false,
     },
     {
       profileName: "Priyanka Parvej",
       profileImage: require("../../assets/women2.png"),
-      messageText: "Hello",
-      messagingTime: "Jan 12, 2024",
+      comments: "Hello",
+      commentsTimes: "Jan 12, 2024",
       isPersonActive: false,
     },
   ];
   return (
-    <View style={styles.container}>
-      <ScrollView>
+    <ScrollView style={styles.container}>
+      <View>
         <View style={styles.profileImageContainer}>
           {/* -------------------------- */}
           {/* ----------- Profile Image ----------- */}
@@ -72,7 +79,7 @@ const Thread = () => {
             <Text style={styles.messageTime}>4 Nov, 2023</Text>
           </View>
         </View>
-      </ScrollView>
+      </View>
       {/* -------------------------- */}
       {/* ----------- Thread Text ----------- */}
       {/* -------------------------- */}
@@ -93,7 +100,13 @@ const Thread = () => {
           <ThreadComments key={index} item={item} />
         ))}
       </View>
-    </View>
+      {/* -------------------------- */}
+      {/* ----------- Comment Box ----------- */}
+      {/* -------------------------- */}
+      <View>
+        <TextInput />
+      </View>
+    </ScrollView>
   );
 };
 
@@ -133,6 +146,7 @@ const styles = StyleSheet.create({
   },
   messageTime: {
     color: "rgba(111, 116, 124, 1)",
+    paddingVertical: responsiveHeight(0.2),
   },
   threadText: {
     fontSize: responsiveFontSize(2.1),
@@ -144,6 +158,6 @@ const styles = StyleSheet.create({
     // fontSize: responsiveFontSize(1.6),
     borderBottomWidth: 1,
     borderBottomColor: "rgba(0, 0, 0, 0.1)",
-    paddingBottom: responsiveHeight(2.5),
+    paddingBottom: responsiveHeight(2),
   },
 });

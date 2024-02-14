@@ -2,46 +2,57 @@ import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import {
   responsiveFontSize,
+  responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 
 const ThreadComments = ({ item }) => {
   return (
-    <ScrollView>
-      <View style={styles.profileImageContainer}>
+    <View>
+      <View style={styles.subContainer}>
         {/* -------------------------- */}
         {/* ----------- Profile Image ----------- */}
         {/* -------------------------- */}
-        <View>
-          <Image
-            style={styles.profileImage}
-            source={require("../../assets/women2.png")}
-          />
+        <View style={styles.profileImageContainer}>
+          <View>
+            <Image
+              style={styles.profileImage}
+              source={require("../../assets/women2.png")}
+            />
 
-          <View
-            style={[
-              styles.activeDot,
-              {
-                backgroundColor: "#BDBDBD",
-              },
-            ]}
-          ></View>
+            <View
+              style={[
+                styles.activeDot,
+                {
+                  backgroundColor: "#BDBDBD",
+                },
+              ]}
+            ></View>
+          </View>
+          <View>
+            <Text style={styles.profileName}>Priyanka Parvej</Text>
+            <Text style={styles.comments}>{item.comments}</Text>
+          </View>
         </View>
+        {/* -------------------------- */}
+        {/* ----------- Comment time ----------- */}
+        {/* -------------------------- */}
         <View>
-          <Text style={styles.profileName}>Priyanka Parvej</Text>
-          <Text style={styles.messageTime}>4 Nov, 2023</Text>
+          <Text style={styles.commentsTime}>{item.commentsTimes}</Text>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
 export default ThreadComments;
 
 const styles = StyleSheet.create({
-  container: {
-    paddingVertical: responsiveWidth(4),
-    paddingHorizontal: responsiveWidth(5),
+  subContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: responsiveHeight(1.3),
   },
   profileImageContainer: {
     flexDirection: "row",
@@ -70,7 +81,13 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "black",
   },
-  messageTime: {
+  comments: {
+    color: "rgba(11, 42, 70, 1)",
+    fontSize: responsiveFontSize(1.9),
+    paddingVertical: responsiveHeight(0.2),
+  },
+  commentsTime: {
     color: "rgba(111, 116, 124, 1)",
+    fontSize: responsiveFontSize(1.9),
   },
 });
