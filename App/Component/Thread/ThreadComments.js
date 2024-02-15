@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   activeDot: {
-    width: responsiveWidth(2.6),
-    height: responsiveWidth(2.6),
+    width: responsiveWidth(2.7),
+    height: responsiveWidth(2.7),
     borderRadius: responsiveWidth(100),
     position: "absolute",
     bottom: responsiveWidth(0.9),

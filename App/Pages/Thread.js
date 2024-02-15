@@ -199,15 +199,11 @@ export default Thread;
 const styles = StyleSheet.create({
   keyboardView: {
     flex: 1,
-    // paddingVertical: responsiveWidth(4),
-    // paddingHorizontal: responsiveWidth(5),
-    // height: responsiveScreenHeight(80),
   },
   container: {
     backgroundColor: "#F8F8F8",
     paddingVertical: responsiveWidth(4),
     paddingHorizontal: responsiveWidth(5),
-    // height: responsiveScreenHeight(86),
   },
   profileImageContainer: {
     flexDirection: "row",
@@ -222,8 +218,8 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   activeDot: {
-    width: responsiveWidth(2.6),
-    height: responsiveWidth(2.6),
+    width: responsiveWidth(2.7),
+    height: responsiveWidth(2.7),
     borderRadius: responsiveWidth(100),
     position: "absolute",
     bottom: responsiveWidth(0.9),
@@ -243,7 +239,7 @@ const styles = StyleSheet.create({
   threadText: {
     fontSize: responsiveFontSize(2.1),
     color: "rgba(11, 42, 70, 1)",
-    paddingVertical: responsiveHeight(2.5),
+    paddingVertical: responsiveHeight(2),
   },
   replayCountText: {
     color: "rgba(39, 172, 31, 1)",
