@@ -136,7 +136,9 @@ const Thread = () => {
         {/* ----------- Replay Count ----------- */}
         {/* -------------------------- */}
         <View>
-          <Text style={styles.replayCountText}>5 replies</Text>
+          <Text style={styles.replayCountText}>
+            {threadData.length} replies
+          </Text>
         </View>
         {/* -------------------------- */}
         {/* ----------- All Thread Comments ----------- */}
