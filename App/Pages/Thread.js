@@ -1,22 +1,24 @@
+import React, { useEffect, useRef, useState } from "react";
 import {
   Image,
   Keyboard,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
+  KeyboardAvoidingView,
+  FlatList,
+  SafeAreaView,
 } from "react-native";
-import React, { useEffect, useRef, useState } from "react";
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveScreenHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
-import ThreadComments from "../Component/ThreadComments";
+import ThreadComments from "../Component/Thread/ThreadComments";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Foundation } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
@@ -76,7 +78,7 @@ const Thread = () => {
       "keyboardDidHide",
       () => {
         if (textInputRef.current) {
-          textInputRef.current.blur();
+          textInputRef.current.blur(); // Unfocus the TextInput
         }
       }
     );
@@ -86,100 +88,123 @@ const Thread = () => {
     };
   }, []);
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <View style={styles.profileImageContainer}>
-          {/* -------------------------- */}
-          {/* ----------- Profile Image ----------- */}
-          {/* -------------------------- */}
-          <View>
-            <Image
-              style={styles.profileImage}
-              source={require("../../assets/women2.png")}
-            />
+    <ScrollView style={styles.container}>
+      <KeyboardAvoidingView
+        style={[
+          styles.keyboardView,
+          {
+            height: isFocused
+              ? responsiveScreenHeight(65)
+              : responsiveScreenHeight(82),
+          },
+        ]}
+        behavior="padding"
+      >
+        <View>
+          <View style={styles.profileImageContainer}>
+            {/* -------------------------- */}
+            {/* ----------- Profile Image ----------- */}
+            {/* -------------------------- */}
+            <View>
+              <Image
+                style={styles.profileImage}
+                source={require("../../assets/women2.png")}
+              />
 
-            <View
-              style={[
-                styles.activeDot,
-                {
-                  backgroundColor: "#BDBDBD",
-                },
-              ]}
-            ></View>
-          </View>
-          <View>
-            <Text style={styles.profileName}>Priyanka Parvej</Text>
-            <Text style={styles.messageTime}>4 Nov, 2023</Text>
+              <View
+                style={[
+                  styles.activeDot,
+                  {
+                    backgroundColor: "#BDBDBD",
+                  },
+                ]}
+              ></View>
+            </View>
+            <View>
+              <Text style={styles.profileName}>Priyanka Parvej</Text>
+              <Text style={styles.messageTime}>4 Nov, 2023</Text>
+            </View>
           </View>
         </View>
-      </View>
-      {/* -------------------------- */}
-      {/* ----------- Thread Text ----------- */}
-      {/* -------------------------- */}
-      <View>
-        <Text style={styles.threadText}>I miss you to much.</Text>
-      </View>
-      {/* -------------------------- */}
-      {/* ----------- Replay Count ----------- */}
-      {/* -------------------------- */}
-      <View>
-        <Text style={styles.replayCountText}>5 replies</Text>
-      </View>
-      {/* -------------------------- */}
-      {/* ----------- All Thread Comments ----------- */}
-      {/* -------------------------- */}
-      <View>
-        {threadData.map((item, index) => (
-          <ThreadComments key={index} item={item} />
-        ))}
-      </View>
-      {/* -------------------------- */}
-      {/* ----------- Comment Box ----------- */}
-      {/* -------------------------- */}
-      <View style={{ flexGrow: 1 }}></View>
-      <View style={styles.replayContainer}>
-        <TouchableOpacity>
-          <FontAwesome5 name="smile" style={styles.emojiIcon} />
-        </TouchableOpacity>
-        <TextInput
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          ref={textInputRef}
-          style={styles.replayInput}
-          placeholder="Add a reply..."
-        />
-        {isFocused ? (
+        {/* -------------------------- */}
+        {/* ----------- Thread Text ----------- */}
+        {/* -------------------------- */}
+        <View>
+          <Text style={styles.threadText}>I miss you to much.</Text>
+        </View>
+        {/* -------------------------- */}
+        {/* ----------- Replay Count ----------- */}
+        {/* -------------------------- */}
+        <View>
+          <Text style={styles.replayCountText}>5 replies</Text>
+        </View>
+        {/* -------------------------- */}
+        {/* ----------- All Thread Comments ----------- */}
+        {/* -------------------------- */}
+        <View>
+          {threadData.map((item, index) => (
+            <ThreadComments key={index} item={item} />
+          ))}
+        </View>
+        {/* <FlatList
+          data={threadData}
+          renderItem={({ item }) => <ThreadComments item={item} />}
+          keyExtractor={(_, index) => index.toString()}
+        /> */}
+        {/* -------------------------- */}
+        {/* ----------- Comment Box ----------- */}
+        {/* -------------------------- */}
+        <View style={{ flexGrow: 1 }}></View>
+        <View style={[styles.replayContainer]}>
           <TouchableOpacity>
-            <Feather
-              name="send"
-              size={24}
-              style={styles.sentIcon}
-              color="black"
-            />
+            <FontAwesome5 name="smile" style={styles.emojiIcon} />
           </TouchableOpacity>
-        ) : (
-          <>
+          <TextInput
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            ref={textInputRef}
+            style={styles.replayInput}
+            placeholder="Add a reply..."
+          />
+          {isFocused ? (
             <TouchableOpacity>
-              <Foundation name="paperclip" style={styles.clipIcon} />
+              <Feather
+                name="send"
+                size={24}
+                style={styles.sentIcon}
+                color="black"
+              />
             </TouchableOpacity>
-            <TouchableOpacity>
-              <Feather name="mic" style={styles.micIcon} />
-            </TouchableOpacity>
-          </>
-        )}
-      </View>
-    </SafeAreaView>
+          ) : (
+            <>
+              <TouchableOpacity>
+                <Foundation name="paperclip" style={styles.clipIcon} />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Feather name="mic" style={styles.micIcon} />
+              </TouchableOpacity>
+            </>
+          )}
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
 export default Thread;
 
 const styles = StyleSheet.create({
+  keyboardView: {
+    flex: 1,
+    backgroundColor: "#F8F8F8",
+    // paddingVertical: responsiveWidth(4),
+    // paddingHorizontal: responsiveWidth(5),
+    // height: responsiveScreenHeight(80),
+  },
   container: {
     paddingVertical: responsiveWidth(4),
     paddingHorizontal: responsiveWidth(5),
-    height: responsiveScreenHeight(86),
-    backgroundColor: "#F8F8F8",
+    // height: responsiveScreenHeight(86),
   },
   profileImageContainer: {
     flexDirection: "row",
@@ -223,7 +248,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "rgba(0, 0, 0, 0.1)",
     paddingBottom: responsiveHeight(2),
   },
-
   replayContainer: {
     flexDirection: "row",
     alignItems: "center",

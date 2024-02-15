@@ -15,10 +15,7 @@ const ThreadComments = ({ item }) => {
         {/* -------------------------- */}
         <View style={styles.profileImageContainer}>
           <View>
-            <Image
-              style={styles.profileImage}
-              source={require("../../assets/women2.png")}
-            />
+            <Image style={styles.profileImage} source={item.profileImage} />
 
             <View
               style={[
