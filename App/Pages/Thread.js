@@ -146,6 +146,7 @@ const Thread = () => {
             <ThreadComments key={index} item={item} />
           ))}
         </View>
+        {/* FlatList dawa ucit But flat list dile akta error dische */}
         {/* <FlatList
           data={threadData}
           renderItem={({ item }) => <ThreadComments item={item} />}
@@ -196,12 +197,12 @@ export default Thread;
 const styles = StyleSheet.create({
   keyboardView: {
     flex: 1,
-    backgroundColor: "#F8F8F8",
     // paddingVertical: responsiveWidth(4),
     // paddingHorizontal: responsiveWidth(5),
     // height: responsiveScreenHeight(80),
   },
   container: {
+    backgroundColor: "#F8F8F8",
     paddingVertical: responsiveWidth(4),
     paddingHorizontal: responsiveWidth(5),
     // height: responsiveScreenHeight(86),
