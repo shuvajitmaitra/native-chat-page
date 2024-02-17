@@ -8,16 +8,6 @@ import ViewProfile from "./App/Pages/ViewProfile/ViewProfile";
 export default function App() {
   const Stack = createNativeStackNavigator();
 
-  {
-    /* -------------------------- */
-  }
-  {
-    /* ----------- Google Font family ----------- */
-  }
-  {
-    /* -------------------------- */
-  }
-
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -38,7 +28,15 @@ export default function App() {
         />
         <Stack.Screen
           name="ViewProfile"
-          options={{ headerTitle: "" }}
+          options={{
+            headerTitle: "",
+            headerShadowVisible: false,
+            headerStyle: {
+              elevation: 0,
+              shadowOpacity: 0,
+              backgroundColor: "white",
+            },
+          }}
           component={ViewProfile}
         />
       </Stack.Navigator>
