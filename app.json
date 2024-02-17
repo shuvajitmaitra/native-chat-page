@@ -9,7 +9,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -19,6 +21,9 @@
       },
       "SoftwareKeyboardLayoutMode": "pan"
     },
-    "web": {}
+    "web": {},
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

@@ -7,6 +7,17 @@ import ViewProfile from "./App/Pages/ViewProfile/ViewProfile";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
+
+  {
+    /* -------------------------- */
+  }
+  {
+    /* ----------- Google Font family ----------- */
+  }
+  {
+    /* -------------------------- */
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
