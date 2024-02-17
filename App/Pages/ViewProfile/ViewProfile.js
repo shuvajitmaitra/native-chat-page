@@ -1,13 +1,24 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { useFonts, Inter_400Regular } from "@expo-google-fonts/inter";
 import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+import { useFonts } from "expo-font";
 const ViewProfile = () => {
   const [fontsLoaded] = useFonts({
-    Inter_400Regular,
+    "Inter-Regular": require("../../../assets/Fonts/Inter-Regular.ttf"),
+    "Inter-Bold": require("../../../assets/Fonts/Inter-Bold.ttf"),
+    "Inter-Medium": require("../../../assets/Fonts/Inter-Medium.ttf"),
+    "Inter-SemiBold": require("../../../assets/Fonts/Inter-SemiBold.ttf"),
+    "KodeMono-Regular": require("../../../assets/Fonts/KodeMono-Regular.ttf"),
+    "KodeMono-Bold": require("../../../assets/Fonts/KodeMono-Bold.ttf"),
+    "KodeMono-Medium": require("../../../assets/Fonts/KodeMono-Medium.ttf"),
+    "KodeMono-SemiBold": require("../../../assets/Fonts/KodeMono-SemiBold.ttf"),
+    "WorkSans-Regular": require("../../../assets/Fonts/WorkSans-Regular.ttf"),
+    "WorkSans-Bold": require("../../../assets/Fonts/WorkSans-Bold.ttf"),
+    "WorkSans-Medium": require("../../../assets/Fonts/WorkSans-Medium.ttf"),
+    "WorkSans-SemiBold": require("../../../assets/Fonts/WorkSans-SemiBold.ttf"),
   });
   if (!fontsLoaded) {
     return <Text>Loading...</Text>;
@@ -16,10 +27,11 @@ const ViewProfile = () => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Image
+        {/* <Image
           style={styles.profileImage}
           source={require("../../../assets/women1.png")}
-        />
+        /> */}
+        <Text style={{ fontFamily: "fonts" }}>Hello world</Text>
       </View>
     </ScrollView>
   );

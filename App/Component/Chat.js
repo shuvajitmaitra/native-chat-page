@@ -5,6 +5,7 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+import { useFonts } from "expo-font";
 
 const PersonChats = ({
   isPersonActive = false, // isPersonActive means that the user is active or inactive if you pass "true" as props it will show you green state otherwise it will show gray status means inactive status means
@@ -21,6 +22,23 @@ const PersonChats = ({
   const newProfileName =
     profileName.length > 15 ? `${profileName.slice(0, 15)}...` : profileName;
 
+  const [fontsLoaded] = useFonts({
+    "Inter-Regular": require("../../assets/Fonts/Inter-Regular.ttf"),
+    "Inter-Bold": require("../../assets/Fonts/Inter-Bold.ttf"),
+    "Inter-Medium": require("../../assets/Fonts/Inter-Medium.ttf"),
+    "Inter-SemiBold": require("../../assets/Fonts/Inter-SemiBold.ttf"),
+    "KodeMono-Regular": require("../../assets/Fonts/KodeMono-Regular.ttf"),
+    "KodeMono-Bold": require("../../assets/Fonts/KodeMono-Bold.ttf"),
+    "KodeMono-Medium": require("../../assets/Fonts/KodeMono-Medium.ttf"),
+    "KodeMono-SemiBold": require("../../assets/Fonts/KodeMono-SemiBold.ttf"),
+    "WorkSans-Regular": require("../../assets/Fonts/WorkSans-Regular.ttf"),
+    "WorkSans-Bold": require("../../assets/Fonts/WorkSans-Bold.ttf"),
+    "WorkSans-Medium": require("../../assets/Fonts/WorkSans-Medium.ttf"),
+    "WorkSans-SemiBold": require("../../assets/Fonts/WorkSans-SemiBold.ttf"),
+  });
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
   return (
     <View
       style={[
@@ -121,7 +139,8 @@ const styles = StyleSheet.create({
   },
   profileName: {
     fontSize: responsiveFontSize(2.4),
-    fontWeight: "500",
+    fontFamily: "WorkSans-Medium",
+    // fontWeight: "500",
     color: "black",
   },
   messageTime: {

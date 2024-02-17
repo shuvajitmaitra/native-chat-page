@@ -12,8 +12,17 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+import { useFonts } from "expo-font";
 
 const SearchAndFilter = () => {
+  const [fontsLoaded] = useFonts({
+    "Inter-Bold": require("../../assets/Fonts/Inter-Bold.ttf"),
+    "Inter-Medium": require("../../assets/Fonts/Inter-Medium.ttf"),
+    "Inter-Regular": require("../../assets/Fonts/Inter-Regular.ttf"),
+  });
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
   return (
     <View style={styles.topContainer}>
       <View style={styles.inputField}>
@@ -82,6 +91,7 @@ const styles = StyleSheet.create({
   },
   filterButtonText: {
     fontSize: responsiveFontSize(1.9),
+    fontFamily: "Inter-Regular",
     color: "white",
   },
 });
