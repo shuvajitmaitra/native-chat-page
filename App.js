@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Home from "./App/Pages/Home";
 import TotalChats from "./App/Pages/TotalChats";
 import Thread from "./App/Pages/Thread";
-import ViewProfile from "./App/Pages/ViewProfile/ViewProfile";
+import ViewProfile from "./App/Component/ViewProfileModal/ViewProfile";
 
 export default function App() {
   const Stack = createNativeStackNavigator();

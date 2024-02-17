@@ -13,16 +13,30 @@ import {
 } from "react-native-responsive-dimensions";
 import RoleAssignModal from "../Component/RoleAssignModal";
 import ChatMuteModal from "../Component/ChatMuteModal";
+import ViewProfile from "../Component/ViewProfileModal/ViewProfile";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isMuteModalVisible, setMuteModalVisible] = useState(false);
+  const [isProfileModalVisible, setProfileModalVisible] = useState(false);
 
+  {
+    /* -------------------------- */
+  }
+  {
+    /* ----------- Here is the function for open and close the modal ----------- */
+  }
+  {
+    /* -------------------------- */
+  }
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
   const toggleMuteModal = () => {
     setMuteModalVisible(!isMuteModalVisible);
+  };
+  const toggleViewProfileModal = () => {
+    setProfileModalVisible(!isProfileModalVisible);
   };
 
   return (
@@ -82,12 +96,21 @@ const Home = ({ navigation }) => {
       >
         <Text style={styles.navigationButtonText}>Thread</Text>
       </TouchableOpacity>
+
+      {/* -------------------------- */}
+      {/* ----------- Profile View Modal ----------- */}
+      {/* -------------------------- */}
+
       <TouchableOpacity
-        onPress={() => navigation.navigate("ViewProfile")}
         style={styles.navigationButton}
+        onPress={toggleViewProfileModal}
       >
         <Text style={styles.navigationButtonText}>View Profile</Text>
       </TouchableOpacity>
+      <ViewProfile
+        toggleMuteModal={toggleViewProfileModal}
+        isProfileModalVisible={isProfileModalVisible}
+      />
     </View>
   );
 };

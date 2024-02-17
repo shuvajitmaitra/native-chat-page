@@ -5,7 +5,8 @@ import {
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 import { useFonts } from "expo-font";
-const ViewProfile = () => {
+import Modal from "react-native-modal";
+const ViewProfile = ({ toggleViewProfileModal, isProfileModalVisible }) => {
   const [fontsLoaded] = useFonts({
     "Inter-Regular": require("../../../assets/Fonts/Inter-Regular.ttf"),
     "Inter-Bold": require("../../../assets/Fonts/Inter-Bold.ttf"),
@@ -25,15 +26,17 @@ const ViewProfile = () => {
   }
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        {/* <Image
+    <Modal isVisible={isProfileModalVisible}>
+      <ScrollView>
+        <View style={styles.container}>
+          {/* <Image
           style={styles.profileImage}
           source={require("../../../assets/women1.png")}
         /> */}
-        <Text style={{ fontFamily: "fonts" }}>Hello world</Text>
-      </View>
-    </ScrollView>
+          <Text style={{ fontFamily: "fonts" }}>Hello world</Text>
+        </View>
+      </ScrollView>
+    </Modal>
   );
 };
 
