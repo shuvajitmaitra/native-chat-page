@@ -18,7 +18,7 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import { EvilIcons } from "@expo/vector-icons";
+import NotificationBell from "../../../assets/notificationBell.svg";
 const ViewProfile = ({
   toggleViewProfileModal,
   isProfileModalVisible,
@@ -43,6 +43,35 @@ const ViewProfile = ({
   if (!fontsLoaded) {
     return <Text>Loading...</Text>;
   }
+  const data = [
+    {
+      image: require("../../../assets/women6.png"),
+    },
+    {
+      image: require("../../../assets/man1.png"),
+    },
+    {
+      image: require("../../../assets/women4.png"),
+    },
+    {
+      image: require("../../../assets/man2.png"),
+    },
+    {
+      image: require("../../../assets/women7.png"),
+    },
+    {
+      image: require("../../../assets/women8.png"),
+    },
+    {
+      image: require("../../../assets/women5.png"),
+    },
+    {
+      image: require("../../../assets/women9.png"),
+    },
+    {
+      image: require("../../../assets/man3.png"),
+    },
+  ];
 
   return (
     <Modal isVisible={isProfileModalVisible}>
@@ -68,7 +97,7 @@ const ViewProfile = ({
                     { backgroundColor: isPersonActive ? "#62cc7b" : "#BDBDBD" },
                   ]}
                 ></View>
-                <Text>Online</Text>
+                <Text style={{ color: "rgba(99, 99, 99, 1)" }}>Online</Text>
               </View>
             </View>
             {/* -------------------------- */}
@@ -79,9 +108,15 @@ const ViewProfile = ({
                 <Ionicons
                   name="notifications-outline"
                   size={24}
-                  color="black"
+                  color="rgba(99, 99, 99, 1)"
                 />
-                <Text style={{ color: "rgba(99, 99, 99, 1)" }}>
+                <Text
+                  style={{
+                    color: "rgba(99, 99, 99, 1)",
+                    fontFamily: "Inter-Regular",
+                    fontSize: responsiveFontSize(2.2),
+                  }}
+                >
                   Notification
                 </Text>
               </View>
@@ -91,6 +126,7 @@ const ViewProfile = ({
                 color="
                 rgba(39, 172, 31, 1)"
               />
+              {/* <NotificationBell size={24} color="black" /> */}
             </View>
             {/* -------------------------- */}
             {/* ----------- Description Container ----------- */}
@@ -109,6 +145,68 @@ const ViewProfile = ({
                 Hi there! I&apos;m using this app long time.
               </Text>
             </View>
+            {/* -------------------------- */}
+            {/* ----------- Dummy View ----------- */}
+            {/* -------------------------- */}
+            <View style={styles.dummyContainer}>
+              <Text
+                style={{
+                  color: "rgba(39, 172, 31, 1)",
+                  borderBottomWidth: 2,
+                  borderBottomColor: "rgba(39, 172, 31, 1)",
+                }}
+              >
+                Images
+              </Text>
+              <Text>Files</Text>
+              <Text>Voice</Text>
+            </View>
+            {/* -------------------------- */}
+            {/* ----------- Image Container ----------- */}
+            {/* -------------------------- */}
+            <View
+              style={{
+                flexDirection: "row",
+                flexWrap: "wrap",
+                gap: responsiveWidth(3),
+              }}
+            >
+              {data.map((item, index) => (
+                <Image
+                  key={index}
+                  style={{
+                    height: responsiveWidth(24.5),
+                    width: responsiveWidth(24.6),
+                    resizeMode: "cover",
+                  }}
+                  source={item.image}
+                />
+              ))}
+            </View>
+
+            <TouchableOpacity
+              style={{
+                flexDirection: "row",
+                gap: responsiveWidth(2),
+                paddingVertical: responsiveHeight(1),
+              }}
+            >
+              <Text
+                style={{
+                  color: "rgba(39, 172, 31, 1)",
+                  fontFamily: "Inter-Regular",
+                }}
+              >
+                See More
+              </Text>
+              <FontAwesome6
+                name="arrow-right-long"
+                style={[
+                  styles.modalArrowIcon,
+                  { color: "rgba(39, 172, 31, 1)" },
+                ]}
+              />
+            </TouchableOpacity>
             {/* -------------------------- */}
             {/* ----------- Bottom Container(Block, Report, Archive Chat) ----------- */}
             {/* -------------------------- */}
@@ -152,6 +250,17 @@ export default ViewProfile;
 
 const styles = StyleSheet.create({
   // --------------------------
+  // ----------- Dummy Container -----------
+  // --------------------------
+  dummyContainer: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginVertical: responsiveHeight(1),
+    borderBottomWidth: 1,
+    borderBottomColor: "rgba(0, 0, 0, 0.1)",
+    paddingVertical: responsiveHeight(1),
+  },
+  // --------------------------
   // ----------- Notification Container -----------
   // --------------------------
   notificationContainer: {
@@ -182,7 +291,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderTopWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
-    paddingBottom: responsiveHeight(1),
+    paddingBottom: responsiveHeight(3),
+    marginBottom: responsiveHeight(1),
   },
   container: {
     flex: 1,
