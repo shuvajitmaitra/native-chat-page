@@ -108,7 +108,7 @@ const Home = ({ navigation }) => {
         <Text style={styles.navigationButtonText}>View Profile</Text>
       </TouchableOpacity>
       <ViewProfile
-        toggleMuteModal={toggleViewProfileModal}
+        toggleViewProfileModal={toggleViewProfileModal}
         isProfileModalVisible={isProfileModalVisible}
       />
     </View>

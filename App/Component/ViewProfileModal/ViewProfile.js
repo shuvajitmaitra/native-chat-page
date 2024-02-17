@@ -1,4 +1,11 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import {
   responsiveHeight,
@@ -32,7 +39,11 @@ const ViewProfile = ({ toggleViewProfileModal, isProfileModalVisible }) => {
           {/* <Image
           style={styles.profileImage}
           source={require("../../../assets/women1.png")}
+
         /> */}
+          <TouchableOpacity onPress={toggleViewProfileModal}>
+            <Text>Go Back</Text>
+          </TouchableOpacity>
           <Text style={{ fontFamily: "fonts" }}>Hello world</Text>
         </View>
       </ScrollView>
