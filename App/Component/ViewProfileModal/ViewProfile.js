@@ -129,11 +129,15 @@ const ViewProfile = ({
                 </Text>
               </View>
               <View style={styles.blockContainer}>
-                <EvilIcons name="archive" size={24} color="black" />
+                <Feather name="archive" size={24} color="rgba(99, 99, 99, 1)" />
                 <Text style={styles.ContainerText}>Report</Text>
               </View>
               <View style={styles.blockContainer}>
-                <Feather name="alert-triangle" size={24} color="black" />
+                <Feather
+                  name="alert-triangle"
+                  size={24}
+                  color="rgba(99, 99, 99, 1)"
+                />
                 <Text style={styles.ContainerText}>Archive Chat</Text>
               </View>
             </View>
@@ -164,6 +168,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: responsiveWidth(2),
+    marginVertical: responsiveHeight(1),
   },
   ContainerText: {
     fontFamily: "Inter-Regular",
