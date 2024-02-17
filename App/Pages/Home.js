@@ -82,6 +82,12 @@ const Home = ({ navigation }) => {
       >
         <Text style={styles.navigationButtonText}>Thread</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("ViewProfile")}
+        style={styles.navigationButton}
+      >
+        <Text style={styles.navigationButtonText}>View Profile</Text>
+      </TouchableOpacity>
     </View>
   );
 };
