@@ -45,7 +45,12 @@ const TabView = () => {
     return <Text>Loading...</Text>;
   }
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        status === "Files" && { height: responsiveHeight(53) },
+      ]}
+    >
       <View style={styles.tabContainer}>
         {tabLists.map((tab, index) => (
           <TouchableOpacity
@@ -66,13 +71,6 @@ const TabView = () => {
           </TouchableOpacity>
         ))}
       </View>
-      <View
-        style={{
-          borderBottomWidth: 0.5,
-          borderColor: "rgba(0, 0, 0, 0.2)",
-          marginBottom: responsiveHeight(2.5),
-        }}
-      ></View>
       <View>
         {(status === "Images" && <ImageGallary />) ||
           (status === "Files" && <UploadedFile />) ||
@@ -86,7 +84,7 @@ export default TabView;
 
 const styles = StyleSheet.create({
   container: {
-    height: responsiveHeight(58),
+    height: responsiveHeight(57),
   },
   tabContainer: {
     flexDirection: "row",

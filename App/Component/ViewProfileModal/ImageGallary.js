@@ -44,7 +44,9 @@ const ImageGallary = () => {
         flexDirection: "row",
         flexWrap: "wrap",
         gap: responsiveWidth(2.5),
-        marginBottom: responsiveHeight(2),
+        paddingTop: responsiveHeight(2),
+        borderTopColor: "rgba(0, 0, 0, 0.1)",
+        borderTopWidth: 1,
       }}
     >
       {data.map((item, index) => (
