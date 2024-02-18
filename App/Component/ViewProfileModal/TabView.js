@@ -74,7 +74,7 @@ const TabView = () => {
       <View>
         {(status === "Images" && <ImageGallary />) ||
           (status === "Files" && <UploadedFile />) ||
-          (status === "Images" && <VoiceFile />)}
+          (status === "Voice" && <VoiceFile />)}
       </View>
     </View>
   );
