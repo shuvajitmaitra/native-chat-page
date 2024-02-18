@@ -156,63 +156,34 @@ const ViewProfile = ({
                 style={{
                   fontSize: responsiveFontSize(2.1),
                   fontFamily: "Inter-SemiBold",
-                  paddingVertical: responsiveHeight(1),
                   paddingTop: responsiveHeight(2),
+                  paddingBottom: responsiveHeight(1.7),
                 }}
               >
                 Description
               </Text>
               <Text
                 style={{
-                  color: "rgba(71, 71, 72, 1)",
+                  color: "rgba(99, 99, 99, 1)",
                   fontFamily: "Inter-Regular",
+                  fontSize: responsiveFontSize(1.7),
                 }}
               >
                 Hi there! I&apos;m using this app long time.
               </Text>
+              <View
+                style={{
+                  borderBottomWidth: 1,
+                  borderColor: "rgba(0, 0, 0, 0.1)",
+                  marginTop: responsiveHeight(2.7),
+                  marginBottom: responsiveHeight(1.5),
+                }}
+              ></View>
             </View>
             {/* -------------------------- */}
             {/* ----------- Tab View ----------- */}
             {/* -------------------------- */}
             <TabViewExample />
-            {/* -------------------------- */}
-            {/* ----------- Dummy View ----------- */}
-            {/* -------------------------- */}
-            <View style={styles.dummyContainer}>
-              <Text
-                style={{
-                  color: "rgba(39, 172, 31, 1)",
-                  borderBottomWidth: 2,
-                  borderBottomColor: "rgba(39, 172, 31, 1)",
-                }}
-              >
-                Images
-              </Text>
-              <Text>Files</Text>
-              <Text>Voice</Text>
-            </View>
-            {/* -------------------------- */}
-            {/* ----------- Image Container ----------- */}
-            {/* -------------------------- */}
-            <View
-              style={{
-                flexDirection: "row",
-                flexWrap: "wrap",
-                gap: responsiveWidth(3),
-              }}
-            >
-              {data.map((item, index) => (
-                <Image
-                  key={index}
-                  style={{
-                    height: responsiveWidth(24.5),
-                    width: responsiveWidth(24.6),
-                    resizeMode: "cover",
-                  }}
-                  source={item.image}
-                />
-              ))}
-            </View>
 
             <TouchableOpacity
               style={{
@@ -320,11 +291,9 @@ const styles = StyleSheet.create({
   // ----------- Description Container -----------
   // --------------------------
   descriptionContainer: {
-    borderBottomWidth: 0.5,
     borderTopWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
-    paddingBottom: responsiveHeight(3),
-    marginBottom: responsiveHeight(1),
+    // paddingBottom: responsiveHeight(3),
   },
   // --------------------------
   // ----------- Main Container -----------
