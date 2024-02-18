@@ -22,6 +22,7 @@ import NotifyBell from "../../../assets/svgs/NotifyBell";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import SwitchButton from "./SwitchButton";
 import FlipToggle from "react-native-flip-toggle-button";
+import TabViewExample from "./TabView";
 const ViewProfile = ({
   toggleViewProfileModal,
   isProfileModalVisible,
@@ -85,7 +86,7 @@ const ViewProfile = ({
         >
           <ArrowLeft />
         </TouchableOpacity>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             <Image
               style={styles.profileImage}
@@ -170,6 +171,10 @@ const ViewProfile = ({
                 Hi there! I&apos;m using this app long time.
               </Text>
             </View>
+            {/* -------------------------- */}
+            {/* ----------- Tab View ----------- */}
+            {/* -------------------------- */}
+            <TabViewExample />
             {/* -------------------------- */}
             {/* ----------- Dummy View ----------- */}
             {/* -------------------------- */}
