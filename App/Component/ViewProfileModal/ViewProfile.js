@@ -18,7 +18,10 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import NotificationBell from "../../../assets/notificationBell.svg";
+import NotifyBell from "../../../assets/svgs/NotifyBell";
+import ArrowLeft from "../../../assets/svgs/ArrowLeft";
+import SwitchButton from "./SwitchButton";
+import FlipToggle from "react-native-flip-toggle-button";
 const ViewProfile = ({
   toggleViewProfileModal,
   isProfileModalVisible,
@@ -76,8 +79,11 @@ const ViewProfile = ({
   return (
     <Modal isVisible={isProfileModalVisible}>
       <View style={styles.container}>
-        <TouchableOpacity onPress={toggleViewProfileModal}>
-          <FontAwesome6 name="arrow-left-long" style={styles.modalArrowIcon} />
+        <TouchableOpacity
+          onPress={toggleViewProfileModal}
+          style={styles.modalArrowIcon}
+        >
+          <ArrowLeft />
         </TouchableOpacity>
         <ScrollView>
           <View>
@@ -105,11 +111,7 @@ const ViewProfile = ({
             {/* -------------------------- */}
             <View style={styles.notificationContainer}>
               <View style={styles.notificationSubContainer}>
-                <Ionicons
-                  name="notifications-outline"
-                  size={24}
-                  color="rgba(99, 99, 99, 1)"
-                />
+                <NotifyBell />
                 <Text
                   style={{
                     color: "rgba(99, 99, 99, 1)",
@@ -120,12 +122,29 @@ const ViewProfile = ({
                   Notification
                 </Text>
               </View>
-              <MaterialCommunityIcons
+              {/* <FlipToggle
+                value={false}
+                buttonWidth={100}
+                buttonHeight={50}
+                buttonRadius={50}
+                sliderWidth={20}
+                sliderHeight={10}
+                sliderRadius={50}
+                onLabel={"On"}
+                offLabel={"Off"}
+                labelStyle={{ color: "black" }}
+                onToggle={(newState) =>
+                  console.log(`toggle is ${this.state.isActive ? `on` : `off`}`)
+                }
+                onToggleLongPress={() => console.log("toggle long pressed!")}
+              /> */}
+              <SwitchButton />
+              {/* <MaterialCommunityIcons
                 name="toggle-switch-off"
                 size={50}
                 color="
                 rgba(39, 172, 31, 1)"
-              />
+              /> */}
               {/* <NotificationBell size={24} color="black" /> */}
             </View>
             {/* -------------------------- */}
@@ -134,14 +153,20 @@ const ViewProfile = ({
             <View style={styles.descriptionContainer}>
               <Text
                 style={{
-                  fontSize: responsiveFontSize(2.5),
+                  fontSize: responsiveFontSize(2.1),
                   fontFamily: "Inter-SemiBold",
                   paddingVertical: responsiveHeight(1),
+                  paddingTop: responsiveHeight(2),
                 }}
               >
                 Description
               </Text>
-              <Text style={{ color: "rgba(71, 71, 72, 1)" }}>
+              <Text
+                style={{
+                  color: "rgba(71, 71, 72, 1)",
+                  fontFamily: "Inter-Regular",
+                }}
+              >
                 Hi there! I&apos;m using this app long time.
               </Text>
             </View>
@@ -267,6 +292,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: responsiveHeight(2),
+    marginTop: responsiveHeight(0.5),
   },
   notificationSubContainer: {
     flexDirection: "row",
@@ -288,12 +315,15 @@ const styles = StyleSheet.create({
   // ----------- Description Container -----------
   // --------------------------
   descriptionContainer: {
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
     borderTopWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
     paddingBottom: responsiveHeight(3),
     marginBottom: responsiveHeight(1),
   },
+  // --------------------------
+  // ----------- Main Container -----------
+  // --------------------------
   container: {
     flex: 1,
     justifyContent: "flex-start",
