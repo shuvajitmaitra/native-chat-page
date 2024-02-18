@@ -22,7 +22,7 @@ import NotifyBell from "../../../assets/svgs/NotifyBell";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import SwitchButton from "./SwitchButton";
 import FlipToggle from "react-native-flip-toggle-button";
-import TabViewExample from "./TabView";
+import TabView from "./TabView";
 const ViewProfile = ({
   toggleViewProfileModal,
   isProfileModalVisible,
@@ -47,35 +47,6 @@ const ViewProfile = ({
   if (!fontsLoaded) {
     return <Text>Loading...</Text>;
   }
-  const data = [
-    {
-      image: require("../../../assets/women6.png"),
-    },
-    {
-      image: require("../../../assets/man1.png"),
-    },
-    {
-      image: require("../../../assets/women4.png"),
-    },
-    {
-      image: require("../../../assets/man2.png"),
-    },
-    {
-      image: require("../../../assets/women7.png"),
-    },
-    {
-      image: require("../../../assets/women8.png"),
-    },
-    {
-      image: require("../../../assets/women5.png"),
-    },
-    {
-      image: require("../../../assets/women9.png"),
-    },
-    {
-      image: require("../../../assets/man3.png"),
-    },
-  ];
 
   return (
     <Modal isVisible={isProfileModalVisible}>
@@ -173,8 +144,8 @@ const ViewProfile = ({
               </Text>
               <View
                 style={{
-                  borderBottomWidth: 1,
-                  borderColor: "rgba(0, 0, 0, 0.1)",
+                  borderBottomWidth: 0.5,
+                  borderColor: "rgba(0, 0, 0, 0.2)",
                   marginTop: responsiveHeight(2.7),
                   marginBottom: responsiveHeight(1.5),
                 }}
@@ -183,31 +154,7 @@ const ViewProfile = ({
             {/* -------------------------- */}
             {/* ----------- Tab View ----------- */}
             {/* -------------------------- */}
-            <TabViewExample />
-
-            <TouchableOpacity
-              style={{
-                flexDirection: "row",
-                gap: responsiveWidth(2),
-                paddingVertical: responsiveHeight(1),
-              }}
-            >
-              <Text
-                style={{
-                  color: "rgba(39, 172, 31, 1)",
-                  fontFamily: "Inter-Regular",
-                }}
-              >
-                See More
-              </Text>
-              <FontAwesome6
-                name="arrow-right-long"
-                style={[
-                  styles.modalArrowIcon,
-                  { color: "rgba(39, 172, 31, 1)" },
-                ]}
-              />
-            </TouchableOpacity>
+            <TabView />
             {/* -------------------------- */}
             {/* ----------- Bottom Container(Block, Report, Archive Chat) ----------- */}
             {/* -------------------------- */}

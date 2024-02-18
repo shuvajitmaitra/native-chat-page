@@ -8,6 +8,7 @@ import {
 import React, { useState } from "react";
 import ImageGallary from "./ImageGallary";
 import {
+  responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
@@ -51,7 +52,10 @@ const TabView = () => {
           >
             <Text
               style={[
-                { fontFamily: "WorkSans-Medium" },
+                {
+                  fontFamily: "WorkSans-Medium",
+                  fontSize: responsiveFontSize(1.8),
+                },
                 status === tab.status && styles.tabActive,
               ]}
             >
@@ -61,7 +65,11 @@ const TabView = () => {
         ))}
       </View>
       <View
-        style={{ borderBottomWidth: 1, borderColor: "rgba(0, 0, 0, 0.1)" }}
+        style={{
+          borderBottomWidth: 0.5,
+          borderColor: "rgba(0, 0, 0, 0.2)",
+          marginBottom: responsiveHeight(2.5),
+        }}
       ></View>
       <View>{status === "Images" && <ImageGallary />}</View>
     </View>
@@ -72,17 +80,18 @@ export default TabView;
 
 const styles = StyleSheet.create({
   container: {
-    height: responsiveHeight(50),
+    height: responsiveHeight(55),
   },
   tabContainer: {
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
+    paddingBottom: responsiveHeight(1),
   },
   tabActive: {
     color: "rgba(39, 172, 31, 1)",
     borderBottomColor: "rgba(39, 172, 31, 1)",
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     paddingVertical: responsiveWidth(1),
   },
 });
