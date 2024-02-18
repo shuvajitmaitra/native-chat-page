@@ -13,6 +13,8 @@ import {
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 import { useFonts } from "expo-font";
+import UploadedFile from "./UploadedFile";
+import VoiceFile from "./VoiceFile";
 
 const TabView = () => {
   const [status, setStatus] = useState("Images");
@@ -71,7 +73,11 @@ const TabView = () => {
           marginBottom: responsiveHeight(2.5),
         }}
       ></View>
-      <View>{status === "Images" && <ImageGallary />}</View>
+      <View>
+        {(status === "Images" && <ImageGallary />) ||
+          (status === "Images" && <UploadedFile />) ||
+          (status === "Images" && <VoiceFile />)}
+      </View>
     </View>
   );
 };
@@ -80,7 +86,7 @@ export default TabView;
 
 const styles = StyleSheet.create({
   container: {
-    height: responsiveHeight(55),
+    height: responsiveHeight(58),
   },
   tabContainer: {
     flexDirection: "row",

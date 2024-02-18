@@ -6,6 +6,7 @@ import {
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 import { FontAwesome6 } from "@expo/vector-icons";
+import ArrowRight from "../../../assets/svgs/ArrowRight";
 
 const ImageGallary = () => {
   const data = [
@@ -43,6 +44,7 @@ const ImageGallary = () => {
         flexDirection: "row",
         flexWrap: "wrap",
         gap: responsiveWidth(2.5),
+        marginBottom: responsiveHeight(2),
       }}
     >
       {data.map((item, index) => (
@@ -59,6 +61,7 @@ const ImageGallary = () => {
       <TouchableOpacity
         style={{
           flexDirection: "row",
+          alignItems: "center",
           gap: responsiveWidth(2),
           paddingVertical: responsiveHeight(1),
         }}
@@ -66,15 +69,13 @@ const ImageGallary = () => {
         <Text
           style={{
             color: "rgba(39, 172, 31, 1)",
-            fontFamily: "Inter-Regular",
+            fontFamily: "Inter-SemiBold",
+            fontSize: responsiveFontSize(1.8),
           }}
         >
           See More
         </Text>
-        <FontAwesome6
-          name="arrow-right-long"
-          style={[styles.modalArrowIcon, { color: "rgba(39, 172, 31, 1)" }]}
-        />
+        <ArrowRight />
       </TouchableOpacity>
     </View>
   );
