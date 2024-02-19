@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import React from "react";
+import Fonts from "../../../assets/Fonts/Fonts";
 import {
   responsiveFontSize,
   responsiveHeight,
@@ -18,53 +19,58 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import NotifyBell from "../../../assets/svgs/NotifyBell";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
-import SwitchButton from "./SwitchButton";
-import TabView from "./TabView";
-const ViewProfile = ({
-  toggleViewProfileModal,
-  isProfileModalVisible,
+import TabView from "./GroupTabView";
+import SwitchButton from "../SharedComponent/SwitchButton";
+import PeopleGroup from "../../../assets/svgs/PeopleGroup";
+import CameraIcon from "../../../assets/svgs/CameraIcon";
+import EditIcons from "../../../assets/svgs/EditIcons";
+import PlusCircle from "../../../assets/svgs/PlusCircle";
+import MembersIcon from "../../../assets/svgs/MembersIcon";
+import LinkIcon from "../../../assets/svgs/LinkIcon";
+import GroupTabView from "./GroupTabView";
+const GroupProfileModal = ({
+  toggleGroupProfileModal,
+  isGroupProfileModalVisible,
   isPersonActive = true,
 }) => {
-  const [fontsLoaded] = useFonts({
-    "Inter-Black": require("../../../assets/Fonts/Inter-Black.ttf"),
-    "Inter-Regular": require("../../../assets/Fonts/Inter-Regular.ttf"),
-    "Inter-Bold": require("../../../assets/Fonts/Inter-Bold.ttf"),
-    "Inter-Medium": require("../../../assets/Fonts/Inter-Medium.ttf"),
-    "Inter-SemiBold": require("../../../assets/Fonts/Inter-SemiBold.ttf"),
-    "KodeMono-Regular": require("../../../assets/Fonts/KodeMono-Regular.ttf"),
-    "KodeMono-Bold": require("../../../assets/Fonts/KodeMono-Bold.ttf"),
-    "KodeMono-Medium": require("../../../assets/Fonts/KodeMono-Medium.ttf"),
-    "KodeMono-SemiBold": require("../../../assets/Fonts/KodeMono-SemiBold.ttf"),
-    "WorkSans-Regular": require("../../../assets/Fonts/WorkSans-Regular.ttf"),
-    "WorkSans-Bold": require("../../../assets/Fonts/WorkSans-Bold.ttf"),
-    "WorkSans-Medium": require("../../../assets/Fonts/WorkSans-Medium.ttf"),
-    "WorkSans-SemiBold": require("../../../assets/Fonts/WorkSans-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) {
-    return <Text>Loading...</Text>;
-  }
-
   return (
-    <Modal isVisible={isProfileModalVisible}>
+    <Modal isVisible={isGroupProfileModalVisible}>
       <View style={styles.container}>
+        {/* -------------------------- */}
+        {/* ----------- Back Arrow button ----------- */}
+        {/* -------------------------- */}
         <TouchableOpacity
-          onPress={toggleViewProfileModal}
+          onPress={toggleGroupProfileModal}
           style={styles.modalArrowIcon}
         >
           <ArrowLeft />
         </TouchableOpacity>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
-            <Image
-              style={styles.profileImage}
-              source={require("../../../assets/women1.png")}
-            />
+            {/* -------------------------- */}
+            {/* ----------- Image Profile Container ----------- */}
+            {/* -------------------------- */}
+            <View style={styles.profileImageContainer}>
+              <Image
+                style={{
+                  width: responsiveWidth(40),
+                  height: responsiveHeight(20),
+                  resizeMode: "cover",
+                }}
+                source={require("../../../assets/peopleGroup.png")}
+              />
+              <TouchableOpacity style={styles.cameraIcon}>
+                <CameraIcon />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.editIcon}>
+                <EditIcons />
+              </TouchableOpacity>
+            </View>
             {/* -------------------------- */}
             {/* ----------- Profile Name Container ----------- */}
             {/* -------------------------- */}
             <View style={styles.profileNameContainer}>
-              <Text style={styles.profileName}>Anamika Rahman</Text>
+              <Text style={styles.profileName}>Engineer's Group</Text>
               <View style={styles.activeStatusContainer}>
                 <View
                   style={[
@@ -75,6 +81,29 @@ const ViewProfile = ({
                 <Text style={{ color: "rgba(99, 99, 99, 1)" }}>Online</Text>
               </View>
             </View>
+            {/* -------------------------- */}
+            {/* ----------- Add Member container ----------- */}
+            {/* -------------------------- */}
+            <View style={styles.memberContainer}>
+              <View style={styles.memberNumberContainer}>
+                <MembersIcon />
+                <Text style={styles.memberNumberText}> 100 members</Text>
+              </View>
+              <View style={styles.addMemberContainer}>
+                <PlusCircle />
+                <Text style={styles.addMemberText}>Add member</Text>
+              </View>
+            </View>
+            {/* -------------------------- */}
+            {/* ----------- Copy Invitation link container ----------- */}
+            {/* -------------------------- */}
+            <TouchableOpacity style={styles.invitationLinkContainer}>
+              <LinkIcon />
+              <Text style={styles.invitationLinkText}>
+                {" "}
+                Click to copy invitation link
+              </Text>
+            </TouchableOpacity>
             {/* -------------------------- */}
             {/* ----------- Notification Container ----------- */}
             {/* -------------------------- */}
@@ -91,33 +120,13 @@ const ViewProfile = ({
                   Notification
                 </Text>
               </View>
-              {/* <FlipToggle
-                value={false}
-                buttonWidth={100}
-                buttonHeight={50}
-                buttonRadius={50}
-                sliderWidth={20}
-                sliderHeight={10}
-                sliderRadius={50}
-                onLabel={"On"}
-                offLabel={"Off"}
-                labelStyle={{ color: "black" }}
-                onToggle={(newState) =>
-                  console.log(`toggle is ${this.state.isActive ? `on` : `off`}`)
-                }
-                onToggleLongPress={() => console.log("toggle long pressed!")}
-              /> */}
+              {/* -------------------------- */}
+              {/* ----------- Toggle Button Component ----------- */}
+              {/* -------------------------- */}
               <SwitchButton />
-              {/* <MaterialCommunityIcons
-                name="toggle-switch-off"
-                size={50}
-                color="
-                rgba(39, 172, 31, 1)"
-              /> */}
-              {/* <NotificationBell size={24} color="black" /> */}
             </View>
             {/* -------------------------- */}
-            {/* ----------- Description Container ----------- */}
+            {/* -----------Group Description Container ----------- */}
             {/* -------------------------- */}
             <View style={styles.descriptionContainer}>
               <Text
@@ -128,16 +137,17 @@ const ViewProfile = ({
                   paddingBottom: responsiveHeight(1.7),
                 }}
               >
-                Description
+                Group Description
               </Text>
               <Text
                 style={{
                   color: "rgba(99, 99, 99, 1)",
                   fontFamily: "Inter-Regular",
-                  fontSize: responsiveFontSize(1.7),
+                  fontSize: responsiveFontSize(1.8),
                 }}
               >
-                Hi there! I&apos;m using this app long time.
+                This group all member are engineers. They are very friendly and
+                open minded.
               </Text>
               <View
                 style={{
@@ -151,7 +161,7 @@ const ViewProfile = ({
             {/* -------------------------- */}
             {/* ----------- Tab View ----------- */}
             {/* -------------------------- */}
-            <TabView />
+            <GroupTabView />
             {/* -------------------------- */}
             {/* ----------- Bottom Container(Block, Report, Archive Chat) ----------- */}
             {/* -------------------------- */}
@@ -191,9 +201,65 @@ const ViewProfile = ({
   );
 };
 
-export default ViewProfile;
+export default GroupProfileModal;
 
 const styles = StyleSheet.create({
+  // --------------------------
+  // ----------- Invitation Link Container -----------
+  // --------------------------
+  invitationLinkText: {
+    fontFamily: "Inter-Regular",
+    fontSize: responsiveFontSize(2),
+    color: "#17855F",
+  },
+  invitationLinkContainer: {
+    flexDirection: "row",
+    gap: responsiveWidth(1),
+    alignItems: "center",
+    paddingBottom: responsiveHeight(2),
+  },
+  // --------------------------
+  // ----------- Member Container -----------
+  // --------------------------
+  memberNumberText: {
+    fontFamily: "Inter-Regular",
+    fontSize: responsiveFontSize(2),
+    color: "#666",
+  },
+  addMemberText: {
+    fontFamily: "Inter-Regular",
+    fontSize: responsiveFontSize(1.8),
+    color: "#17855F",
+  },
+  memberNumberContainer: {
+    flexDirection: "row",
+    gap: responsiveWidth(1),
+    alignItems: "center",
+  },
+  addMemberContainer: {
+    alignItems: "center",
+    flexDirection: "row",
+    gap: responsiveWidth(1),
+  },
+  memberContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingBottom: responsiveHeight(2.5),
+  },
+  cameraIcon: {
+    position: "absolute",
+    bottom: responsiveWidth(4),
+    right: responsiveWidth(3),
+    padding: responsiveWidth(2.3),
+    backgroundColor: "rgba(242, 243, 246, 1)",
+    borderRadius: 100,
+  },
+  editIcon: {
+    position: "absolute",
+    top: responsiveWidth(4),
+    right: responsiveWidth(4),
+  },
   // --------------------------
   // ----------- Dummy Container -----------
   // --------------------------
@@ -256,15 +322,17 @@ const styles = StyleSheet.create({
     paddingBottom: responsiveHeight(0.8),
     color: "rgba(71, 71, 72, 1)",
   },
-  profileImage: {
+  profileImageContainer: {
     height: responsiveHeight(30),
     width: responsiveWidth(80),
-    // resizeMode: "",
-    objectFit: "cover",
+    resizeMode: "cover",
     borderRadius: responsiveHeight(1),
+    justifyContent: "center",
+    alignItems: "center",
     alignSelf: "center",
     borderWidth: 1,
     borderColor: "rgba(217, 217, 217, 1)",
+    backgroundColor: "rgba(217, 217, 217, 1)",
   },
   profileNameContainer: {
     flexDirection: "row",
@@ -273,7 +341,7 @@ const styles = StyleSheet.create({
     paddingVertical: responsiveHeight(1.7),
   },
   profileName: {
-    fontFamily: "Inter-Medium",
+    fontFamily: "Inter-SemiBold",
     fontSize: responsiveFontSize(3),
     color: "rgba(0, 0, 0, 0.8)",
   },
