@@ -117,7 +117,7 @@ const Home = ({ navigation }) => {
       {/* -------------------------- */}
       {/* ----------- Popup Modal ----------- */}
       {/* -------------------------- */}
-      <View style={styles.navigationButton}>
+      <View style={[styles.navigationButton, { alignSelf: "flex-end" }]}>
         <ThreeDotPopUp />
       </View>
     </View>
