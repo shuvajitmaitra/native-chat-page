@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import React from "react";
+import Fonts from "../../../assets/Fonts/Fonts";
 import {
   responsiveFontSize,
   responsiveHeight,
@@ -20,31 +21,14 @@ import NotifyBell from "../../../assets/svgs/NotifyBell";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import TabView from "../SharedComponent/TabView";
 import SwitchButton from "../SharedComponent/SwitchButton";
+import PeopleGroup from "../../../assets/svgs/PeopleGroup";
+import CameraIcon from "../../../assets/svgs/CameraIcon";
+import EditIcons from "../../../assets/svgs/EditIcons";
 const GroupProfileModal = ({
   toggleGroupProfileModal,
   isGroupProfileModalVisible,
   isPersonActive = true,
 }) => {
-  const [fontsLoaded] = useFonts({
-    "Inter-Black": require("../../../assets/Fonts/Inter-Black.ttf"),
-    "Inter-Regular": require("../../../assets/Fonts/Inter-Regular.ttf"),
-    "Inter-Bold": require("../../../assets/Fonts/Inter-Bold.ttf"),
-    "Inter-Medium": require("../../../assets/Fonts/Inter-Medium.ttf"),
-    "Inter-SemiBold": require("../../../assets/Fonts/Inter-SemiBold.ttf"),
-    "KodeMono-Regular": require("../../../assets/Fonts/KodeMono-Regular.ttf"),
-    "KodeMono-Bold": require("../../../assets/Fonts/KodeMono-Bold.ttf"),
-    "KodeMono-Medium": require("../../../assets/Fonts/KodeMono-Medium.ttf"),
-    "KodeMono-SemiBold": require("../../../assets/Fonts/KodeMono-SemiBold.ttf"),
-    "WorkSans-Regular": require("../../../assets/Fonts/WorkSans-Regular.ttf"),
-    "WorkSans-Bold": require("../../../assets/Fonts/WorkSans-Bold.ttf"),
-    "WorkSans-Medium": require("../../../assets/Fonts/WorkSans-Medium.ttf"),
-    "WorkSans-SemiBold": require("../../../assets/Fonts/WorkSans-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) {
-    return <Text>Loading...</Text>;
-  }
-
   return (
     <Modal isVisible={isGroupProfileModalVisible}>
       <View style={styles.container}>
@@ -56,14 +40,25 @@ const GroupProfileModal = ({
         </TouchableOpacity>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
-            <Image
-              style={styles.profileImage}
-              source={require("../../../assets/women1.png")}
-            />
+            <View style={styles.profileImageContainer}>
+              <Image
+                style={{
+                  width: responsiveWidth(40),
+                  height: responsiveHeight(20),
+                  resizeMode: "cover",
+                }}
+                source={require("../../../assets/peopleGroup.png")}
+              />
+              <View style={styles.cameraIcon}>
+                <CameraIcon />
+              </View>
+              <View style={styles.editIcon}>
+                <EditIcons />
+              </View>
+            </View>
             {/* -------------------------- */}
             {/* ----------- Profile Name Container ----------- */}
             {/* -------------------------- */}
-
             <View style={styles.profileNameContainer}>
               <Text style={styles.profileName}>Engineer's Group</Text>
               <View style={styles.activeStatusContainer}>
@@ -195,6 +190,19 @@ const GroupProfileModal = ({
 export default GroupProfileModal;
 
 const styles = StyleSheet.create({
+  cameraIcon: {
+    position: "absolute",
+    bottom: responsiveWidth(4),
+    right: responsiveWidth(3),
+    padding: responsiveWidth(2.3),
+    backgroundColor: "rgba(242, 243, 246, 1)",
+    borderRadius: 100,
+  },
+  editIcon: {
+    position: "absolute",
+    top: responsiveWidth(4),
+    right: responsiveWidth(4),
+  },
   // --------------------------
   // ----------- Dummy Container -----------
   // --------------------------
@@ -257,15 +265,17 @@ const styles = StyleSheet.create({
     paddingBottom: responsiveHeight(0.8),
     color: "rgba(71, 71, 72, 1)",
   },
-  profileImage: {
+  profileImageContainer: {
     height: responsiveHeight(30),
     width: responsiveWidth(80),
-    // resizeMode: "",
-    objectFit: "cover",
+    resizeMode: "cover",
     borderRadius: responsiveHeight(1),
+    justifyContent: "center",
+    alignItems: "center",
     alignSelf: "center",
     borderWidth: 1,
     borderColor: "rgba(217, 217, 217, 1)",
+    backgroundColor: "rgba(217, 217, 217, 1)",
   },
   profileNameContainer: {
     flexDirection: "row",
