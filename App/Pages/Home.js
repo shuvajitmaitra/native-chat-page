@@ -16,11 +16,14 @@ import RoleAssignModal from "../Component/RoleAssignModal";
 import ChatMuteModal from "../Component/ChatMuteModal";
 import ViewProfile from "../Component/ViewProfileModal/ViewProfile";
 import ThreeDotPopUp from "../Component/ThreeDotPopUp/ThreeDotPopUp";
+import GroupProfileModal from "../Component/GroupProfileView/GroupProfileModal";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isMuteModalVisible, setMuteModalVisible] = useState(false);
   const [isProfileModalVisible, setProfileModalVisible] = useState(false);
+  const [isGroupProfileModalVisible, setGroupProfileModalVisible] =
+    useState(false);
 
   {
     /* -------------------------- */
@@ -39,6 +42,9 @@ const Home = ({ navigation }) => {
   };
   const toggleViewProfileModal = () => {
     setProfileModalVisible(!isProfileModalVisible);
+  };
+  const toggleGroupProfileModal = () => {
+    setGroupProfileModalVisible(!isGroupProfileModalVisible);
   };
 
   return (
@@ -120,6 +126,19 @@ const Home = ({ navigation }) => {
       <View style={[styles.navigationButton, { alignSelf: "flex-end" }]}>
         <ThreeDotPopUp />
       </View>
+      {/* -------------------------- */}
+      {/* ----------- Group Profile View Modal ----------- */}
+      {/* -------------------------- */}
+      <TouchableOpacity
+        style={styles.navigationButton}
+        onPress={toggleGroupProfileModal}
+      >
+        <Text style={styles.navigationButtonText}>View Profile</Text>
+      </TouchableOpacity>
+      <GroupProfileModal
+        toggleGroupProfileModal={toggleGroupProfileModal}
+        isGroupProfileModalVisible={isGroupProfileModalVisible}
+      />
     </View>
   );
 };

@@ -18,11 +18,11 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import NotifyBell from "../../../assets/svgs/NotifyBell";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
-import SwitchButton from "./SwitchButton";
-import TabView from "./TabView";
-const ViewProfile = ({
-  toggleViewProfileModal,
-  isProfileModalVisible,
+import TabView from "../SharedComponent/TabView";
+import SwitchButton from "../SharedComponent/SwitchButton";
+const GroupProfileModal = ({
+  toggleGroupProfileModal,
+  isGroupProfileModalVisible,
   isPersonActive = true,
 }) => {
   const [fontsLoaded] = useFonts({
@@ -46,10 +46,10 @@ const ViewProfile = ({
   }
 
   return (
-    <Modal isVisible={isProfileModalVisible}>
+    <Modal isVisible={isGroupProfileModalVisible}>
       <View style={styles.container}>
         <TouchableOpacity
-          onPress={toggleViewProfileModal}
+          onPress={toggleGroupProfileModal}
           style={styles.modalArrowIcon}
         >
           <ArrowLeft />
@@ -63,8 +63,9 @@ const ViewProfile = ({
             {/* -------------------------- */}
             {/* ----------- Profile Name Container ----------- */}
             {/* -------------------------- */}
+
             <View style={styles.profileNameContainer}>
-              <Text style={styles.profileName}>Anamika Rahman</Text>
+              <Text style={styles.profileName}>Engineer's Group</Text>
               <View style={styles.activeStatusContainer}>
                 <View
                   style={[
@@ -92,28 +93,28 @@ const ViewProfile = ({
                 </Text>
               </View>
               {/* <FlipToggle
-                value={false}
-                buttonWidth={100}
-                buttonHeight={50}
-                buttonRadius={50}
-                sliderWidth={20}
-                sliderHeight={10}
-                sliderRadius={50}
-                onLabel={"On"}
-                offLabel={"Off"}
-                labelStyle={{ color: "black" }}
-                onToggle={(newState) =>
-                  console.log(`toggle is ${this.state.isActive ? `on` : `off`}`)
-                }
-                onToggleLongPress={() => console.log("toggle long pressed!")}
-              /> */}
+                  value={false}
+                  buttonWidth={100}
+                  buttonHeight={50}
+                  buttonRadius={50}
+                  sliderWidth={20}
+                  sliderHeight={10}
+                  sliderRadius={50}
+                  onLabel={"On"}
+                  offLabel={"Off"}
+                  labelStyle={{ color: "black" }}
+                  onToggle={(newState) =>
+                    console.log(`toggle is ${this.state.isActive ? `on` : `off`}`)
+                  }
+                  onToggleLongPress={() => console.log("toggle long pressed!")}
+                /> */}
               <SwitchButton />
               {/* <MaterialCommunityIcons
-                name="toggle-switch-off"
-                size={50}
-                color="
-                rgba(39, 172, 31, 1)"
-              /> */}
+                  name="toggle-switch-off"
+                  size={50}
+                  color="
+                  rgba(39, 172, 31, 1)"
+                /> */}
               {/* <NotificationBell size={24} color="black" /> */}
             </View>
             {/* -------------------------- */}
@@ -191,7 +192,7 @@ const ViewProfile = ({
   );
 };
 
-export default ViewProfile;
+export default GroupProfileModal;
 
 const styles = StyleSheet.create({
   // --------------------------
