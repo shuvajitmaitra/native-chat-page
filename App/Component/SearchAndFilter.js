@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: responsiveWidth(2.2),
     alignItems: "center",
+    paddingTop: responsiveHeight(3),
   },
 
   filterButton: {
