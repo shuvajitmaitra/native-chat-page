@@ -125,7 +125,7 @@ const GroupProfileModal = ({
               <SwitchButton />
             </View>
             {/* -------------------------- */}
-            {/* ----------- Description Container ----------- */}
+            {/* -----------Group Description Container ----------- */}
             {/* -------------------------- */}
             <View style={styles.descriptionContainer}>
               <Text
@@ -136,16 +136,17 @@ const GroupProfileModal = ({
                   paddingBottom: responsiveHeight(1.7),
                 }}
               >
-                Description
+                Group Description
               </Text>
               <Text
                 style={{
                   color: "rgba(99, 99, 99, 1)",
                   fontFamily: "Inter-Regular",
-                  fontSize: responsiveFontSize(1.7),
+                  fontSize: responsiveFontSize(1.8),
                 }}
               >
-                Hi there! I&apos;m using this app long time.
+                This group all member are engineers. They are very friendly and
+                open minded.
               </Text>
               <View
                 style={{
@@ -339,7 +340,7 @@ const styles = StyleSheet.create({
     paddingVertical: responsiveHeight(1.7),
   },
   profileName: {
-    fontFamily: "Inter-Medium",
+    fontFamily: "Inter-SemiBold",
     fontSize: responsiveFontSize(3),
     color: "rgba(0, 0, 0, 0.8)",
   },
