@@ -6,19 +6,23 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import ImageGallary from "./ImageGallary";
+import ImageGallary from "../SharedComponent/ImageGallary";
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
-import { useFonts } from "expo-font";
-import UploadedFile from "./UploadedFile";
-import VoiceFile from "./VoiceFile";
+import Fonts from "../../../assets/Fonts/Fonts";
+import UploadedFile from "../SharedComponent/UploadedFile";
+import VoiceFile from "../SharedComponent/VoiceFile";
+import GroupMembers from "./GroupMembers";
 
-const TabView = () => {
-  const [status, setStatus] = useState("Images");
+const GroupTabView = () => {
+  const [status, setStatus] = useState("Members");
   const tabLists = [
+    {
+      status: "Members",
+    },
     {
       status: "Images",
     },
@@ -34,16 +38,6 @@ const TabView = () => {
     setStatus(status);
   };
 
-  const [fontsLoaded] = useFonts({
-    "WorkSans-Regular": require("../../../assets/Fonts/WorkSans-Regular.ttf"),
-    "WorkSans-Bold": require("../../../assets/Fonts/WorkSans-Bold.ttf"),
-    "WorkSans-Medium": require("../../../assets/Fonts/WorkSans-Medium.ttf"),
-    "WorkSans-SemiBold": require("../../../assets/Fonts/WorkSans-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) {
-    return <Text>Loading...</Text>;
-  }
   return (
     <View
       style={[
@@ -72,7 +66,8 @@ const TabView = () => {
         ))}
       </View>
       <View>
-        {(status === "Images" && <ImageGallary />) ||
+        {(status === "Members" && <GroupMembers />) ||
+          (status === "Images" && <ImageGallary />) ||
           (status === "Files" && <UploadedFile />) ||
           (status === "Voice" && <VoiceFile />)}
       </View>
@@ -80,7 +75,7 @@ const TabView = () => {
   );
 };
 
-export default TabView;
+export default GroupTabView;
 
 const styles = StyleSheet.create({
   container: {

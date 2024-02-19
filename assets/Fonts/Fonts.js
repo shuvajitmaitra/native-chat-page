@@ -1,6 +1,6 @@
 import { useFonts } from "expo-font";
 
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 import React from "react";
 
 const Fonts = () => {
@@ -20,7 +20,7 @@ const Fonts = () => {
     "WorkSans-SemiBold": require("./WorkSans-SemiBold.ttf"),
   });
   if (!fontsLoaded) {
-    return <Text>Loading...</Text>;
+    return <Text>Fonts are Loading...</Text>;
   }
 
   return fontsLoaded;

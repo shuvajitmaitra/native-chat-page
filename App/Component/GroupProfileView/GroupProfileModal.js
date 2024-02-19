@@ -19,7 +19,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import NotifyBell from "../../../assets/svgs/NotifyBell";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
-import TabView from "../SharedComponent/TabView";
+import TabView from "./GroupTabView";
 import SwitchButton from "../SharedComponent/SwitchButton";
 import PeopleGroup from "../../../assets/svgs/PeopleGroup";
 import CameraIcon from "../../../assets/svgs/CameraIcon";
@@ -27,6 +27,7 @@ import EditIcons from "../../../assets/svgs/EditIcons";
 import PlusCircle from "../../../assets/svgs/PlusCircle";
 import MembersIcon from "../../../assets/svgs/MembersIcon";
 import LinkIcon from "../../../assets/svgs/LinkIcon";
+import GroupTabView from "./GroupTabView";
 const GroupProfileModal = ({
   toggleGroupProfileModal,
   isGroupProfileModalVisible,
@@ -160,7 +161,7 @@ const GroupProfileModal = ({
             {/* -------------------------- */}
             {/* ----------- Tab View ----------- */}
             {/* -------------------------- */}
-            <TabView />
+            <GroupTabView />
             {/* -------------------------- */}
             {/* ----------- Bottom Container(Block, Report, Archive Chat) ----------- */}
             {/* -------------------------- */}
