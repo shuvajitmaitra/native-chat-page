@@ -14,11 +14,14 @@ import {
 } from "react-native-responsive-dimensions";
 import { useFonts } from "expo-font";
 import Modal from "react-native-modal";
+import { FontAwesome6 } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import NotifyBell from "../../../assets/svgs/NotifyBell";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import SwitchButton from "./SwitchButton";
+import FlipToggle from "react-native-flip-toggle-button";
 import TabView from "./TabView";
 const ViewProfile = ({
   toggleViewProfileModal,
