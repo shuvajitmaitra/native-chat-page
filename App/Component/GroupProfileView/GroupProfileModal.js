@@ -24,6 +24,9 @@ import SwitchButton from "../SharedComponent/SwitchButton";
 import PeopleGroup from "../../../assets/svgs/PeopleGroup";
 import CameraIcon from "../../../assets/svgs/CameraIcon";
 import EditIcons from "../../../assets/svgs/EditIcons";
+import PlusCircle from "../../../assets/svgs/PlusCircle";
+import MembersIcon from "../../../assets/svgs/MembersIcon";
+import LinkIcon from "../../../assets/svgs/LinkIcon";
 const GroupProfileModal = ({
   toggleGroupProfileModal,
   isGroupProfileModalVisible,
@@ -32,6 +35,9 @@ const GroupProfileModal = ({
   return (
     <Modal isVisible={isGroupProfileModalVisible}>
       <View style={styles.container}>
+        {/* -------------------------- */}
+        {/* ----------- Back Arrow button ----------- */}
+        {/* -------------------------- */}
         <TouchableOpacity
           onPress={toggleGroupProfileModal}
           style={styles.modalArrowIcon}
@@ -40,6 +46,9 @@ const GroupProfileModal = ({
         </TouchableOpacity>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
+            {/* -------------------------- */}
+            {/* ----------- Image Profile Container ----------- */}
+            {/* -------------------------- */}
             <View style={styles.profileImageContainer}>
               <Image
                 style={{
@@ -49,12 +58,12 @@ const GroupProfileModal = ({
                 }}
                 source={require("../../../assets/peopleGroup.png")}
               />
-              <View style={styles.cameraIcon}>
+              <TouchableOpacity style={styles.cameraIcon}>
                 <CameraIcon />
-              </View>
-              <View style={styles.editIcon}>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.editIcon}>
                 <EditIcons />
-              </View>
+              </TouchableOpacity>
             </View>
             {/* -------------------------- */}
             {/* ----------- Profile Name Container ----------- */}
@@ -72,6 +81,29 @@ const GroupProfileModal = ({
               </View>
             </View>
             {/* -------------------------- */}
+            {/* ----------- Add Member container ----------- */}
+            {/* -------------------------- */}
+            <View style={styles.memberContainer}>
+              <View style={styles.memberNumberContainer}>
+                <MembersIcon />
+                <Text style={styles.memberNumberText}> 100 members</Text>
+              </View>
+              <View style={styles.addMemberContainer}>
+                <PlusCircle />
+                <Text style={styles.addMemberText}>Add member</Text>
+              </View>
+            </View>
+            {/* -------------------------- */}
+            {/* ----------- Copy Invitation link container ----------- */}
+            {/* -------------------------- */}
+            <TouchableOpacity style={styles.invitationLinkContainer}>
+              <LinkIcon />
+              <Text style={styles.invitationLinkText}>
+                {" "}
+                Click to copy invitation link
+              </Text>
+            </TouchableOpacity>
+            {/* -------------------------- */}
             {/* ----------- Notification Container ----------- */}
             {/* -------------------------- */}
             <View style={styles.notificationContainer}>
@@ -87,30 +119,10 @@ const GroupProfileModal = ({
                   Notification
                 </Text>
               </View>
-              {/* <FlipToggle
-                  value={false}
-                  buttonWidth={100}
-                  buttonHeight={50}
-                  buttonRadius={50}
-                  sliderWidth={20}
-                  sliderHeight={10}
-                  sliderRadius={50}
-                  onLabel={"On"}
-                  offLabel={"Off"}
-                  labelStyle={{ color: "black" }}
-                  onToggle={(newState) =>
-                    console.log(`toggle is ${this.state.isActive ? `on` : `off`}`)
-                  }
-                  onToggleLongPress={() => console.log("toggle long pressed!")}
-                /> */}
+              {/* -------------------------- */}
+              {/* ----------- Toggle Button Component ----------- */}
+              {/* -------------------------- */}
               <SwitchButton />
-              {/* <MaterialCommunityIcons
-                  name="toggle-switch-off"
-                  size={50}
-                  color="
-                  rgba(39, 172, 31, 1)"
-                /> */}
-              {/* <NotificationBell size={24} color="black" /> */}
             </View>
             {/* -------------------------- */}
             {/* ----------- Description Container ----------- */}
@@ -190,6 +202,49 @@ const GroupProfileModal = ({
 export default GroupProfileModal;
 
 const styles = StyleSheet.create({
+  // --------------------------
+  // ----------- Invitation Link Container -----------
+  // --------------------------
+  invitationLinkText: {
+    fontFamily: "Inter-Regular",
+    fontSize: responsiveFontSize(2),
+    color: "#17855F",
+  },
+  invitationLinkContainer: {
+    flexDirection: "row",
+    gap: responsiveWidth(1),
+    alignItems: "center",
+    paddingBottom: responsiveHeight(2),
+  },
+  // --------------------------
+  // ----------- Member Container -----------
+  // --------------------------
+  memberNumberText: {
+    fontFamily: "Inter-Regular",
+    fontSize: responsiveFontSize(2),
+    color: "#666",
+  },
+  addMemberText: {
+    fontFamily: "Inter-Regular",
+    fontSize: responsiveFontSize(1.8),
+    color: "#17855F",
+  },
+  memberNumberContainer: {
+    flexDirection: "row",
+    gap: responsiveWidth(1),
+    alignItems: "center",
+  },
+  addMemberContainer: {
+    alignItems: "center",
+    flexDirection: "row",
+    gap: responsiveWidth(1),
+  },
+  memberContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingBottom: responsiveHeight(2.5),
+  },
   cameraIcon: {
     position: "absolute",
     bottom: responsiveWidth(4),
