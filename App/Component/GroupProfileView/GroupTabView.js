@@ -42,7 +42,7 @@ const GroupTabView = () => {
     <View
       style={[
         styles.container,
-        status === "Files" && { height: responsiveHeight(53) },
+        status === "Files" && { height: responsiveHeight(53) } || status === "Members" && { height: responsiveHeight(65)},
       ]}
     >
       <View style={styles.tabContainer}>
