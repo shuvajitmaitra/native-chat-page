@@ -10,10 +10,12 @@ import {
   responsiveFontSize,
   responsiveHeight,
   responsiveScreenWidth,
+  responsiveWidth,
 } from "react-native-responsive-dimensions";
 import RoleAssignModal from "../Component/RoleAssignModal";
 import ChatMuteModal from "../Component/ChatMuteModal";
 import ViewProfile from "../Component/ViewProfileModal/ViewProfile";
+import ThreeDotPopUp from "../Component/ThreeDotPopUp/ThreeDotPopUp";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -111,6 +113,13 @@ const Home = ({ navigation }) => {
         toggleViewProfileModal={toggleViewProfileModal}
         isProfileModalVisible={isProfileModalVisible}
       />
+
+      {/* -------------------------- */}
+      {/* ----------- Popup Modal ----------- */}
+      {/* -------------------------- */}
+      <View style={styles.navigationButton}>
+        <ThreeDotPopUp />
+      </View>
     </View>
   );
 };
