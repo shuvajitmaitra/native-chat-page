@@ -5,30 +5,11 @@ import {
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
-import { useFonts } from "expo-font";
+import Fonts from "../../../assets/Fonts/Fonts";
 import ArrowRight from "../../../assets/svgs/ArrowRight";
 import ArrowDown from "../../../assets/svgs/ArrowDown";
 
 const UploadedFile = () => {
-  const [fontsLoaded] = useFonts({
-    "Inter-Black": require("../../../assets/Fonts/Inter-Black.ttf"),
-    "Inter-Regular": require("../../../assets/Fonts/Inter-Regular.ttf"),
-    "Inter-Bold": require("../../../assets/Fonts/Inter-Bold.ttf"),
-    "Inter-Medium": require("../../../assets/Fonts/Inter-Medium.ttf"),
-    "Inter-SemiBold": require("../../../assets/Fonts/Inter-SemiBold.ttf"),
-    "KodeMono-Regular": require("../../../assets/Fonts/KodeMono-Regular.ttf"),
-    "KodeMono-Bold": require("../../../assets/Fonts/KodeMono-Bold.ttf"),
-    "KodeMono-Medium": require("../../../assets/Fonts/KodeMono-Medium.ttf"),
-    "KodeMono-SemiBold": require("../../../assets/Fonts/KodeMono-SemiBold.ttf"),
-    "WorkSans-Regular": require("../../../assets/Fonts/WorkSans-Regular.ttf"),
-    "WorkSans-Bold": require("../../../assets/Fonts/WorkSans-Bold.ttf"),
-    "WorkSans-Medium": require("../../../assets/Fonts/WorkSans-Medium.ttf"),
-    "WorkSans-SemiBold": require("../../../assets/Fonts/WorkSans-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) {
-    return <Text>Loading...</Text>;
-  }
   const data = [
     {
       fileName: "Group 20.jpg",

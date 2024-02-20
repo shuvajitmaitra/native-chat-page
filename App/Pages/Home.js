@@ -122,7 +122,7 @@ const Home = ({ navigation }) => {
       {/* -------------------------- */}
       {/* ----------- Popup Modal ----------- */}
       {/* -------------------------- */}
-      <View style={[styles.navigationButton, { alignSelf: "flex-end" }]}>
+      <View style={[styles.navigationButton]}>
         <ThreeDotPopUp />
       </View>
       {/* -------------------------- */}
@@ -132,7 +132,7 @@ const Home = ({ navigation }) => {
         style={styles.navigationButton}
         onPress={toggleGroupProfileModal}
       >
-        <Text style={styles.navigationButtonText}>View Profile</Text>
+        <Text style={styles.navigationButtonText}>Group Profile</Text>
       </TouchableOpacity>
       <GroupProfileModal
         toggleGroupProfileModal={toggleGroupProfileModal}

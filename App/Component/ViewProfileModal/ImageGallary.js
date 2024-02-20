@@ -5,7 +5,6 @@ import {
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
-import { FontAwesome6 } from "@expo/vector-icons";
 import ArrowRight from "../../../assets/svgs/ArrowRight";
 
 const ImageGallary = () => {

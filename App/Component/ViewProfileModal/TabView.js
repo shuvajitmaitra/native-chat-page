@@ -26,7 +26,7 @@ const TabView = () => {
       status: "Files",
     },
     {
-      status: "Voice",
+      status: "Voices",
     },
   ];
 
@@ -48,7 +48,7 @@ const TabView = () => {
     <View
       style={[
         styles.container,
-        status === "Files" && { height: responsiveScreenHeight(53) },
+        //  { minHeight: status === "Files" && responsiveScreenHeight(53) || status ==="Voices" },
       ]}
     >
       <View style={styles.tabContainer}>
@@ -74,7 +74,7 @@ const TabView = () => {
       <View>
         {(status === "Images" && <ImageGallary />) ||
           (status === "Files" && <UploadedFile />) ||
-          (status === "Voice" && <VoiceFile />)}
+          (status === "Voices" && <VoiceFile />)}
       </View>
     </View>
   );
@@ -84,7 +84,7 @@ export default TabView;
 
 const styles = StyleSheet.create({
   container: {
-    height: responsiveScreenHeight(57),
+    minHeight: responsiveScreenHeight(10),
   },
   tabContainer: {
     flexDirection: "row",
