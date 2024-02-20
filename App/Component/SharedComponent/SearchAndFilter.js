@@ -17,8 +17,10 @@ import Fonts from "../../../assets/Fonts/Fonts";
 import SearchIcon from "../../../assets/svgs/SearchIcon";
 import VolumeIcon from "../../../assets/svgs/Volume";
 import CrossIcon from "../../../assets/svgs/CrossIcon";
+import { RadioButton } from "react-native-paper";
 
 const SearchAndFilter = () => {
+  const [value, setValue] = React.useState("hour");
   return (
     <View style={styles.topContainer}>
       <View style={styles.inputField}>
@@ -42,6 +44,7 @@ const SearchAndFilter = () => {
             <TouchableOpacity
               ref={setPopoverAnchor}
               onPress={openPopover}
+              activeOpacity={0.8}
               style={styles.filterButton}
             >
               <Feather
@@ -68,26 +71,65 @@ const SearchAndFilter = () => {
                 {/* -------------------------- */}
                 <View style={styles.headerContainer}>
                   <Text style={styles.headerText}>Filters</Text>
-                  <View style={styles.cancelButton}>
-                    <CrossIcon />
+                  <TouchableOpacity activeOpacity={0.8} onPress={closePopover}>
+                    <View style={styles.cancelButton}>
+                      <CrossIcon />
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                {/* -------------------------- */}
+                {/* ----------- Radio button ----------- */}
+                {/* -------------------------- */}
+                <RadioButton.Group
+                  onValueChange={(newValue) => setValue(newValue)}
+                  value={value}
+                >
+                  <View style={[styles.radioButton]}>
+                    <RadioButton
+                      value="hour"
+                      color="rgba(253, 40, 43, 1)"
+                      uncheckedColor="rgba(0, 0, 0, 0.2)"
+                    />
+                    <Text
+                      style={[
+                        styles.radioText,
+                        {
+                          color:
+                            value === "hour" ? "black" : "rgba(0, 0, 0, 0.6)",
+                          fontFamily: "Inter-Regular",
+                        },
+                      ]}
+                    >
+                      Block user
+                    </Text>
                   </View>
-                </View>
-                <View style={styles.buttonContainer}>
-                  <TouchableOpacity>
-                    <View style={styles.iconAndTextContainer}>
-                      <VolumeIcon />
-                      <Text style={styles.buttonText}>Mute Notification</Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-                <View style={styles.buttonContainer}>
-                  <TouchableOpacity>
-                    <View style={styles.iconAndTextContainer}>
-                      <SearchIcon />
-                      <Text style={styles.buttonText}>Search</Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
+                  <View
+                    style={{
+                      marginVertical: responsiveScreenHeight(0.5),
+                      borderBottomColor: "rgba(0, 0, 0, 0.6)",
+                      borderBottomWidth: 0.5,
+                    }}
+                  ></View>
+                  <View style={styles.radioButton}>
+                    <RadioButton
+                      color="rgba(253, 40, 43, 1)"
+                      value="day"
+                      uncheckedColor="rgba(0, 0, 0, 0.2)"
+                    />
+                    <Text
+                      style={[
+                        styles.radioText,
+                        {
+                          color:
+                            value === "day" ? "black" : "rgba(0, 0, 0, 0.6)",
+                          fontFamily: "Inter-Regular",
+                        },
+                      ]}
+                    >
+                      Mute user
+                    </Text>
+                  </View>
+                </RadioButton.Group>
               </View>
             </Popover>
           </React.Fragment>
@@ -100,6 +142,23 @@ const SearchAndFilter = () => {
 export default SearchAndFilter;
 
 const styles = StyleSheet.create({
+  // --------------------------
+  // ----------- Radio Button -----------
+  // --------------------------
+  radioButton: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  buttonGroup: {
+    marginHorizontal: responsiveScreenWidth(-1),
+  },
+  radioText: {
+    fontSize: responsiveScreenFontSize(1.9),
+  },
+  // --------------------------
+  // ----------- Header of the popup -----------
+  // --------------------------
   headerText: {
     fontFamily: "Inter-SemiBold",
     fontSize: responsiveScreenFontSize(2.5),
@@ -115,6 +174,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: responsiveScreenHeight(1),
   },
   topContainer: {
     flexDirection: "row",
@@ -178,11 +238,15 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "rgba(0, 0, 0, 0.1)",
   },
+  // --------------------------
+  // ----------- Popup Modal container -----------
+  // --------------------------
   content: {
     borderRadius: 8,
   },
   container: {
     paddingVertical: responsiveScreenHeight(2),
     paddingHorizontal: responsiveScreenWidth(2),
+    minWidth: responsiveScreenWidth(50),
   },
 });
