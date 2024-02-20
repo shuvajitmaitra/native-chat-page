@@ -16,6 +16,7 @@ import { Popover, PopoverController } from "react-native-modal-popover";
 import Fonts from "../../../assets/Fonts/Fonts";
 import SearchIcon from "../../../assets/svgs/SearchIcon";
 import VolumeIcon from "../../../assets/svgs/Volume";
+import CrossIcon from "../../../assets/svgs/CrossIcon";
 
 const SearchAndFilter = () => {
   return (
@@ -58,9 +59,19 @@ const SearchAndFilter = () => {
               visible={popoverVisible}
               onClose={closePopover}
               fromRect={popoverAnchorRect}
+              placement="bottom"
               supportedOrientations={["portrait", "landscape"]}
             >
-              <View>
+              <View style={styles.container}>
+                {/* -------------------------- */}
+                {/* ----------- Heading Text ----------- */}
+                {/* -------------------------- */}
+                <View style={styles.headerContainer}>
+                  <Text style={styles.headerText}>Filters</Text>
+                  <View style={styles.cancelButton}>
+                    <CrossIcon />
+                  </View>
+                </View>
                 <View style={styles.buttonContainer}>
                   <TouchableOpacity>
                     <View style={styles.iconAndTextContainer}>
@@ -89,6 +100,22 @@ const SearchAndFilter = () => {
 export default SearchAndFilter;
 
 const styles = StyleSheet.create({
+  headerText: {
+    fontFamily: "Inter-SemiBold",
+    fontSize: responsiveScreenFontSize(2.5),
+  },
+  cancelButton: {
+    backgroundColor: "#D0D0D0",
+    padding: responsiveScreenWidth(2.5),
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
   topContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -153,5 +180,9 @@ const styles = StyleSheet.create({
   },
   content: {
     borderRadius: 8,
+  },
+  container: {
+    paddingVertical: responsiveScreenHeight(2),
+    paddingHorizontal: responsiveScreenWidth(2),
   },
 });
