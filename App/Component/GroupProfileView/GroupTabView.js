@@ -30,7 +30,7 @@ const GroupTabView = () => {
       status: "Files",
     },
     {
-      status: "Voice",
+      status: "Voices",
     },
   ];
 
@@ -42,7 +42,8 @@ const GroupTabView = () => {
     <View
       style={[
         styles.container,
-        status === "Files" && { minHeight: responsiveScreenHeight(53) } || status === "Members" && { minHeight: responsiveScreenHeight(66)},
+        (status === "Files" && { minHeight: responsiveScreenHeight(10) }) ||
+          (status === "Members" && { minHeight: responsiveScreenHeight(10) }),
       ]}
     >
       <View style={styles.tabContainer}>
@@ -69,7 +70,7 @@ const GroupTabView = () => {
         {(status === "Members" && <GroupMembers />) ||
           (status === "Images" && <ImageGallary />) ||
           (status === "Files" && <UploadedFile />) ||
-          (status === "Voice" && <VoiceFile />)}
+          (status === "Voices" && <VoiceFile />)}
       </View>
     </View>
   );
@@ -78,9 +79,10 @@ const GroupTabView = () => {
 export default GroupTabView;
 
 const styles = StyleSheet.create({
-  container: {
-    // minHeight: responsiveScreenHeight(5),
-  },
+  // container: {
+  //   backgroundColor: "red",
+  //   minHeight: responsiveScreenHeight(15),
+  // },
   tabContainer: {
     flexDirection: "row",
     justifyContent: "space-evenly",
