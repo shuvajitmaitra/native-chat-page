@@ -2,11 +2,9 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Modal from "react-native-modal";
 import React from "react";
 import {
-  responsiveFontSize,
-  responsiveHeight,
+  responsiveScreenFontSize,
   responsiveScreenHeight,
   responsiveScreenWidth,
-  responsiveWidth,
 } from "react-native-responsive-dimensions";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { RadioButton, Text } from "react-native-paper";
@@ -123,25 +121,25 @@ const styles = StyleSheet.create({
   modalChild: {
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
-    paddingHorizontal: responsiveWidth(4.5),
-    paddingVertical: responsiveHeight(0.8),
+    paddingHorizontal: responsiveScreenWidth(4.5),
+    paddingVertical: responsiveScreenHeight(0.8),
   },
   modalHeading: {
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    paddingVertical: responsiveHeight(2),
-    marginHorizontal: responsiveWidth(1),
+    paddingVertical: responsiveScreenHeight(2),
+    marginHorizontal: responsiveScreenWidth(1),
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.15)",
-    gap: responsiveWidth(2),
+    gap: responsiveScreenWidth(2),
   },
   modalArrowIcon: {
-    fontSize: responsiveFontSize(2.5),
+    fontSize: responsiveScreenFontSize(2.5),
     color: "rgba(71, 71, 72, 1)",
   },
   modalHeadingText: {
-    fontSize: responsiveFontSize(2.5),
+    fontSize: responsiveScreenFontSize(2.5),
     color: "rgba(71, 71, 72, 1)",
   },
   radioButton: {
@@ -152,15 +150,15 @@ const styles = StyleSheet.create({
   buttonGroup: {
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.15)",
-    paddingVertical: responsiveHeight(2.5),
+    paddingVertical: responsiveScreenHeight(2.5),
   },
   radioText: {
-    fontSize: responsiveFontSize(2.2),
+    fontSize: responsiveScreenFontSize(2.2),
   },
   buttonContainer: {
     flexDirection: "row",
-    gap: responsiveWidth(2.5),
+    gap: responsiveScreenWidth(2.5),
     justifyContent: "center",
-    paddingVertical: responsiveHeight(2.5),
+    paddingVertical: responsiveScreenHeight(2.5),
   },
 });

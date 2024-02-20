@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import {
-  responsiveFontSize,
-  responsiveHeight,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import { FontAwesome6 } from "@expo/vector-icons";
 import ArrowRight from "../../../assets/svgs/ArrowRight";
@@ -43,8 +43,8 @@ const ImageGallary = () => {
       style={{
         flexDirection: "row",
         flexWrap: "wrap",
-        gap: responsiveWidth(2.5),
-        paddingTop: responsiveHeight(2),
+        gap: responsiveScreenWidth(2.5),
+        paddingTop: responsiveScreenHeight(2),
         borderTopColor: "rgba(0, 0, 0, 0.1)",
         borderTopWidth: 1,
       }}
@@ -53,8 +53,8 @@ const ImageGallary = () => {
         <Image
           key={index}
           style={{
-            height: responsiveWidth(28),
-            width: responsiveWidth(25),
+            height: responsiveScreenWidth(28),
+            width: responsiveScreenWidth(25),
             resizeMode: "cover",
           }}
           source={item.image}
@@ -64,15 +64,15 @@ const ImageGallary = () => {
         style={{
           flexDirection: "row",
           alignItems: "center",
-          gap: responsiveWidth(2),
-          paddingVertical: responsiveHeight(1),
+          gap: responsiveScreenWidth(2),
+          paddingVertical: responsiveScreenHeight(1),
         }}
       >
         <Text
           style={{
             color: "rgba(39, 172, 31, 1)",
             fontFamily: "Inter-SemiBold",
-            fontSize: responsiveFontSize(1.8),
+            fontSize: responsiveScreenFontSize(1.8),
           }}
         >
           See More
@@ -87,8 +87,8 @@ export default ImageGallary;
 
 const styles = StyleSheet.create({
   modalArrowIcon: {
-    fontSize: responsiveFontSize(2.5),
-    paddingBottom: responsiveHeight(0.8),
+    fontSize: responsiveScreenFontSize(2.5),
+    paddingBottom: responsiveScreenHeight(0.8),
     color: "rgba(71, 71, 72, 1)",
   },
 });

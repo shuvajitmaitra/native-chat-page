@@ -2,10 +2,9 @@ import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import Modal from "react-native-modal";
 import React from "react";
 import {
-  responsiveFontSize,
-  responsiveHeight,
+  responsiveScreenFontSize,
   responsiveScreenHeight,
-  responsiveWidth,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { RadioButton, Text } from "react-native-paper";
@@ -174,25 +173,25 @@ const styles = StyleSheet.create({
   modalChild: {
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
-    paddingHorizontal: responsiveWidth(5.3),
-    paddingVertical: responsiveHeight(0.8),
+    paddingHorizontal: responsiveScreenWidth(5.3),
+    paddingVertical: responsiveScreenHeight(0.8),
   },
   modalHeading: {
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    paddingVertical: responsiveHeight(2),
-    // marginHorizontal: responsiveWidth(1),
+    paddingVertical: responsiveScreenHeight(2),
+    // marginHorizontal: responsiveScreenWidth(1),
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.15)",
-    gap: responsiveWidth(2),
+    gap: responsiveScreenWidth(2),
   },
   modalArrowIcon: {
-    fontSize: responsiveFontSize(2.5),
+    fontSize: responsiveScreenFontSize(2.5),
     color: "rgba(71, 71, 72, 1)",
   },
   modalHeadingText: {
-    fontSize: responsiveFontSize(2.4),
+    fontSize: responsiveScreenFontSize(2.4),
     fontWeight: "600",
     color: "rgba(71, 71, 72, 1)",
   },
@@ -201,9 +200,9 @@ const styles = StyleSheet.create({
   // -------------------------------------------------------------
   modalDescriptionText: {
     color: "rgba(0, 0, 0, 0.7)",
-    fontSize: responsiveFontSize(1.9),
+    fontSize: responsiveScreenFontSize(1.9),
     fontWeight: "600",
-    paddingVertical: responsiveHeight(2),
+    paddingVertical: responsiveScreenHeight(2),
   },
 
   //  -------------------------------------------------------------
@@ -215,10 +214,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonGroup: {
-    marginHorizontal: responsiveWidth(-1),
+    marginHorizontal: responsiveScreenWidth(-1),
   },
   radioText: {
-    fontSize: responsiveFontSize(1.9),
+    fontSize: responsiveScreenFontSize(1.9),
   },
 
   //  -------------------------------------------------------------
@@ -227,27 +226,27 @@ const styles = StyleSheet.create({
   noteContainer: {},
   noteTitle: {
     fontWeight: "600",
-    fontSize: responsiveFontSize(1.9),
-    paddingVertical: responsiveWidth(4),
+    fontSize: responsiveScreenFontSize(1.9),
+    paddingVertical: responsiveScreenWidth(4),
   },
   noteTextArea: {
     backgroundColor: "rgba(248, 248, 248, 1)",
-    paddingHorizontal: responsiveWidth(4),
-    paddingTop: responsiveHeight(0.6),
-    paddingBottom: responsiveHeight(7),
-    marginBottom: responsiveHeight(1.4),
-    borderRadius: responsiveWidth(3),
+    paddingHorizontal: responsiveScreenWidth(4),
+    paddingTop: responsiveScreenHeight(0.6),
+    paddingBottom: responsiveScreenHeight(7),
+    marginBottom: responsiveScreenHeight(1.4),
+    borderRadius: responsiveScreenWidth(3),
     borderWidth: 1,
     borderColor: "rgba(238, 238, 238, 1)",
-    fontSize: responsiveFontSize(1.9),
+    fontSize: responsiveScreenFontSize(1.9),
   },
   //  -------------------------------------------------------------
   // Modal Button area
   // -------------------------------------------------------------
   buttonContainer: {
     flexDirection: "row",
-    gap: responsiveWidth(2.5),
+    gap: responsiveScreenWidth(2.5),
     justifyContent: "center",
-    paddingVertical: responsiveHeight(2.5),
+    paddingVertical: responsiveScreenHeight(2.5),
   },
 });

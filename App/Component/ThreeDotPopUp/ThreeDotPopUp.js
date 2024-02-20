@@ -4,9 +4,9 @@ import { Popover, PopoverController } from "react-native-modal-popover";
 import ThreeDotIcon from "../../../assets/svgs/ThreeDotIcon";
 import VolumeIcon from "../../../assets/svgs/Volume";
 import {
-  responsiveFontSize,
-  responsiveHeight,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import SearchIcon from "../../../assets/svgs/SearchIcon";
 import AddUsers from "../../../assets/svgs/AddUser";
@@ -89,17 +89,17 @@ export default ThreeDotPopUp;
 
 const styles = StyleSheet.create({
   buttonText: {
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveScreenFontSize(2),
     color: "#666",
   },
   iconAndTextContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: responsiveWidth(3),
+    gap: responsiveScreenWidth(3),
   },
   buttonContainer: {
-    paddingVertical: responsiveHeight(1.5),
-    paddingHorizontal: responsiveWidth(1.5),
+    paddingVertical: responsiveScreenHeight(1.5),
+    paddingHorizontal: responsiveScreenWidth(1.5),
     borderBottomWidth: 1,
     borderBottomColor: "rgba(0, 0, 0, 0.1)",
   },

@@ -8,9 +8,9 @@ import {
 import React, { useState } from "react";
 import ImageGallary from "./ImageGallary";
 import {
-  responsiveFontSize,
-  responsiveHeight,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import { useFonts } from "expo-font";
 import UploadedFile from "./UploadedFile";
@@ -48,7 +48,7 @@ const TabView = () => {
     <View
       style={[
         styles.container,
-        status === "Files" && { height: responsiveHeight(53) },
+        status === "Files" && { height: responsiveScreenHeight(53) },
       ]}
     >
       <View style={styles.tabContainer}>
@@ -61,7 +61,7 @@ const TabView = () => {
               style={[
                 {
                   fontFamily: "WorkSans-Medium",
-                  fontSize: responsiveFontSize(1.8),
+                  fontSize: responsiveScreenFontSize(1.8),
                 },
                 status === tab.status && styles.tabActive,
               ]}
@@ -84,18 +84,18 @@ export default TabView;
 
 const styles = StyleSheet.create({
   container: {
-    height: responsiveHeight(57),
+    height: responsiveScreenHeight(57),
   },
   tabContainer: {
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    paddingBottom: responsiveHeight(1),
+    paddingBottom: responsiveScreenHeight(1),
   },
   tabActive: {
     color: "rgba(39, 172, 31, 1)",
     borderBottomColor: "rgba(39, 172, 31, 1)",
     borderBottomWidth: 2,
-    paddingVertical: responsiveWidth(1),
+    paddingVertical: responsiveScreenWidth(1),
   },
 });

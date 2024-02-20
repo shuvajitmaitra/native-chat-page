@@ -8,9 +8,9 @@ import {
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 import {
-  responsiveFontSize,
-  responsiveHeight,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import { useFonts } from "expo-font";
 
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   topContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: responsiveWidth(2.2),
+    gap: responsiveScreenWidth(2.2),
     alignItems: "center",
   },
 
@@ -60,36 +60,36 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#27ac1f",
     alignItems: "center",
-    gap: responsiveWidth(2.6),
-    paddingVertical: responsiveWidth(2.6),
-    paddingHorizontal: responsiveWidth(4),
-    borderRadius: responsiveWidth(1.5),
+    gap: responsiveScreenWidth(2.6),
+    paddingVertical: responsiveScreenWidth(2.6),
+    paddingHorizontal: responsiveScreenWidth(4),
+    borderRadius: responsiveScreenWidth(1.5),
   },
   inputField: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#F2F2F2",
-    padding: responsiveWidth(1.5),
-    paddingHorizontal: responsiveWidth(3.3),
+    padding: responsiveScreenWidth(1.5),
+    paddingHorizontal: responsiveScreenWidth(3.3),
     borderWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
     flex: 1,
-    borderRadius: responsiveWidth(2),
+    borderRadius: responsiveScreenWidth(2),
   },
   inputFieldIcon: {
-    fontSize: responsiveFontSize(2.5),
+    fontSize: responsiveScreenFontSize(2.5),
     color: "rgba(99, 99, 99, 1)",
   },
   textInput: {
-    fontSize: responsiveFontSize(1.6),
+    fontSize: responsiveScreenFontSize(1.6),
   },
   filterButtonIcon: {
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveScreenFontSize(2),
     color: "white",
   },
   filterButtonText: {
-    fontSize: responsiveFontSize(1.9),
+    fontSize: responsiveScreenFontSize(1.9),
     fontFamily: "Inter-Regular",
     color: "white",
   },

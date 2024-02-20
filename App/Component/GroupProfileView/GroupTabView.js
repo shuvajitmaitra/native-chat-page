@@ -8,9 +8,9 @@ import {
 import React, { useState } from "react";
 import ImageGallary from "../SharedComponent/ImageGallary";
 import {
-  responsiveFontSize,
-  responsiveHeight,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import Fonts from "../../../assets/Fonts/Fonts";
 import UploadedFile from "../SharedComponent/UploadedFile";
@@ -42,7 +42,7 @@ const GroupTabView = () => {
     <View
       style={[
         styles.container,
-        status === "Files" && { height: responsiveHeight(53) } || status === "Members" && { height: responsiveHeight(66)},
+        status === "Files" && { minHeight: responsiveScreenHeight(53) } || status === "Members" && { minHeight: responsiveScreenHeight(66)},
       ]}
     >
       <View style={styles.tabContainer}>
@@ -55,7 +55,7 @@ const GroupTabView = () => {
               style={[
                 {
                   fontFamily: "WorkSans-Medium",
-                  fontSize: responsiveFontSize(1.8),
+                  fontSize: responsiveScreenFontSize(1.8),
                 },
                 status === tab.status && styles.tabActive,
               ]}
@@ -79,18 +79,18 @@ export default GroupTabView;
 
 const styles = StyleSheet.create({
   container: {
-    height: responsiveHeight(57),
+    // minHeight: responsiveScreenHeight(5),
   },
   tabContainer: {
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    paddingBottom: responsiveHeight(1),
+    paddingBottom: responsiveScreenHeight(1),
   },
   tabActive: {
     color: "rgba(39, 172, 31, 1)",
     borderBottomColor: "rgba(39, 172, 31, 1)",
     borderBottomWidth: 2,
-    paddingVertical: responsiveWidth(1),
+    paddingVertical: responsiveScreenWidth(1),
   },
 });

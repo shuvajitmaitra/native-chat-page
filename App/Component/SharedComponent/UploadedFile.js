@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import {
-  responsiveFontSize,
-  responsiveHeight,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import { useFonts } from "expo-font";
 import ArrowRight from "../../../assets/svgs/ArrowRight";
@@ -75,15 +75,15 @@ const UploadedFile = () => {
           style={{
             flexDirection: "row",
             alignItems: "center",
-            gap: responsiveWidth(2),
-            paddingVertical: responsiveHeight(1),
+            gap: responsiveScreenWidth(2),
+            paddingVertical: responsiveScreenHeight(1),
           }}
         >
           <Text
             style={{
               color: "rgba(39, 172, 31, 1)",
               fontFamily: "Inter-SemiBold",
-              fontSize: responsiveFontSize(1.8),
+              fontSize: responsiveScreenFontSize(1.8),
             }}
           >
             See More
@@ -101,29 +101,29 @@ const styles = StyleSheet.create({
   sizeTimeText: {
     color: "rgba(102, 102, 102, 1)",
     fontFamily: "WorkSans-Regular",
-    fontSize: responsiveFontSize(1.8),
+    fontSize: responsiveScreenFontSize(1.8),
   },
   fileName: {
     fontFamily: "WorkSans-SemiBold",
-    fontSize: responsiveFontSize(1.9),
+    fontSize: responsiveScreenFontSize(1.9),
   },
   textContainer: {
-    gap: responsiveHeight(1),
+    gap: responsiveScreenHeight(1),
   },
   subContainer: {
     flexDirection: "row",
-    gap: responsiveWidth(3),
+    gap: responsiveScreenWidth(3),
     borderTopWidth: 1,
     borderTopColor: "rgba(0, 0, 0, 0.1)",
-    paddingVertical: responsiveHeight(2.1),
+    paddingVertical: responsiveScreenHeight(2.1),
   },
   sizeAndDateContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: responsiveWidth(1),
+    gap: responsiveScreenWidth(1),
   },
   container: {
-    // gap: responsiveHeight(3),
+    // gap: responsiveScreenHeight(3),
     // backgroundColor: "red",
   },
 });

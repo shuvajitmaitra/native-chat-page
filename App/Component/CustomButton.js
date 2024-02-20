@@ -1,8 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import {
-  responsiveFontSize,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 
 const CustomModalButton = ({
@@ -28,13 +28,13 @@ export default CustomModalButton;
 const styles = StyleSheet.create({
   button: {
     backgroundColor: "#27ac1f",
-    width: responsiveWidth(35),
+    width: responsiveScreenWidth(35),
     alignItems: "center",
     borderRadius: 10,
-    padding: responsiveWidth(3),
+    padding: responsiveScreenWidth(3),
   },
   buttonText: {
     color: "white",
-    fontSize: responsiveFontSize(2.2),
+    fontSize: responsiveScreenFontSize(2.2),
   },
 });

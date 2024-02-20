@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import {
-  responsiveFontSize,
-  responsiveHeight,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import { useFonts } from "expo-font";
 
@@ -98,19 +98,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: responsiveWidth(4),
-    paddingVertical: responsiveWidth(3.3),
-    borderRadius: responsiveWidth(2),
+    paddingHorizontal: responsiveScreenWidth(4),
+    paddingVertical: responsiveScreenWidth(3.3),
+    borderRadius: responsiveScreenWidth(2),
   },
   subContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: responsiveWidth(4),
+    gap: responsiveScreenWidth(4),
   },
   altOfProfileImage: {
-    width: responsiveWidth(10),
-    height: responsiveWidth(10),
-    borderRadius: responsiveWidth(100),
+    width: responsiveScreenWidth(10),
+    height: responsiveScreenWidth(10),
+    borderRadius: responsiveScreenWidth(100),
     position: "relative",
     backgroundColor: "rgba(35, 67, 56, 1)",
     justifyContent: "center",
@@ -118,27 +118,27 @@ const styles = StyleSheet.create({
   },
   sortName: {
     color: "white",
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveScreenFontSize(2),
   },
   profileImage: {
-    width: responsiveWidth(10),
-    height: responsiveWidth(10),
-    borderRadius: responsiveWidth(100),
+    width: responsiveScreenWidth(10),
+    height: responsiveScreenWidth(10),
+    borderRadius: responsiveScreenWidth(100),
     resizeMode: "cover",
     position: "relative",
   },
   activeDot: {
-    width: responsiveWidth(2.8),
-    height: responsiveWidth(2.8),
-    borderRadius: responsiveWidth(100),
+    width: responsiveScreenWidth(2.8),
+    height: responsiveScreenWidth(2.8),
+    borderRadius: responsiveScreenWidth(100),
     position: "absolute",
-    bottom: responsiveWidth(0.9),
+    bottom: responsiveScreenWidth(0.9),
     right: -2,
     borderWidth: 1,
     borderColor: "#ffffff",
   },
   profileName: {
-    fontSize: responsiveFontSize(2.4),
+    fontSize: responsiveScreenFontSize(2.4),
     fontFamily: "WorkSans-Medium",
     // fontWeight: "500",
     color: "black",
@@ -148,18 +148,18 @@ const styles = StyleSheet.create({
   },
   timeContainer: {
     alignItems: "flex-end",
-    gap: responsiveHeight(1.2),
+    gap: responsiveScreenHeight(1.2),
   },
   messageNumberContainer: {
     alignItems: "center",
   },
   messageNumber: {
-    paddingHorizontal: responsiveWidth(1.3),
-    paddingVertical: responsiveWidth(0.1),
+    paddingHorizontal: responsiveScreenWidth(1.3),
+    paddingVertical: responsiveScreenWidth(0.1),
     backgroundColor: "#27ac1f",
     textAlign: "center",
     color: "#ffffff",
-    borderRadius: responsiveWidth(100),
-    fontSize: responsiveFontSize(1.5),
+    borderRadius: responsiveScreenWidth(100),
+    fontSize: responsiveScreenFontSize(1.5),
   },
 });

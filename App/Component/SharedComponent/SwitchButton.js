@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import { responsiveWidth } from "react-native-responsive-dimensions";
+import { responsiveScreenWidth } from "react-native-responsive-dimensions";
 import FlipToggle from "react-native-flip-toggle-button";
 
 const SwitchButton = () => {
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   switch: {
     backgroundColor: "red",
     color: "red",
-    paddingHorizontal: responsiveWidth(3),
+    paddingHorizontal: responsiveScreenWidth(3),
   },
   outer: {
     height: 25,

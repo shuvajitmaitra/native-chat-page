@@ -7,10 +7,9 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import {
-  responsiveFontSize,
-  responsiveHeight,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
   responsiveScreenWidth,
-  responsiveWidth,
 } from "react-native-responsive-dimensions";
 import RoleAssignModal from "../Component/RoleAssignModal";
 import ChatMuteModal from "../Component/ChatMuteModal";
@@ -153,7 +152,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF",
   },
   navigationButton: {
-    marginTop: responsiveHeight(2),
+    marginTop: responsiveScreenHeight(2),
     backgroundColor: "#27ac1f",
     width: responsiveScreenWidth(50),
     alignItems: "center",
@@ -162,7 +161,7 @@ const styles = StyleSheet.create({
   },
   navigationButtonText: {
     color: "white",
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveScreenFontSize(2),
     fontWeight: "600",
   },
 });

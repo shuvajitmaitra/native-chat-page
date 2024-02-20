@@ -9,19 +9,16 @@ import {
 import React from "react";
 import Fonts from "../../../assets/Fonts/Fonts";
 import {
-  responsiveFontSize,
-  responsiveHeight,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
-import { useFonts } from "expo-font";
 import Modal from "react-native-modal";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import NotifyBell from "../../../assets/svgs/NotifyBell";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
-import TabView from "./GroupTabView";
 import SwitchButton from "../SharedComponent/SwitchButton";
-import PeopleGroup from "../../../assets/svgs/PeopleGroup";
 import CameraIcon from "../../../assets/svgs/CameraIcon";
 import EditIcons from "../../../assets/svgs/EditIcons";
 import PlusCircle from "../../../assets/svgs/PlusCircle";
@@ -53,8 +50,8 @@ const GroupProfileModal = ({
             <View style={styles.profileImageContainer}>
               <Image
                 style={{
-                  width: responsiveWidth(40),
-                  height: responsiveHeight(20),
+                  width: responsiveScreenWidth(40),
+                  height: responsiveScreenHeight(20),
                   resizeMode: "cover",
                 }}
                 source={require("../../../assets/peopleGroup.png")}
@@ -114,7 +111,7 @@ const GroupProfileModal = ({
                   style={{
                     color: "rgba(99, 99, 99, 1)",
                     fontFamily: "Inter-Regular",
-                    fontSize: responsiveFontSize(2.2),
+                    fontSize: responsiveScreenFontSize(2.2),
                   }}
                 >
                   Notification
@@ -131,10 +128,10 @@ const GroupProfileModal = ({
             <View style={styles.descriptionContainer}>
               <Text
                 style={{
-                  fontSize: responsiveFontSize(2.1),
+                  fontSize: responsiveScreenFontSize(2.1),
                   fontFamily: "Inter-SemiBold",
-                  paddingTop: responsiveHeight(2),
-                  paddingBottom: responsiveHeight(1.7),
+                  paddingTop: responsiveScreenHeight(2),
+                  paddingBottom: responsiveScreenHeight(1.7),
                 }}
               >
                 Group Description
@@ -143,7 +140,7 @@ const GroupProfileModal = ({
                 style={{
                   color: "rgba(99, 99, 99, 1)",
                   fontFamily: "Inter-Regular",
-                  fontSize: responsiveFontSize(1.8),
+                  fontSize: responsiveScreenFontSize(1.8),
                 }}
               >
                 This group all member are engineers. They are very friendly and
@@ -153,8 +150,8 @@ const GroupProfileModal = ({
                 style={{
                   borderBottomWidth: 0.5,
                   borderColor: "rgba(0, 0, 0, 0.2)",
-                  marginTop: responsiveHeight(2.7),
-                  marginBottom: responsiveHeight(1.5),
+                  marginTop: responsiveScreenHeight(2.7),
+                  marginBottom: responsiveScreenHeight(1.5),
                 }}
               ></View>
             </View>
@@ -209,56 +206,56 @@ const styles = StyleSheet.create({
   // --------------------------
   invitationLinkText: {
     fontFamily: "Inter-Regular",
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveScreenFontSize(2),
     color: "#17855F",
   },
   invitationLinkContainer: {
     flexDirection: "row",
-    gap: responsiveWidth(1),
+    gap: responsiveScreenWidth(1),
     alignItems: "center",
-    paddingBottom: responsiveHeight(2),
+    paddingBottom: responsiveScreenHeight(2),
   },
   // --------------------------
   // ----------- Member Container -----------
   // --------------------------
   memberNumberText: {
     fontFamily: "Inter-Regular",
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveScreenFontSize(2),
     color: "#666",
   },
   addMemberText: {
     fontFamily: "Inter-Regular",
-    fontSize: responsiveFontSize(1.8),
+    fontSize: responsiveScreenFontSize(1.8),
     color: "#17855F",
   },
   memberNumberContainer: {
     flexDirection: "row",
-    gap: responsiveWidth(1),
+    gap: responsiveScreenWidth(1),
     alignItems: "center",
   },
   addMemberContainer: {
     alignItems: "center",
     flexDirection: "row",
-    gap: responsiveWidth(1),
+    gap: responsiveScreenWidth(1),
   },
   memberContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingBottom: responsiveHeight(2.5),
+    paddingBottom: responsiveScreenHeight(2.5),
   },
   cameraIcon: {
     position: "absolute",
-    bottom: responsiveWidth(4),
-    right: responsiveWidth(3),
-    padding: responsiveWidth(2.3),
+    bottom: responsiveScreenWidth(4),
+    right: responsiveScreenWidth(3),
+    padding: responsiveScreenWidth(2.3),
     backgroundColor: "rgba(242, 243, 246, 1)",
     borderRadius: 100,
   },
   editIcon: {
     position: "absolute",
-    top: responsiveWidth(4),
-    right: responsiveWidth(4),
+    top: responsiveScreenWidth(4),
+    right: responsiveScreenWidth(4),
   },
   // --------------------------
   // ----------- Dummy Container -----------
@@ -266,10 +263,10 @@ const styles = StyleSheet.create({
   dummyContainer: {
     flexDirection: "row",
     justifyContent: "space-evenly",
-    marginVertical: responsiveHeight(1),
+    marginVertical: responsiveScreenHeight(1),
     borderBottomWidth: 1,
     borderBottomColor: "rgba(0, 0, 0, 0.1)",
-    paddingVertical: responsiveHeight(1),
+    paddingVertical: responsiveScreenHeight(1),
   },
   // --------------------------
   // ----------- Notification Container -----------
@@ -278,23 +275,23 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: responsiveHeight(2),
-    marginTop: responsiveHeight(0.5),
+    marginBottom: responsiveScreenHeight(2),
+    marginTop: responsiveScreenHeight(0.5),
   },
   notificationSubContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: responsiveWidth(2),
+    gap: responsiveScreenWidth(2),
   },
   blockContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: responsiveWidth(2),
-    marginVertical: responsiveHeight(1),
+    gap: responsiveScreenWidth(2),
+    marginVertical: responsiveScreenHeight(1),
   },
   ContainerText: {
     fontFamily: "Inter-Regular",
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveScreenFontSize(2),
     color: "rgba(99, 99, 99, 1)",
   },
   // --------------------------
@@ -303,7 +300,7 @@ const styles = StyleSheet.create({
   descriptionContainer: {
     borderTopWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
-    // paddingBottom: responsiveHeight(3),
+    // paddingBottom: responsiveScreenHeight(3),
   },
   // --------------------------
   // ----------- Main Container -----------
@@ -312,21 +309,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    paddingHorizontal: responsiveWidth(5),
-    paddingVertical: responsiveHeight(2.5),
+    paddingHorizontal: responsiveScreenWidth(5),
+    paddingVertical: responsiveScreenHeight(2.5),
     backgroundColor: "white",
-    borderRadius: responsiveWidth(2),
+    borderRadius: responsiveScreenWidth(2),
   },
   modalArrowIcon: {
-    fontSize: responsiveFontSize(2.5),
-    paddingBottom: responsiveHeight(0.8),
+    fontSize: responsiveScreenFontSize(2.5),
+    paddingBottom: responsiveScreenHeight(0.8),
     color: "rgba(71, 71, 72, 1)",
   },
   profileImageContainer: {
-    height: responsiveHeight(30),
-    width: responsiveWidth(80),
+    height: responsiveScreenHeight(30),
+    width: responsiveScreenWidth(80),
     resizeMode: "cover",
-    borderRadius: responsiveHeight(1),
+    borderRadius: responsiveScreenHeight(1),
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
@@ -338,22 +335,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: responsiveHeight(1.7),
+    paddingVertical: responsiveScreenHeight(1.7),
   },
   profileName: {
     fontFamily: "Inter-SemiBold",
-    fontSize: responsiveFontSize(3),
+    fontSize: responsiveScreenFontSize(3),
     color: "rgba(0, 0, 0, 0.8)",
   },
   activeStatusContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: responsiveWidth(2),
+    gap: responsiveScreenWidth(2),
   },
   activeDot: {
-    width: responsiveWidth(3.3),
-    height: responsiveWidth(3.3),
-    borderRadius: responsiveWidth(100),
+    width: responsiveScreenWidth(3.3),
+    height: responsiveScreenWidth(3.3),
+    borderRadius: responsiveScreenWidth(100),
     color: "rgba(0, 0, 0, 0.6)",
   },
 });

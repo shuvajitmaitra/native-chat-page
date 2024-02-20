@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
+import { responsiveScreenFontSize, responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions'
 import ThreeDotGrayIcon from '../../../assets/svgs/ThreeDotGrayIcon'
 import Fonts from '../../../assets/Fonts/Fonts'
 
@@ -36,30 +36,30 @@ const styles = StyleSheet.create({
   roleText:{
     color: "rgba(0, 0, 0, 0.5)",
     fontFamily: "Inter-Regular",
-    fontSize: responsiveFontSize(1.5)
+    fontSize: responsiveScreenFontSize(1.5)
   },
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: responsiveHeight(1),
+    paddingVertical: responsiveScreenHeight(1),
     borderTopWidth: 1,
     borderTopColor: "rgba(0, 0, 0, 0.1)",
   },
   profileImageContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: responsiveWidth(4),
+    gap: responsiveScreenWidth(4),
   },
   profileImage: {
-    width: responsiveWidth(10),
-    height: responsiveWidth(10),
-    borderRadius: responsiveWidth(100),
+    width: responsiveScreenWidth(10),
+    height: responsiveScreenWidth(10),
+    borderRadius: responsiveScreenWidth(100),
     resizeMode: "cover",
     position: "relative",
   },
   profileName: {
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveScreenFontSize(2),
 
     fontWeight: "500",
     color: "black",
@@ -67,11 +67,11 @@ const styles = StyleSheet.create({
   },
   status: {
     color: "rgba(11, 42, 70, 1)",
-    fontSize: responsiveFontSize(1.9),
-    paddingVertical: responsiveHeight(0.2),
+    fontSize: responsiveScreenFontSize(1.9),
+    paddingVertical: responsiveScreenHeight(0.2),
   },
   commentsTime: {
     color: "rgba(111, 116, 124, 1)",
-    fontSize: responsiveFontSize(1.9),
+    fontSize: responsiveScreenFontSize(1.9),
   },
 });

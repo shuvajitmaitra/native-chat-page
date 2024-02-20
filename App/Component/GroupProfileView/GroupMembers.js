@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import SearchAndFilter from "../SearchAndFilter";
-import { responsiveFontSize, responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
+import { responsiveScreenFontSize, responsiveScreenHeight, responsiveScreenWidth } from "react-native-responsive-dimensions";
 import GroupMemberInfo from "./GroupMemberInfo";
 import ArrowRight from "../../../assets/svgs/ArrowRight";
 
@@ -47,7 +47,7 @@ const GroupMembers = () => {
   return (
     <View style={styles.groupTabViewContainer}>
       <SearchAndFilter />
-      <View style={{paddingTop: responsiveHeight(0.7)}}>
+      <View style={{paddingTop: responsiveScreenHeight(0.7)}}>
         {
           data.map((item, index)=> <GroupMemberInfo key={index} item={item} index={index}/>)
         }
@@ -56,15 +56,15 @@ const GroupMembers = () => {
           style={{
             flexDirection: "row",
             alignItems: "center",
-            gap: responsiveWidth(2),
-            paddingVertical: responsiveHeight(1),
+            gap: responsiveScreenWidth(2),
+            paddingVertical: responsiveScreenHeight(1),
           }}
         >
           <Text
             style={{
               color: "rgba(39, 172, 31, 1)",
               fontFamily: "Inter-SemiBold",
-              fontSize: responsiveFontSize(1.8),
+              fontSize: responsiveScreenFontSize(1.8),
             }}
           >
             See More
@@ -79,7 +79,7 @@ export default GroupMembers;
 
 const styles = StyleSheet.create({
   groupTabViewContainer: {
-    paddingTop: responsiveHeight(0.5),
+    paddingTop: responsiveScreenHeight(0.5),
     // backgroundColor: "red"
   },
 });

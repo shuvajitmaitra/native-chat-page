@@ -2,9 +2,9 @@ import { ScrollView, StyleSheet, Text } from "react-native";
 import React from "react";
 import SearchAndFilter from "../Component/SearchAndFilter";
 import {
-  responsiveFontSize,
-  responsiveHeight,
-  responsiveWidth,
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import Chat from "../Component/Chat";
 
@@ -20,8 +20,8 @@ const TotalChats = () => {
       <Text
         style={{
           fontWeight: "600",
-          marginVertical: responsiveHeight(2.5),
-          fontSize: responsiveFontSize(2.7),
+          marginVertical: responsiveScreenHeight(2.5),
+          fontSize: responsiveScreenFontSize(2.7),
         }}
       >
         Recent
@@ -108,7 +108,7 @@ export default TotalChats;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#F8F8F8",
-    paddingHorizontal: responsiveWidth(4),
-    paddingTop: responsiveHeight(3),
+    paddingHorizontal: responsiveScreenWidth(4),
+    paddingTop: responsiveScreenHeight(3),
   },
 });
