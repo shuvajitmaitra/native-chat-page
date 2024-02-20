@@ -1,12 +1,12 @@
 import { ScrollView, StyleSheet, Text } from "react-native";
 import React from "react";
-import SearchAndFilter from "../Component/SearchAndFilter";
 import {
   responsiveScreenFontSize,
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import Chat from "../Component/Chat";
+import SearchAndFilter from "../Component/SharedComponent/SearchAndFilter";
 
 const TotalChats = () => {
   const women1 = require("../../assets/Images/women1.png");

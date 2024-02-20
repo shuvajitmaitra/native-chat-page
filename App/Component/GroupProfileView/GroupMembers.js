@@ -1,6 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import SearchAndFilter from "../SearchAndFilter";
 import {
   responsiveScreenFontSize,
   responsiveScreenHeight,
@@ -8,6 +7,7 @@ import {
 } from "react-native-responsive-dimensions";
 import GroupMemberInfo from "./GroupMemberInfo";
 import ArrowRight from "../../../assets/svgs/ArrowRight";
+import SearchAndFilter from "../SharedComponent/SearchAndFilter";
 
 const GroupMembers = () => {
   const data = [

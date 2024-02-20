@@ -12,17 +12,12 @@ import {
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
-import { useFonts } from "expo-font";
+import { Popover, PopoverController } from "react-native-modal-popover";
+import Fonts from "../../../assets/Fonts/Fonts";
+import SearchIcon from "../../../assets/svgs/SearchIcon";
+import VolumeIcon from "../../../assets/svgs/Volume";
 
 const SearchAndFilter = () => {
-  const [fontsLoaded] = useFonts({
-    "Inter-Bold": require("../../assets/Fonts/Inter-Bold.ttf"),
-    "Inter-Medium": require("../../assets/Fonts/Inter-Medium.ttf"),
-    "Inter-Regular": require("../../assets/Fonts/Inter-Regular.ttf"),
-  });
-  if (!fontsLoaded) {
-    return <Text>Loading...</Text>;
-  }
   return (
     <View style={styles.topContainer}>
       <View style={styles.inputField}>
@@ -33,15 +28,60 @@ const SearchAndFilter = () => {
         />
         <Feather style={styles.inputFieldIcon} name="search" />
       </View>
-      <TouchableOpacity style={styles.filterButton}>
-        <Feather
-          name="filter"
-          size={24}
-          color="black"
-          style={styles.filterButtonIcon}
-        />
-        <Text style={styles.filterButtonText}>Filter</Text>
-      </TouchableOpacity>
+
+      <PopoverController>
+        {({
+          openPopover,
+          closePopover,
+          popoverVisible,
+          setPopoverAnchor,
+          popoverAnchorRect,
+        }) => (
+          <React.Fragment>
+            <TouchableOpacity
+              ref={setPopoverAnchor}
+              onPress={openPopover}
+              style={styles.filterButton}
+            >
+              <Feather
+                name="filter"
+                size={24}
+                color="black"
+                style={styles.filterButtonIcon}
+              />
+              <Text style={styles.filterButtonText}>Filter</Text>
+            </TouchableOpacity>
+            <Popover
+              contentStyle={styles.content}
+              arrowStyle={styles.arrow}
+              backgroundStyle={styles.background}
+              visible={popoverVisible}
+              onClose={closePopover}
+              fromRect={popoverAnchorRect}
+              supportedOrientations={["portrait", "landscape"]}
+            >
+              <View>
+                <View style={styles.buttonContainer}>
+                  <TouchableOpacity>
+                    <View style={styles.iconAndTextContainer}>
+                      <VolumeIcon />
+                      <Text style={styles.buttonText}>Mute Notification</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.buttonContainer}>
+                  <TouchableOpacity>
+                    <View style={styles.iconAndTextContainer}>
+                      <SearchIcon />
+                      <Text style={styles.buttonText}>Search</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </Popover>
+          </React.Fragment>
+        )}
+      </PopoverController>
     </View>
   );
 };
@@ -92,5 +132,26 @@ const styles = StyleSheet.create({
     fontSize: responsiveScreenFontSize(1.9),
     fontFamily: "Inter-Regular",
     color: "white",
+  },
+  threeDotIcon: {
+    paddingHorizontal: responsiveScreenWidth(1),
+  },
+  buttonText: {
+    fontSize: responsiveScreenFontSize(2),
+    color: "#666",
+  },
+  iconAndTextContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: responsiveScreenWidth(3),
+  },
+  buttonContainer: {
+    paddingVertical: responsiveScreenHeight(1.5),
+    paddingHorizontal: responsiveScreenWidth(1.5),
+    borderBottomWidth: 1,
+    borderBottomColor: "rgba(0, 0, 0, 0.1)",
+  },
+  content: {
+    borderRadius: 8,
   },
 });
