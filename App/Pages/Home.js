@@ -16,6 +16,7 @@ import ChatMuteModal from "../Component/ChatMuteModal";
 import ViewProfile from "../Component/ViewProfileModal/ViewProfile";
 import ThreeDotPopUp from "../Component/ThreeDotPopUp/ThreeDotPopUp";
 import GroupProfileModal from "../Component/GroupProfileView/GroupProfileModal";
+import CrowdFromModal from "../Component/CrowdFromModal/CrowdFromModal";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -23,6 +24,7 @@ const Home = ({ navigation }) => {
   const [isProfileModalVisible, setProfileModalVisible] = useState(false);
   const [isGroupProfileModalVisible, setGroupProfileModalVisible] =
     useState(false);
+  const [isCrowdFromVisible, setCrowdFromVisible] = useState(false);
 
   {
     /* -------------------------- */
@@ -44,6 +46,9 @@ const Home = ({ navigation }) => {
   };
   const toggleGroupProfileModal = () => {
     setGroupProfileModalVisible(!isGroupProfileModalVisible);
+  };
+  const toggleCrowdFromModal = () => {
+    setCrowdFromVisible(!isCrowdFromVisible);
   };
 
   return (
@@ -137,6 +142,19 @@ const Home = ({ navigation }) => {
       <GroupProfileModal
         toggleGroupProfileModal={toggleGroupProfileModal}
         isGroupProfileModalVisible={isGroupProfileModalVisible}
+      />
+      {/* -------------------------- */}
+      {/* ----------- Crowd From ----------- */}
+      {/* -------------------------- */}
+      <TouchableOpacity
+        style={styles.navigationButton}
+        onPress={toggleCrowdFromModal}
+      >
+        <Text style={styles.navigationButtonText}>Crowd From</Text>
+      </TouchableOpacity>
+      <CrowdFromModal
+        toggleCrowdFromModal={toggleCrowdFromModal}
+        isCrowdFromVisible={isCrowdFromVisible}
       />
     </View>
   );

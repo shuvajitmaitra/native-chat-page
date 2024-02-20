@@ -25,6 +25,7 @@ import PlusCircle from "../../../assets/svgs/PlusCircle";
 import MembersIcon from "../../../assets/svgs/MembersIcon";
 import LinkIcon from "../../../assets/svgs/LinkIcon";
 import GroupTabView from "./GroupTabView";
+
 const GroupProfileModal = ({
   toggleGroupProfileModal,
   isGroupProfileModalVisible,
