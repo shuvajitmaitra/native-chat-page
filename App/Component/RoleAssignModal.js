@@ -7,6 +7,7 @@ import {
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 import { FontAwesome6 } from "@expo/vector-icons";
+import Fonts from "../../assets/Fonts/Fonts";
 import { RadioButton, Text } from "react-native-paper";
 import CustomModalButton from "./CustomButton";
 
@@ -122,7 +123,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
     paddingHorizontal: responsiveScreenWidth(4.5),
-    paddingVertical: responsiveScreenHeight(0.8),
+    paddingBottom: responsiveScreenHeight(0),
+    paddingTop: responsiveScreenHeight(2)
   },
   modalHeading: {
     flexDirection: "row",
@@ -139,8 +141,9 @@ const styles = StyleSheet.create({
     color: "rgba(71, 71, 72, 1)",
   },
   modalHeadingText: {
-    fontSize: responsiveScreenFontSize(2.5),
+    fontSize: responsiveScreenFontSize(2.3),
     color: "rgba(71, 71, 72, 1)",
+    fontFamily: 'Inter-Medium'
   },
   radioButton: {
     flexDirection: "row",
