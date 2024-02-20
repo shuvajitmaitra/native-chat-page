@@ -54,7 +54,7 @@ const GroupProfileModal = ({
                   height: responsiveScreenHeight(20),
                   resizeMode: "cover",
                 }}
-                source={require("../../../assets/peopleGroup.png")}
+                source={require("../../../assets/Images/peopleGroup.png")}
               />
               <TouchableOpacity style={styles.cameraIcon}>
                 <CameraIcon />

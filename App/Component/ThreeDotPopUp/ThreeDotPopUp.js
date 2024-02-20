@@ -24,7 +24,11 @@ const ThreeDotPopUp = () => (
         popoverAnchorRect,
       }) => (
         <React.Fragment>
-          <TouchableOpacity ref={setPopoverAnchor} onPress={openPopover}>
+          <TouchableOpacity
+            style={styles.threeDotIcon}
+            ref={setPopoverAnchor}
+            onPress={openPopover}
+          >
             <ThreeDotIcon />
           </TouchableOpacity>
           <Popover
@@ -88,6 +92,9 @@ const ThreeDotPopUp = () => (
 export default ThreeDotPopUp;
 
 const styles = StyleSheet.create({
+  threeDotIcon: {
+    paddingHorizontal: responsiveScreenWidth(1),
+  },
   buttonText: {
     fontSize: responsiveScreenFontSize(2),
     color: "#666",

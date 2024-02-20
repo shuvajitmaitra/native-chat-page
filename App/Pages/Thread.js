@@ -26,35 +26,35 @@ const Thread = () => {
   const threadData = [
     {
       profileName: "Priyanka Parvej",
-      profileImage: require("../../assets/women2.png"),
+      profileImage: require("../../assets/Images/women2.png"),
       comments: "Hello",
       commentsTimes: "Just now",
       isPersonActive: false,
     },
     {
       profileName: "Priyanka Parvej",
-      profileImage: require("../../assets/women2.png"),
+      profileImage: require("../../assets/Images/women2.png"),
       comments: "Hello",
       commentsTimes: "Yesterday",
       isPersonActive: false,
     },
     {
       profileName: "Priyanka Parvej",
-      profileImage: require("../../assets/women2.png"),
+      profileImage: require("../../assets/Images/women2.png"),
       comments: "Hello",
       commentsTimes: "Jan 12, 2024",
       isPersonActive: false,
     },
     {
       profileName: "Priyanka Parvej",
-      profileImage: require("../../assets/women2.png"),
+      profileImage: require("../../assets/Images/women2.png"),
       comments: "Hello",
       commentsTimes: "Jan 12, 2024",
       isPersonActive: false,
     },
     {
       profileName: "Priyanka Parvej",
-      profileImage: require("../../assets/women2.png"),
+      profileImage: require("../../assets/Images/women2.png"),
       comments: "Hello",
       commentsTimes: "Jan 12, 2024",
       isPersonActive: false,
@@ -107,7 +107,7 @@ const Thread = () => {
             <View>
               <Image
                 style={styles.profileImage}
-                source={require("../../assets/women2.png")}
+                source={require("../../assets/Images/women2.png")}
               />
 
               <View

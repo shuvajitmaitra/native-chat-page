@@ -58,7 +58,7 @@ const ViewProfile = ({
           <View>
             <Image
               style={styles.profileImage}
-              source={require("../../../assets/women1.png")}
+              source={require("../../../assets/Images/women1.png")}
             />
             {/* -------------------------- */}
             {/* ----------- Profile Name Container ----------- */}

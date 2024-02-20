@@ -9,11 +9,11 @@ import {
 import Chat from "../Component/Chat";
 
 const TotalChats = () => {
-  const women1 = require("../../assets/women1.png");
-  const women2 = require("../../assets/women2.png");
-  const women3 = require("../../assets/women3.png");
-  const women4 = require("../../assets/women4.png");
-  const women5 = require("../../assets/women5.png");
+  const women1 = require("../../assets/Images/women1.png");
+  const women2 = require("../../assets/Images/women2.png");
+  const women3 = require("../../assets/Images/women3.png");
+  const women4 = require("../../assets/Images/women4.png");
+  const women5 = require("../../assets/Images/women5.png");
   return (
     <ScrollView style={styles.container}>
       <SearchAndFilter />

@@ -10,31 +10,31 @@ import ArrowRight from "../../../assets/svgs/ArrowRight";
 const ImageGallary = () => {
   const data = [
     {
-      image: require("../../../assets/women6.png"),
+      image: require("../../../assets/Images/women6.png"),
     },
     {
-      image: require("../../../assets/man1.png"),
+      image: require("../../../assets/Images/man1.png"),
     },
     {
-      image: require("../../../assets/women4.png"),
+      image: require("../../../assets/Images/women4.png"),
     },
     {
-      image: require("../../../assets/man2.png"),
+      image: require("../../../assets/Images/man2.png"),
     },
     {
-      image: require("../../../assets/women7.png"),
+      image: require("../../../assets/Images/women7.png"),
     },
     {
-      image: require("../../../assets/women8.png"),
+      image: require("../../../assets/Images/women8.png"),
     },
     {
-      image: require("../../../assets/women5.png"),
+      image: require("../../../assets/Images/women5.png"),
     },
     {
-      image: require("../../../assets/women9.png"),
+      image: require("../../../assets/Images/women9.png"),
     },
     {
-      image: require("../../../assets/man3.png"),
+      image: require("../../../assets/Images/man3.png"),
     },
   ];
   return (

@@ -13,25 +13,25 @@ const UploadedFile = () => {
   const data = [
     {
       fileName: "Group 20.jpg",
-      fileURL: require("../../../assets/file.png"),
+      fileURL: require("../../../assets/Images/file.png"),
       fileSize: "199.4KB",
       dateTime: "30.11.23 at 12:30 PM",
     },
     {
       fileName: "Group 20.jpg",
-      fileURL: require("../../../assets/file.png"),
+      fileURL: require("../../../assets/Images/file.png"),
       fileSize: "199.4KB",
       dateTime: "30.11.23 at 12:30 PM",
     },
     {
       fileName: "Group 20.jpg",
-      fileURL: require("../../../assets/file.png"),
+      fileURL: require("../../../assets/Images/file.png"),
       fileSize: "199.4KB",
       dateTime: "30.11.23 at 12:30 PM",
     },
     {
       fileName: "Group 20.jpg",
-      fileURL: require("../../../assets/file.png"),
+      fileURL: require("../../../assets/Images/file.png"),
       fileSize: "199.4KB",
       dateTime: "30.11.23 at 12:30 PM",
     },
