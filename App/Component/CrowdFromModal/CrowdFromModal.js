@@ -46,6 +46,7 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
             <CrossIcon />
           </TouchableOpacity>
         </View>
+        <View style={styles.bottomBorder}></View>
         {/* -------------------------- */}
         {/* ----------- Main View Start form here ----------- */}
         {/* -------------------------- */}
@@ -61,10 +62,29 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
             {/* -------------------------- */}
             {/* ----------- Crowd Name Container ----------- */}
             {/* -------------------------- */}
-            <View style={styles.crowdNameContainer}>
-              <Text style={styles.crowdNameText}>Crowd Name*</Text>
+            <View style={styles.fieldContainer}>
+              <Text style={styles.Text}>Crowd Name *</Text>
               <TextInput style={styles.inputField} placeholder="Group Name" />
             </View>
+            <View style={styles.fieldContainer}>
+              <Text style={styles.Text}>Crowd Description</Text>
+              <TextInput
+                style={[
+                  styles.inputField,
+                  { paddingBottom: responsiveScreenHeight(8) },
+                ]}
+                placeholder="Enter Crowd Description"
+              />
+            </View>
+            <View style={styles.fieldContainer}>
+              <Text style={styles.Text}>Crowd Type</Text>
+              <TextInput style={styles.inputField} placeholder="Group Name" />
+            </View>
+            <View style={styles.fieldContainer}>
+              <Text style={styles.Text}>Read Only</Text>
+              <TextInput style={styles.inputField} placeholder="No" />
+            </View>
+            <View style={styles.bottomBorder}></View>
           </View>
         </ScrollView>
       </View>
@@ -75,16 +95,22 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
 export default CrowdFromModal;
 
 const styles = StyleSheet.create({
+  bottomBorder: {
+    borderBottomWidth: 0.5,
+    borderBottomColor: "rgba(0, 0, 0, 0.3)",
+  },
   // --------------------------
   // ----------- Crowd Name Container -----------
   // --------------------------
-  crowdNameContainer: {},
-  crowdNameText: {
+  fieldContainer: {
+    // marginBottom: responsiveScreenHeight(1),
+    // backgroundColor: "red",
+  },
+  Text: {
     fontFamily: "Inter-Medium",
-    fontSize: responsiveScreenFontSize(2),
-    fontSize: responsiveScreenFontSize(2.5),
-    color: "rgba(11, 42, 70, 1)",
+    fontSize: responsiveScreenFontSize(1.8),
     marginBottom: responsiveScreenHeight(1),
+    color: "rgba(11, 42, 70, 1)",
   },
   inputField: {
     backgroundColor: "rgba(238, 238, 238, 1)",
@@ -131,8 +157,8 @@ const styles = StyleSheet.create({
     minWidth: "100%",
   },
   subContainer: {
-    height: responsiveScreenHeight(30),
-    width: responsiveScreenWidth(80),
+    minHeight: responsiveScreenHeight(30),
+    minWidth: responsiveScreenWidth(80),
   },
   modalArrowIcon: {
     paddingBottom: responsiveScreenHeight(0.8),
