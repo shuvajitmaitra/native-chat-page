@@ -160,10 +160,6 @@ const styles = StyleSheet.create({
   // ----------- Main Container -----------
   // --------------------------
   container: {
-    // flex: 1,
-    // justifyContent: "flex-start",
-    // alignItems: "flex-start",
-    // maxHeight: "93%",
     paddingHorizontal: responsiveScreenWidth(5),
     paddingVertical: responsiveScreenHeight(2.5),
     backgroundColor: "white",
