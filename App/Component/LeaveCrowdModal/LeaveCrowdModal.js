@@ -49,13 +49,13 @@ const LeaveCrowdModal = ({ toggleLeaveCrowdModal, isLeaveCrowdModalVisible }) =>
                     </View>
           <View style={styles.buttonContainer}>
             <CustomButton
-              toggleLeaveCrowdModal={toggleLeaveCrowdModal}
+              toggleModal={toggleLeaveCrowdModal}
               textColor="#27ac1f"
               backgroundColor="rgba(39, 172, 31, 0.1)"
               buttonText="Cancel"
             />
             <CustomButton
-              toggleLeaveCrowdModal={toggleLeaveCrowdModal}
+              toggleModal={toggleLeaveCrowdModal}
               textColor="white"
               backgroundColor="#27ac1f"
               buttonText="Save"

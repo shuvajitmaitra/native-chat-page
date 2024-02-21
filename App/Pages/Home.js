@@ -18,6 +18,7 @@ import ThreeDotPopUp from "../Component/ThreeDotPopUp/ThreeDotPopUp";
 import GroupProfileModal from "../Component/GroupProfileView/GroupProfileModal";
 import CrowdFromModal from "../Component/CrowdFromModal/CrowdFromModal";
 import LeaveCrowdModal from "../Component/LeaveCrowdModal/LeaveCrowdModal";
+import ReportModal from "../Component/ReportModal/ReportModal";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -28,6 +29,7 @@ const Home = ({ navigation }) => {
   const [isCrowdFromVisible, setCrowdFromVisible] = useState(false);
 
   const [isLeaveCrowdModalVisible, setLeaveCrowdModalVisible] = useState(false)
+  const [isReportModalVisiable, setReportModalVisiable] = useState(false)
   {
     /* -------------------------- */
   }
@@ -54,6 +56,9 @@ const Home = ({ navigation }) => {
   };
  const toggleLeaveCrowdModal = () => {
     setLeaveCrowdModalVisible(!isLeaveCrowdModalVisible);
+  };
+ const toggleReportModal = () => {
+    setReportModalVisiable(!isReportModalVisiable);
   };
   return (
     <View style={styles.container}>
@@ -160,7 +165,7 @@ const Home = ({ navigation }) => {
         toggleCrowdFromModal={toggleCrowdFromModal}
         isCrowdFromVisible={isCrowdFromVisible}
       />
-            {/* -------------------------- */}
+      {/* -------------------------- */}
       {/* ----------- Leave Crowd Modal ----------- */}
       {/* -------------------------- */}
       <TouchableOpacity style={styles.navigationButton} onPress={toggleLeaveCrowdModal}>
@@ -170,6 +175,16 @@ const Home = ({ navigation }) => {
       <LeaveCrowdModal
         toggleLeaveCrowdModal={toggleLeaveCrowdModal}
         isLeaveCrowdModalVisible={isLeaveCrowdModalVisible}/>
+      {/* -------------------------- */}
+      {/* ----------- Report Modal ----------- */}
+      {/* -------------------------- */}
+      <TouchableOpacity style={styles.navigationButton} onPress={toggleReportModal}>
+        <Text style={styles.navigationButtonText}>Report Modal</Text>
+      </TouchableOpacity>
+
+      <ReportModal
+        toggleReportModal={toggleReportModal}
+        isReportModalVisiable={isReportModalVisiable}/>
     </View>
   );
 };
