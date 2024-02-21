@@ -9,7 +9,7 @@ import {
 import { FontAwesome6 } from "@expo/vector-icons";
 import Fonts from "../../assets/Fonts/Fonts";
 import { RadioButton, Text } from "react-native-paper";
-import CustomModalButton from "./CustomButton";
+import CustomButton from "./CustomButton";
 
 const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
   const [value, setValue] = React.useState("admin");
@@ -90,13 +90,13 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
             </RadioButton.Group>
           </View>
           <View style={styles.buttonContainer}>
-            <CustomModalButton
+            <CustomButton
               toggleModal={toggleModal}
               textColor="#27ac1f"
               backgroundColor="rgba(39, 172, 31, 0.1)"
               buttonText="Cancel"
             />
-            <CustomModalButton
+            <CustomButton
               toggleModal={toggleModal}
               textColor="white"
               backgroundColor="#27ac1f"

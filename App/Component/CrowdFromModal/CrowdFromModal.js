@@ -14,10 +14,10 @@ import {
   responsiveScreenFontSize,
   responsiveScreenHeight,
   responsiveScreenWidth,
-  responsiveWidth,
 } from "react-native-responsive-dimensions";
 import Modal from "react-native-modal";
 import CrowdIcon from "../../../assets/svgs/CrowdIcon";
+import CustomButton from "../CustomButton";
 
 const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
   const width = Dimensions.get("window").width;
@@ -85,6 +85,20 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
               <TextInput style={styles.inputField} placeholder="No" />
             </View>
             <View style={styles.bottomBorder}></View>
+           <View style={styles.buttonContainer}>
+            <CustomButton
+              toggleModal={toggleCrowdFromModal}
+              textColor="#27ac1f"
+              backgroundColor="rgba(39, 172, 31, 0.1)"
+              buttonText="Cancel"
+            />
+            <CustomButton
+              toggleModal={toggleCrowdFromModal}
+              textColor="white"
+              backgroundColor="#27ac1f"
+              buttonText="Update"
+            />
+          </View>
           </View>
         </ScrollView>
       </View>
@@ -95,6 +109,12 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
 export default CrowdFromModal;
 
 const styles = StyleSheet.create({
+    buttonContainer: {
+    flexDirection: "row",
+    gap: responsiveScreenWidth(2.5),
+    justifyContent: "center",
+    paddingVertical: responsiveScreenHeight(2.5),
+  },
   bottomBorder: {
     borderBottomWidth: 0.5,
     borderBottomColor: "rgba(0, 0, 0, 0.3)",
@@ -146,6 +166,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "flex-start",
+    minHeight: "50%",
     paddingHorizontal: responsiveScreenWidth(5),
     paddingVertical: responsiveScreenHeight(2.5),
     backgroundColor: "white",

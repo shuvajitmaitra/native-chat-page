@@ -5,7 +5,7 @@ import {
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
 
-const CustomModalButton = ({
+const CustomButton = ({
   textColor,
   backgroundColor,
   buttonText,
@@ -23,7 +23,7 @@ const CustomModalButton = ({
   );
 };
 
-export default CustomModalButton;
+export default CustomButton;
 
 const styles = StyleSheet.create({
   button: {
