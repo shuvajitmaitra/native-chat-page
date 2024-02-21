@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    minHeight: "50%",
+    maxHeight: "93%",
     paddingHorizontal: responsiveScreenWidth(5),
     paddingVertical: responsiveScreenHeight(2.5),
     backgroundColor: "white",
