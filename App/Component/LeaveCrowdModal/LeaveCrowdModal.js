@@ -55,6 +55,7 @@ const LeaveCrowdModal = ({ toggleLeaveCrowdModal, isLeaveCrowdModalVisible }) =>
               buttonText="Cancel"
             />
             <CustomButton
+
               toggleModal={toggleLeaveCrowdModal}
               textColor="white"
               backgroundColor="#27ac1f"
@@ -70,6 +71,7 @@ const LeaveCrowdModal = ({ toggleLeaveCrowdModal, isLeaveCrowdModalVisible }) =>
 export default LeaveCrowdModal;
 
 const styles = StyleSheet.create({
+  // ------------------
   // Main Content
   mainContentText:{
     fontFamily: "Inter-SemiBold",
