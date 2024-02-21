@@ -17,6 +17,7 @@ import ViewProfile from "../Component/ViewProfileModal/ViewProfile";
 import ThreeDotPopUp from "../Component/ThreeDotPopUp/ThreeDotPopUp";
 import GroupProfileModal from "../Component/GroupProfileView/GroupProfileModal";
 import CrowdFromModal from "../Component/CrowdFromModal/CrowdFromModal";
+import LeaveCrowdModal from "../Component/LeaveCrowdModal/LeaveCrowdModal";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -26,6 +27,7 @@ const Home = ({ navigation }) => {
     useState(false);
   const [isCrowdFromVisible, setCrowdFromVisible] = useState(false);
 
+  const [isLeaveCrowdModalVisible, setLeaveCrowdModalVisible] = useState(false)
   {
     /* -------------------------- */
   }
@@ -50,7 +52,9 @@ const Home = ({ navigation }) => {
   const toggleCrowdFromModal = () => {
     setCrowdFromVisible(!isCrowdFromVisible);
   };
-
+ const toggleLeaveCrowdModal = () => {
+    setLeaveCrowdModalVisible(!isLeaveCrowdModalVisible);
+  };
   return (
     <View style={styles.container}>
       {/* -------------------------- */}
@@ -156,6 +160,16 @@ const Home = ({ navigation }) => {
         toggleCrowdFromModal={toggleCrowdFromModal}
         isCrowdFromVisible={isCrowdFromVisible}
       />
+            {/* -------------------------- */}
+      {/* ----------- Leave Crowd Modal ----------- */}
+      {/* -------------------------- */}
+      <TouchableOpacity style={styles.navigationButton} onPress={toggleLeaveCrowdModal}>
+        <Text style={styles.navigationButtonText}>Leave Crowd Modal</Text>
+      </TouchableOpacity>
+
+      <LeaveCrowdModal
+        toggleLeaveCrowdModal={toggleLeaveCrowdModal}
+        isLeaveCrowdModalVisible={isLeaveCrowdModalVisible}/>
     </View>
   );
 };

@@ -1,5 +1,4 @@
 import {
-  Dimensions,
   ScrollView,
   StyleSheet,
   Text,
@@ -20,14 +19,11 @@ import CrowdIcon from "../../../assets/svgs/CrowdIcon";
 import CustomButton from "../CustomButton";
 
 const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
-  const width = Dimensions.get("window").width;
-  console.log("width", width);
-  const height = Dimensions.get("window").height;
-  console.log("height", height);
-
+  
   return (
     <Modal isVisible={isCrowdFromVisible}>
-      <View style={styles.container}>
+     <View>
+     <View style={styles.container}>
         {/* -------------------------- */}
         {/* ----------- Back Arrow button ----------- */}
         {/* -------------------------- */}
@@ -46,7 +42,7 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
             <CrossIcon />
           </TouchableOpacity>
         </View>
-        <View style={styles.bottomBorder}></View>
+        {/* <View style={styles.bottomBorder}></View> */}
         {/* -------------------------- */}
         {/* ----------- Main View Start form here ----------- */}
         {/* -------------------------- */}
@@ -102,6 +98,7 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
           </View>
         </ScrollView>
       </View>
+     </View>
     </Modal>
   );
 };
@@ -163,10 +160,10 @@ const styles = StyleSheet.create({
   // ----------- Main Container -----------
   // --------------------------
   container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    maxHeight: "93%",
+    // flex: 1,
+    // justifyContent: "flex-start",
+    // alignItems: "flex-start",
+    // maxHeight: "93%",
     paddingHorizontal: responsiveScreenWidth(5),
     paddingVertical: responsiveScreenHeight(2.5),
     backgroundColor: "white",
