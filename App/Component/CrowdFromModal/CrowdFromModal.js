@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import CrossIcon from "../../../assets/svgs/CrossIcon";
 import {
@@ -17,88 +17,98 @@ import {
 import Modal from "react-native-modal";
 import CrowdIcon from "../../../assets/svgs/CrowdIcon";
 import CustomButton from "../CustomButton";
+import DropDownPicker from "react-native-dropdown-picker";
+import CustomDropDown from "../SharedComponent/CustomDropDown";
 
 const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
-  
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+  ]);
   return (
     <Modal isVisible={isCrowdFromVisible}>
-     <View>
-     <View style={styles.container}>
-        {/* -------------------------- */}
-        {/* ----------- Back Arrow button ----------- */}
-        {/* -------------------------- */}
-        <View style={styles.topBarContainer}>
-          <TouchableOpacity
-            onPress={toggleCrowdFromModal}
-            style={styles.modalArrowIcon}
-          >
-            <ArrowLeft />
-            <Text style={styles.backButtonText}>Back</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.cancelButton}
-            onPress={toggleCrowdFromModal}
-          >
-            <CrossIcon />
-          </TouchableOpacity>
+      <View>
+        <View style={styles.container}>
+          {/* -------------------------- */}
+          {/* ----------- Back Arrow button ----------- */}
+          {/* -------------------------- */}
+          <View style={styles.topBarContainer}>
+            <TouchableOpacity
+              onPress={toggleCrowdFromModal}
+              style={styles.modalArrowIcon}
+            >
+              <ArrowLeft />
+              <Text style={styles.backButtonText}>Back</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.cancelButton}
+              onPress={toggleCrowdFromModal}
+            >
+              <CrossIcon />
+            </TouchableOpacity>
+          </View>
+          {/* <View style={styles.bottomBorder}></View> */}
+          {/* -------------------------- */}
+          {/* ----------- Main View Start form here ----------- */}
+          {/* -------------------------- */}
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={styles.subContainer}>
+              {/* -------------------------- */}
+              {/* ----------- Header container ----------- */}
+              {/* -------------------------- */}
+              <View style={styles.headerContainer}>
+                <CrowdIcon />
+                <Text style={styles.headerText}>Update Crowd</Text>
+              </View>
+              {/* -------------------------- */}
+              {/* ----------- Crowd Name Container ----------- */}
+              {/* -------------------------- */}
+              <View style={styles.fieldContainer}>
+                <Text style={styles.Text}>Crowd Name *</Text>
+                <TextInput style={styles.inputField} placeholder="Group Name" />
+              </View>
+              <View style={styles.fieldContainer}>
+                <Text style={styles.Text}>Crowd Description</Text>
+                <TextInput
+                  style={[
+                    styles.inputField,
+                    { paddingBottom: responsiveScreenHeight(8) },
+                  ]}
+                  placeholder="Enter Crowd Description"
+                />
+              </View>
+              {/* -------------------------- */}
+              {/* ----------- Custom dropdown menu ----------- */}
+              {/* -------------------------- */}
+              <View style={styles.fieldContainer}>
+                <Text style={styles.Text}>Crowd Type</Text>
+                <CustomDropDown />
+              </View>
+              <View style={styles.fieldContainer}>
+                <Text style={styles.Text}>Read Only</Text>
+                <TextInput style={styles.inputField} placeholder="No" />
+              </View>
+              <View style={styles.bottomBorder}></View>
+              <View style={styles.buttonContainer}>
+                <CustomButton
+                  toggleModal={toggleCrowdFromModal}
+                  textColor="#27ac1f"
+                  backgroundColor="rgba(39, 172, 31, 0.1)"
+                  buttonText="Cancel"
+                />
+                <CustomButton
+                  toggleModal={toggleCrowdFromModal}
+                  textColor="white"
+                  backgroundColor="#27ac1f"
+                  buttonText="Update"
+                />
+              </View>
+            </View>
+          </ScrollView>
         </View>
-        {/* <View style={styles.bottomBorder}></View> */}
-        {/* -------------------------- */}
-        {/* ----------- Main View Start form here ----------- */}
-        {/* -------------------------- */}
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={styles.subContainer}>
-            {/* -------------------------- */}
-            {/* ----------- Header container ----------- */}
-            {/* -------------------------- */}
-            <View style={styles.headerContainer}>
-              <CrowdIcon />
-              <Text style={styles.headerText}>Update Crowd</Text>
-            </View>
-            {/* -------------------------- */}
-            {/* ----------- Crowd Name Container ----------- */}
-            {/* -------------------------- */}
-            <View style={styles.fieldContainer}>
-              <Text style={styles.Text}>Crowd Name *</Text>
-              <TextInput style={styles.inputField} placeholder="Group Name" />
-            </View>
-            <View style={styles.fieldContainer}>
-              <Text style={styles.Text}>Crowd Description</Text>
-              <TextInput
-                style={[
-                  styles.inputField,
-                  { paddingBottom: responsiveScreenHeight(8) },
-                ]}
-                placeholder="Enter Crowd Description"
-              />
-            </View>
-            <View style={styles.fieldContainer}>
-              <Text style={styles.Text}>Crowd Type</Text>
-              <TextInput style={styles.inputField} placeholder="Group Name" />
-            </View>
-            <View style={styles.fieldContainer}>
-              <Text style={styles.Text}>Read Only</Text>
-              <TextInput style={styles.inputField} placeholder="No" />
-            </View>
-            <View style={styles.bottomBorder}></View>
-           <View style={styles.buttonContainer}>
-            <CustomButton
-              toggleModal={toggleCrowdFromModal}
-              textColor="#27ac1f"
-              backgroundColor="rgba(39, 172, 31, 0.1)"
-              buttonText="Cancel"
-            />
-            <CustomButton
-              toggleModal={toggleCrowdFromModal}
-              textColor="white"
-              backgroundColor="#27ac1f"
-              buttonText="Update"
-            />
-          </View>
-          </View>
-        </ScrollView>
       </View>
-     </View>
     </Modal>
   );
 };
@@ -106,7 +116,7 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
 export default CrowdFromModal;
 
 const styles = StyleSheet.create({
-    buttonContainer: {
+  buttonContainer: {
     flexDirection: "row",
     gap: responsiveScreenWidth(2.5),
     justifyContent: "center",

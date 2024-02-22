@@ -13,7 +13,6 @@ import CustomButton from "../CustomButton";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import CrossIcon from "../../../assets/svgs/CrossIcon";
 
-
 const ReportModal = ({ toggleReportModal, isReportModalVisiable }) => {
   const [value, setValue] = React.useState("Harassment");
 
@@ -21,127 +20,137 @@ const ReportModal = ({ toggleReportModal, isReportModalVisiable }) => {
     <Modal isVisible={isReportModalVisiable}>
       <View style={styles.modalContainer}>
         <View style={styles.modalChild}>
-            {/* Modal Back Button */}
-<View style={styles.topBarContainer}>
-          <TouchableOpacity
-            onPress={toggleReportModal}
-            style={styles.arrow}
-          >
-            <ArrowLeft />
-            <Text style={styles.backButtonText}>Back</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.cancelButton}
-            onPress={toggleReportModal}
-          >
-            <CrossIcon />
-          </TouchableOpacity>
-        </View>
-                    <View style={styles.bottomBorder}></View>
-                    {/* Main Content */}
-                    <View style={styles.mainContent}>
-                      <Text style={styles.mainContentText}>Report</Text>
-                      <View>
-
-<Text style={styles.mainContentDescription}>Select appropriate reason for report</Text>
-                      </View>
-                      <View style={styles.buttonGroup}>
-            <RadioButton.Group
-              onValueChange={(newValue) => setValue(newValue)}
-              value={value}
+          {/* Modal Back Button */}
+          <View style={styles.topBarContainer}>
+            <TouchableOpacity onPress={toggleReportModal} style={styles.arrow}>
+              <ArrowLeft />
+              <Text style={styles.backButtonText}>Back</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.cancelButton}
+              onPress={toggleReportModal}
             >
-              <View style={styles.radioButton}>
-                <RadioButton
-                  value="hour"
-                  color="#27ac1f"
-                  uncheckedColor="rgba(0, 0, 0, 0.2)"
-                />
-                <Text
-                  style={[
-                    styles.radioText,
-                    {
-                      color: value === "hour" ? "black" : "rgba(0, 0, 0, 0.6)",
-                    },
-                  ]}
-                >
-                  Harassment
-                </Text>
-              </View>
-              <View style={styles.radioButton}>
-                <RadioButton
-                  color="#27ac1f"
-                  value="day"
-                  uncheckedColor="rgba(0, 0, 0, 0.2)"
-                />
-                <Text
-                  style={[
-                    styles.radioText,
-                    {
-                      color: value === "day" ? "black" : "rgba(0, 0, 0, 0.6)",
-                    },
-                  ]}
-                >
-                  Sharing inappropriate things 
-                </Text>
-              </View>
-              <View style={styles.radioButton}>
-                <RadioButton
-                  color="#27ac1f"
-                  value="always"
-                  uncheckedColor="rgba(0, 0, 0, 0.2)"
-                />
-                <Text
-                  style={[
-                    styles.radioText,
-                    {
-                      color:
-                        value === "always" ? "black" : "rgba(0, 0, 0, 0.6)",
-                    },
-                  ]}
-                >
-                 Hate speech
-                </Text>
-              </View>
-              <View style={styles.radioButton}>
-                <RadioButton
-                  color="#27ac1f"
-                  value="custom"
-                  uncheckedColor="rgba(0, 0, 0, 0.2)"
-                />
-                <Text
-                  style={[
-                    styles.radioText,
-                    {
-                      color:
-                        value === "custom" ? "black" : "rgba(0, 0, 0, 0.6)",
-                    },
-                  ]}
-                >
-                 Scams
-                </Text>
-              </View>
-              <View style={styles.radioButton}>
-                <RadioButton
-                  color="#27ac1f"
-                  value="custom"
-                  uncheckedColor="rgba(0, 0, 0, 0.2)"
-                />
-                <Text
-                  style={[
-                    styles.radioText,
-                    {
-                      color:
-                        value === "custom" ? "black" : "rgba(0, 0, 0, 0.6)",
-                    },
-                  ]}
-                >
-                 Others
-                </Text>
-              </View>
-            </RadioButton.Group>
+              <CrossIcon />
+            </TouchableOpacity>
           </View>
+          {/* -------------------------- */}
+          {/* ----------- Bottom border ----------- */}
+          {/* -------------------------- */}
           <View style={styles.bottomBorder}></View>
-                    </View>
+          {/* -------------------------- */}
+          {/* ----------- Main Content ----------- */}
+          {/* -------------------------- */}
+          <View style={styles.mainContent}>
+            <Text style={styles.mainContentText}>Report</Text>
+            <View>
+              <Text style={styles.mainContentDescription}>
+                Select appropriate reason for report
+              </Text>
+            </View>
+            {/* -------------------------- */}
+            {/* ----------- Radio button are start from here ----------- */}
+            {/* -------------------------- */}
+            <View style={styles.buttonGroup}>
+              <RadioButton.Group
+                onValueChange={(newValue) => setValue(newValue)}
+                value={value}
+              >
+                <View style={styles.radioButton}>
+                  <RadioButton
+                    value="Harassment"
+                    color="#27ac1f"
+                    uncheckedColor="rgba(0, 0, 0, 0.2)"
+                  />
+                  <Text
+                    style={[
+                      styles.radioText,
+                      {
+                        color:
+                          value === "hour" ? "black" : "rgba(0, 0, 0, 0.6)",
+                      },
+                    ]}
+                  >
+                    Harassment
+                  </Text>
+                </View>
+                <View style={styles.radioButton}>
+                  <RadioButton
+                    color="#27ac1f"
+                    value="Sharing inappropriate things"
+                    uncheckedColor="rgba(0, 0, 0, 0.2)"
+                  />
+                  <Text
+                    style={[
+                      styles.radioText,
+                      {
+                        color: value === "day" ? "black" : "rgba(0, 0, 0, 0.6)",
+                      },
+                    ]}
+                  >
+                    Sharing inappropriate things
+                  </Text>
+                </View>
+                <View style={styles.radioButton}>
+                  <RadioButton
+                    color="#27ac1f"
+                    value="Hate speech"
+                    uncheckedColor="rgba(0, 0, 0, 0.2)"
+                  />
+                  <Text
+                    style={[
+                      styles.radioText,
+                      {
+                        color:
+                          value === "always" ? "black" : "rgba(0, 0, 0, 0.6)",
+                      },
+                    ]}
+                  >
+                    Hate speech
+                  </Text>
+                </View>
+                <View style={styles.radioButton}>
+                  <RadioButton
+                    color="#27ac1f"
+                    value="Scams"
+                    uncheckedColor="rgba(0, 0, 0, 0.2)"
+                  />
+                  <Text
+                    style={[
+                      styles.radioText,
+                      {
+                        color:
+                          value === "custom" ? "black" : "rgba(0, 0, 0, 0.6)",
+                      },
+                    ]}
+                  >
+                    Scams
+                  </Text>
+                </View>
+                <View style={styles.radioButton}>
+                  <RadioButton
+                    color="#27ac1f"
+                    value="Others"
+                    uncheckedColor="rgba(0, 0, 0, 0.2)"
+                  />
+                  <Text
+                    style={[
+                      styles.radioText,
+                      {
+                        color:
+                          value === "custom" ? "black" : "rgba(0, 0, 0, 0.6)",
+                      },
+                    ]}
+                  >
+                    Others
+                  </Text>
+                </View>
+              </RadioButton.Group>
+            </View>
+            {/* -------------------------- */}
+            {/* ----------- Border Bottom ----------- */}
+            {/* -------------------------- */}
+            <View style={styles.bottomBorder}></View>
+          </View>
           <View style={styles.buttonContainer}>
             <CustomButton
               toggleModal={toggleReportModal}
@@ -153,7 +162,7 @@ const ReportModal = ({ toggleReportModal, isReportModalVisiable }) => {
               toggleModal={toggleReportModal}
               textColor="white"
               backgroundColor="#27ac1f"
-              buttonText="Save"
+              buttonText="Report"
             />
           </View>
         </View>
@@ -165,7 +174,7 @@ const ReportModal = ({ toggleReportModal, isReportModalVisiable }) => {
 export default ReportModal;
 
 const styles = StyleSheet.create({
-      //  -------------------------------------------------------------
+  //  -------------------------------------------------------------
   // Modal radio button
   // -------------------------------------------------------------
   radioButton: {
@@ -180,32 +189,32 @@ const styles = StyleSheet.create({
     fontSize: responsiveScreenFontSize(1.9),
   },
   // Main Content
-  mainContentText:{
+  mainContentText: {
     fontFamily: "Inter-SemiBold",
     color: "rgba(11, 42, 70, 1)",
-    fontSize: responsiveScreenFontSize(2.5)
+    fontSize: responsiveScreenFontSize(2.5),
   },
-  mainContentDescription:{
+  mainContentDescription: {
     color: "rgba(84, 106, 126, 1)",
     fontSize: responsiveScreenFontSize(2),
   },
-  mainContent:{
+  mainContent: {
     gap: responsiveScreenHeight(1.5),
     paddingTop: responsiveScreenHeight(2.5),
   },
   // bottom border
-    bottomBorder: {
+  bottomBorder: {
     borderBottomWidth: 0.5,
     borderBottomColor: "rgba(0, 0, 0, 0.3)",
   },
-    // Cancel and the back button.................
-    topBarContainer: {
+  // Cancel and the back button.................
+  topBarContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     minWidth: "100%",
-    marginBottom: responsiveScreenHeight(2)
+    marginBottom: responsiveScreenHeight(2),
   },
-    arrow: {
+  arrow: {
     paddingBottom: responsiveScreenHeight(0.8),
     flexDirection: "row",
     alignItems: "center",
@@ -225,7 +234,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-//   Main container...............
+  //   Main container...............
   modalContainer: {
     height: responsiveScreenHeight(100),
     flex: 1,
@@ -238,7 +247,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: responsiveScreenWidth(4.5),
     paddingBottom: responsiveScreenHeight(0),
-    paddingTop: responsiveScreenHeight(2)
+    paddingTop: responsiveScreenHeight(2),
   },
 
   buttonContainer: {
