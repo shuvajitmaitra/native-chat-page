@@ -13,14 +13,13 @@ import {
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
-import DownArrowIcon from "../../../assets/svgs/downArrowIcon";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
 const countries = [{ type: "Private" }, { type: "Public" }];
 
 const CustomDropDown = ({}) => {
   const [clicked, setClicked] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState("");
+  const [crowdType, setCrowdType] = useState("");
   return (
     <View style={{ flex: 1 }}>
       <TouchableOpacity
@@ -31,6 +30,8 @@ const CustomDropDown = ({}) => {
             justifyContent: "space-between",
             alignItems: "center",
           },
+          {borderBottomLeftRadius : clicked ? 0 : 10},
+          {borderBottomRightRadius : clicked ? 0 : 10},
         ]}
         onPress={() => {
           setClicked(!clicked);
@@ -39,23 +40,28 @@ const CustomDropDown = ({}) => {
         <Text
           style={{
             paddingVertical: responsiveScreenHeight(0.5),
+            color: "rgba(84, 106, 126, 1)"
           }}
         >
-          {selectedCountry == "" ? "Select Country" : selectedCountry}
+          {crowdType == "" ? "Select Type" : crowdType}
         </Text>
-        {clicked ? <UpArrowIcon /> : <DownArrowIcon />}
+        {clicked ? <UpArrowIcon /> : <UpArrowIcon />}
       </TouchableOpacity>
       {clicked ? (
-        <View style={styles.inputField}>
+        <View style={styles.dropdownOptions}>
           {countries.map((item, index) => (
             <TouchableOpacity
               key={index}
               onPress={() => {
-                setSelectedCountry(item.type);
+                setCrowdType(item.type);
                 setClicked(!clicked);
               }}
             >
               <Text style={styles.Text}>{item.type}</Text>
+               <View style={{ 
+    borderBottomWidth: countries.length == index+1 ? 0 :0.5,
+    borderBottomColor: "rgba(0, 0, 0, 0.3)",
+  }}></View>
             </TouchableOpacity>
           ))}
         </View>
@@ -66,15 +72,23 @@ const CustomDropDown = ({}) => {
 
 export default CustomDropDown;
 const styles = StyleSheet.create({
+  dropdownOptions:{
+    backgroundColor: "rgba(0, 0, 0, 0.03)",
+    borderWidth: 1,
+    borderColor: "rgba(0, 0, 0, 0.1)",
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
+  },
   Text: {
-    fontFamily: "Inter-Medium",
-    fontSize: responsiveScreenFontSize(1.8),
-    marginBottom: responsiveScreenHeight(1),
-    color: "rgba(11, 42, 70, 1)",
+    fontFamily: "Inter-Regular",
+    fontSize: responsiveScreenFontSize(1.5),
+    color: "rgba(0, 0, 0, 0.5)",
+    paddingHorizontal: responsiveScreenWidth(4),
+    paddingVertical: responsiveScreenHeight(1), 
+    
   },
   inputField: {
     backgroundColor: "rgba(238, 238, 238, 1)",
-    marginBottom: responsiveScreenHeight(0.5),
     borderWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
     borderRadius: 10,

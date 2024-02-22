@@ -17,16 +17,9 @@ import {
 import Modal from "react-native-modal";
 import CrowdIcon from "../../../assets/svgs/CrowdIcon";
 import CustomButton from "../CustomButton";
-import DropDownPicker from "react-native-dropdown-picker";
 import CustomDropDown from "../SharedComponent/CustomDropDown";
 
 const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
-  const [items, setItems] = useState([
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-  ]);
   return (
     <Modal isVisible={isCrowdFromVisible}>
       <View>
@@ -67,11 +60,12 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
               {/* -------------------------- */}
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Crowd Name *</Text>
-                <TextInput style={styles.inputField} placeholder="Group Name" />
+                <TextInput placeholderTextColor={"rgba(84, 106, 126, 1)"} style={styles.inputField} placeholder="Group Name" />
               </View>
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Crowd Description</Text>
                 <TextInput
+                placeholderTextColor={"rgba(84, 106, 126, 1)"}
                   style={[
                     styles.inputField,
                     { paddingBottom: responsiveScreenHeight(8) },
@@ -88,9 +82,12 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
               </View>
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Read Only</Text>
-                <TextInput style={styles.inputField} placeholder="No" />
+                <TextInput placeholderTextColor={"rgba(84, 106, 126, 1)"} style={styles.inputField} placeholder="No" />
               </View>
-              <View style={styles.bottomBorder}></View>
+              <View style={{ 
+    borderBottomWidth: 0.5,
+    borderBottomColor: "rgba(0, 0, 0, 0.3)",
+  }}></View>
               <View style={styles.buttonContainer}>
                 <CustomButton
                   toggleModal={toggleCrowdFromModal}
@@ -130,7 +127,7 @@ const styles = StyleSheet.create({
   // ----------- Crowd Name Container -----------
   // --------------------------
   fieldContainer: {
-    // marginBottom: responsiveScreenHeight(1),
+    marginBottom: responsiveScreenHeight(1),
     // backgroundColor: "red",
   },
   Text: {
