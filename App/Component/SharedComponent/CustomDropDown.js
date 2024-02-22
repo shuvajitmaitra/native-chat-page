@@ -15,9 +15,9 @@ import {
 } from "react-native-responsive-dimensions";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
-const countries = [{ type: "Private" }, { type: "Public" }];
+import DownArroIcon from "../../../assets/svgs/DownArrowIcon";
 
-const CustomDropDown = ({}) => {
+const CustomDropDown = ({options}) => {
   const [clicked, setClicked] = useState(false);
   const [crowdType, setCrowdType] = useState("");
   return (
@@ -45,11 +45,11 @@ const CustomDropDown = ({}) => {
         >
           {crowdType == "" ? "Select Type" : crowdType}
         </Text>
-        {clicked ? <UpArrowIcon /> : <UpArrowIcon />}
+        {clicked ? <UpArrowIcon /> : <DownArroIcon />}
       </TouchableOpacity>
       {clicked ? (
         <View style={styles.dropdownOptions}>
-          {countries.map((item, index) => (
+          {options.map((item, index) => (
             <TouchableOpacity
               key={index}
               onPress={() => {
@@ -59,7 +59,7 @@ const CustomDropDown = ({}) => {
             >
               <Text style={styles.Text}>{item.type}</Text>
                <View style={{ 
-    borderBottomWidth: countries.length == index+1 ? 0 :0.5,
+    borderBottomWidth: options.length == index+1 ? 0 :0.5,
     borderBottomColor: "rgba(0, 0, 0, 0.3)",
   }}></View>
             </TouchableOpacity>

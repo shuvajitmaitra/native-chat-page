@@ -20,6 +20,8 @@ import CustomButton from "../CustomButton";
 import CustomDropDown from "../SharedComponent/CustomDropDown";
 
 const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
+  const options = [{ type: "Private" }, { type: "Public" }];
+
   return (
     <Modal isVisible={isCrowdFromVisible}>
       <View>
@@ -78,7 +80,7 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
               {/* -------------------------- */}
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Crowd Type</Text>
-                <CustomDropDown />
+                <CustomDropDown options={options}/>
               </View>
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Read Only</Text>
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
   // ----------- Crowd Name Container -----------
   // --------------------------
   fieldContainer: {
-    marginBottom: responsiveScreenHeight(1),
+    marginBottom: responsiveScreenHeight(2),
     // backgroundColor: "red",
   },
   Text: {

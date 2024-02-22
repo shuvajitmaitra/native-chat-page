@@ -1,26 +1,27 @@
-import * as React from "react";
-import Svg, { Path } from "react-native-svg";
+import * as React from "react"
+import Svg, { Path } from "react-native-svg"
 
-function DownArrowIcon(props) {
+function DownArroIcon(props) {
   return (
     <Svg
-      width={12}
-      height={8}
-      viewBox="0 0 12 8"
-      fill="none"
+      className="svg-icon"
+      style={{
+        width: 22,
+        height: 22,
+        verticalAlign: "middle"
+      }}
+      viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      overflow="hidden"
       {...props}
     >
       <Path
-        d="M1 1.5l5 5 5-5"
-        stroke="#000"
-        strokeOpacity={0.6}
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M507.8 727.728a30.016 30.016 0 01-21.288-8.824L231.104 463.496a30.088 30.088 0 010-42.568 30.088 30.088 0 0142.568 0L507.8 655.056l234.16-234.128a30.088 30.088 0 0142.568 0 30.088 30.088 0 010 42.568L529.08 718.904a30 30 0 01-21.28 8.824z"
+        fill="#888"
       />
     </Svg>
-  );
+  )
 }
 
-export default DownArrowIcon;
+export default DownArroIcon
