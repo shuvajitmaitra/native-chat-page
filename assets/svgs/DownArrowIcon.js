@@ -7,7 +7,7 @@ function DownArroIcon(props) {
       className="svg-icon"
       style={{
         width: 22,
-        height: 21,
+        height: 22,
         verticalAlign: "middle"
       }}
       viewBox="0 0 1024 1024"
