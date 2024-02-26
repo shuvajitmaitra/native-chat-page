@@ -91,30 +91,7 @@ const ViewProfile = ({
                   Notification
                 </Text>
               </View>
-              {/* <FlipToggle
-                value={false}
-                buttonWidth={100}
-                buttonHeight={50}
-                buttonRadius={50}
-                sliderWidth={20}
-                sliderHeight={10}
-                sliderRadius={50}
-                onLabel={"On"}
-                offLabel={"Off"}
-                labelStyle={{ color: "black" }}
-                onToggle={(newState) =>
-                  console.log(`toggle is ${this.state.isActive ? `on` : `off`}`)
-                }
-                onToggleLongPress={() => console.log("toggle long pressed!")}
-              /> */}
               <SwitchButton />
-              {/* <MaterialCommunityIcons
-                name="toggle-switch-off"
-                size={50}
-                color="
-                rgba(39, 172, 31, 1)"
-              /> */}
-              {/* <NotificationBell size={24} color="black" /> */}
             </View>
             {/* -------------------------- */}
             {/* ----------- Description Container ----------- */}
@@ -195,17 +172,6 @@ export default ViewProfile;
 
 const styles = StyleSheet.create({
   // --------------------------
-  // ----------- Dummy Container -----------
-  // --------------------------
-  dummyContainer: {
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    marginVertical: responsiveScreenHeight(1),
-    borderBottomWidth: 1,
-    borderBottomColor: "rgba(0, 0, 0, 0.1)",
-    paddingVertical: responsiveScreenHeight(1),
-  },
-  // --------------------------
   // ----------- Notification Container -----------
   // --------------------------
   notificationContainer: {
@@ -259,8 +225,7 @@ const styles = StyleSheet.create({
   profileImage: {
     height: responsiveScreenHeight(30),
     width: responsiveScreenWidth(80),
-    // resizeMode: "",
-    objectFit: "cover",
+    resizeMode: "cover",
     borderRadius: responsiveScreenHeight(1),
     alignSelf: "center",
     borderWidth: 1,

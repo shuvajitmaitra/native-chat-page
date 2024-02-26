@@ -1,5 +1,4 @@
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -12,9 +11,9 @@ import {
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
-import { useFonts } from "expo-font";
 import UploadedFile from "./UploadedFile";
 import VoiceFile from "./VoiceFile";
+
 
 const TabView = () => {
   const [status, setStatus] = useState("Images");
@@ -34,20 +33,11 @@ const TabView = () => {
     setStatus(status);
   };
 
-  const [fontsLoaded] = useFonts({
-    "WorkSans-Regular": require("../../../assets/Fonts/WorkSans-Regular.ttf"),
-    "WorkSans-Bold": require("../../../assets/Fonts/WorkSans-Bold.ttf"),
-    "WorkSans-Medium": require("../../../assets/Fonts/WorkSans-Medium.ttf"),
-    "WorkSans-SemiBold": require("../../../assets/Fonts/WorkSans-SemiBold.ttf"),
-  });
 
-  if (!fontsLoaded) {
-    return <Text>Loading...</Text>;
-  }
   return (
     <View
       style={[
-        styles.container,
+        styles.tabViewcontainer,
         //  { minHeight: status === "Files" && responsiveScreenHeight(53) || status ==="Voices" },
       ]}
     >
@@ -83,7 +73,7 @@ const TabView = () => {
 export default TabView;
 
 const styles = StyleSheet.create({
-  container: {
+  tabViewcontainer: {
     minHeight: responsiveScreenHeight(10),
   },
   tabContainer: {

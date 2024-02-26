@@ -1,11 +1,5 @@
 import {
-  Button,
-  SafeAreaView,
   StyleSheet,
-  Switch,
-  Text,
-  TouchableOpacity,
-  View,
 } from "react-native";
 import React, { useState } from "react";
 import { responsiveScreenWidth } from "react-native-responsive-dimensions";
@@ -32,33 +26,12 @@ const SwitchButton = () => {
       onToggle={toggleSwitch}
       onToggleLongPress={() => console.log("toggle long pressed!")}
     />
-    // <SafeAreaView style={{ flex: 1 }}>
-    //   <View style={styles.container}>
-    //     {/* <Button
-    //       onPress={toggleSwitch}
-    //       title=""
-    //       style={[
-    //         styles.outer,
-    //         { alignItems: switchValue ? "flex-end" : "flex-start" },
-    //       ]}
-    //     >
-    //       <TouchableOpacity style={[styles.inner]}>
-    //         <View></View>
-    //       </TouchableOpacity>
-    //     </Button> */}
-    //   </View>
-    // </SafeAreaView>
   );
 };
 
 export default SwitchButton;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
   switch: {
     backgroundColor: "red",
     color: "red",
@@ -69,7 +42,6 @@ const styles = StyleSheet.create({
     width: 50,
     backgroundColor: "green",
     borderRadius: 100,
-    // alignItems: "flex-end",
     justifyContent: "center",
   },
   inner: {
