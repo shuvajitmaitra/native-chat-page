@@ -63,14 +63,14 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
                 </Text>
               </View>
               {/* -------------------------- */}
-              {/* ----------- Crowd Name Container ----------- */}
+              {/* ----------- Event Title Container ----------- */}
               {/* -------------------------- */}
               <View style={styles.fieldContainer}>
-                <Text style={styles.Text}>Crowd Name *</Text>
+                <Text style={styles.Text}>Event Title *</Text>
                 <TextInput
                   placeholderTextColor={"rgba(84, 106, 126, 1)"}
                   style={styles.inputField}
-                  placeholder="Group Name"
+                  placeholder="Enter event name"
                 />
               </View>
               <View style={styles.fieldContainer}>
