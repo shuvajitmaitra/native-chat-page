@@ -17,7 +17,7 @@ import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
 import DownArroIcon from "../../../assets/svgs/DownArrowIcon";
 
-const CustomDropDown = ({options}) => {
+export const CustomDropDown = ({ options }) => {
   const [clicked, setClicked] = useState(false);
   const [crowdType, setCrowdType] = useState("");
   return (
@@ -30,8 +30,8 @@ const CustomDropDown = ({options}) => {
             justifyContent: "space-between",
             alignItems: "center",
           },
-          {borderBottomLeftRadius : clicked ? 0 : 10},
-          {borderBottomRightRadius : clicked ? 0 : 10},
+          { borderBottomLeftRadius: clicked ? 0 : 10 },
+          { borderBottomRightRadius: clicked ? 0 : 10 },
         ]}
         onPress={() => {
           setClicked(!clicked);
@@ -40,7 +40,7 @@ const CustomDropDown = ({options}) => {
         <Text
           style={{
             paddingVertical: responsiveScreenHeight(0.5),
-            color: "rgba(84, 106, 126, 1)"
+            color: "rgba(84, 106, 126, 1)",
           }}
         >
           {crowdType == "" ? "Select Type" : crowdType}
@@ -58,10 +58,12 @@ const CustomDropDown = ({options}) => {
               }}
             >
               <Text style={styles.Text}>{item.type}</Text>
-               <View style={{ 
-    borderBottomWidth: options.length == index+1 ? 0 :0.5,
-    borderBottomColor: "rgba(0, 0, 0, 0.3)",
-  }}></View>
+              <View
+                style={{
+                  borderBottomWidth: options.length == index + 1 ? 0 : 0.5,
+                  borderBottomColor: "rgba(0, 0, 0, 0.3)",
+                }}
+              ></View>
             </TouchableOpacity>
           ))}
         </View>

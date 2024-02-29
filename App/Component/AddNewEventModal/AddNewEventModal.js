@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-native-modal";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import CrossIcon from "../../../assets/svgs/CrossIcon";
@@ -18,8 +18,102 @@ import {
 } from "react-native-responsive-dimensions";
 import CustomButton from "../CustomButton";
 import Fonts from "../../../assets/Fonts/Fonts";
+import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
+import DownArroIcon from "../../../assets/svgs/DownArrowIcon";
+
+// --------------------------
+// ----------- Custom dropdown components -----------
+// --------------------------
+export const CustomDropDown = ({ options }) => {
+  const [clicked, setClicked] = useState(false);
+  const [item, setItem] = useState("");
+  return (
+    <View style={{ flex: 1 }}>
+      <TouchableOpacity
+        style={[
+          {
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            backgroundColor: "rgba(238, 238, 238, 1)",
+            borderWidth: 1,
+            borderColor: "rgba(0, 0, 0, 0.1)",
+            borderRadius: 10,
+            paddingHorizontal: responsiveScreenWidth(4),
+            fontFamily: "Inter-Regular",
+            paddingVertical: responsiveScreenHeight(1),
+            position: "relative",
+          },
+          { borderBottomLeftRadius: clicked ? 0 : 10 },
+          { borderBottomRightRadius: clicked ? 0 : 10 },
+        ]}
+        onPress={() => {
+          setClicked(!clicked);
+        }}
+      >
+        <Text
+          style={{
+            paddingVertical: responsiveScreenHeight(0.5),
+            color: "rgba(84, 106, 126, 1)",
+          }}
+        >
+          {item == "" ? "Select event type" : item}
+        </Text>
+        {clicked ? <UpArrowIcon /> : <DownArroIcon />}
+      </TouchableOpacity>
+      {clicked ? (
+        <View
+          style={{
+            backgroundColor: "rgba(248, 248, 248, 1)",
+            borderWidth: 1,
+            borderColor: "rgba(0, 0, 0, 0.1)",
+            borderBottomRightRadius: 10,
+            borderBottomLeftRadius: 10,
+            position: "absolute",
+            width: "100%",
+            top: responsiveScreenHeight(5.3),
+            zIndex: 1,
+          }}
+        >
+          {options.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              onPress={() => {
+                setItem(item.type);
+                setClicked(!clicked);
+              }}
+            >
+              <Text
+                style={{
+                  fontFamily: "Inter-Regular",
+                  fontSize: responsiveScreenFontSize(1.5),
+                  color: "rgba(0, 0, 0, 0.5)",
+                  paddingHorizontal: responsiveScreenWidth(4),
+                  paddingVertical: responsiveScreenHeight(1),
+                }}
+              >
+                {item.type}
+              </Text>
+              <View
+                style={{
+                  borderBottomWidth: options.length == index + 1 ? 0 : 0.5,
+                  borderBottomColor: "rgba(0, 0, 0, 0.3)",
+                }}
+              ></View>
+            </TouchableOpacity>
+          ))}
+        </View>
+      ) : null}
+    </View>
+  );
+};
+
+// --------------------------
+// ----------- Main content start form here -----------
+// --------------------------
 
 const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
+  const options = [{ type: "One-on-One" }, { type: "Group" }];
   return (
     <Modal isVisible={addNewEventVisiable}>
       <View>
@@ -73,8 +167,19 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
                   placeholder="Enter event name"
                 />
               </View>
+              {/* -------------------------- */}
+              {/* ----------- Event Type container ----------- */}
+              {/* -------------------------- */}
               <View style={styles.fieldContainer}>
-                <Text style={styles.Text}>Crowd Description</Text>
+                <Text style={styles.Text}>Event Type *</Text>
+                <CustomDropDown options={options} />
+              </View>
+
+              {/* -------------------------- */}
+              {/* ----------- Add meeting aganda ----------- */}
+              {/* -------------------------- */}
+              <View style={styles.fieldContainer}>
+                <Text style={styles.Text}>Add Meeting Agenda</Text>
                 <TextInput
                   placeholderTextColor={"rgba(84, 106, 126, 1)"}
                   style={[
@@ -145,7 +250,7 @@ const styles = StyleSheet.create({
   // ----------- Crowd Name Container -----------
   // --------------------------
   fieldContainer: {
-    marginBottom: responsiveScreenHeight(2),
+    marginBottom: responsiveScreenHeight(3),
     // backgroundColor: "red",
   },
   Text: {
@@ -162,7 +267,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: responsiveScreenWidth(4),
     fontFamily: "Inter-Regular",
     paddingVertical: responsiveScreenHeight(1),
-    marginBottom: responsiveScreenHeight(3),
   },
   // --------------------------
   // ----------- Header Container -----------
