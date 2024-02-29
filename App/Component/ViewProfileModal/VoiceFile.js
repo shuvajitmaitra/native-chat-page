@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import WaveForm from 'react-native-audiowaveform';
+// import WaveForm from 'react-native-audiowaveform';
 
 const VoiceFile = () => {
   return (
@@ -9,11 +9,11 @@ const VoiceFile = () => {
         Voice file will be showed soon!
       </Text>
 
-<WaveForm 
+      {/* <WaveForm 
     source={require('../../../assets/audio/song.mp3')}  
     waveFormStyle={{waveColor:'red', scrubColor:'white'}}
 >
-</WaveForm>
+</WaveForm> */}
     </View>
   );
 };

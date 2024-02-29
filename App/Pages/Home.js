@@ -19,6 +19,7 @@ import GroupProfileModal from "../Component/GroupProfileView/GroupProfileModal";
 import CrowdFromModal from "../Component/CrowdFromModal/CrowdFromModal";
 import LeaveCrowdModal from "../Component/LeaveCrowdModal/LeaveCrowdModal";
 import ReportModal from "../Component/ReportModal/ReportModal";
+import AddNewEventModal from "../Component/AddNewEventModal/AddNewEventModal";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -28,9 +29,9 @@ const Home = ({ navigation }) => {
     useState(false);
   const [isCrowdFromVisible, setCrowdFromVisible] = useState(false);
 
-  const [isLeaveCrowdModalVisible, setLeaveCrowdModalVisible] = useState(false)
-  const [isReportModalVisiable, setReportModalVisiable] = useState(false)
-  const [addNewEventVisiable, setAddNewEventVisiable] = useState(false)
+  const [isLeaveCrowdModalVisible, setLeaveCrowdModalVisible] = useState(false);
+  const [isReportModalVisiable, setReportModalVisiable] = useState(false);
+  const [addNewEventVisiable, setAddNewEventVisiable] = useState(false);
   {
     /* -------------------------- */
   }
@@ -55,16 +56,15 @@ const Home = ({ navigation }) => {
   const toggleCrowdFromModal = () => {
     setCrowdFromVisible(!isCrowdFromVisible);
   };
- const toggleLeaveCrowdModal = () => {
+  const toggleLeaveCrowdModal = () => {
     setLeaveCrowdModalVisible(!isLeaveCrowdModalVisible);
   };
- const toggleReportModal = () => {
+  const toggleReportModal = () => {
     setReportModalVisiable(!isReportModalVisiable);
   };
- const toggleAddNewEventModal = () => {
+  const toggleAddNewEventModal = () => {
     setAddNewEventVisiable(!addNewEventVisiable);
   };
-
 
   return (
     <View style={styles.container}>
@@ -174,33 +174,45 @@ const Home = ({ navigation }) => {
       {/* -------------------------- */}
       {/* ----------- Leave Crowd Modal ----------- */}
       {/* -------------------------- */}
-      <TouchableOpacity style={styles.navigationButton} onPress={toggleLeaveCrowdModal}>
+      <TouchableOpacity
+        style={styles.navigationButton}
+        onPress={toggleLeaveCrowdModal}
+      >
         <Text style={styles.navigationButtonText}>Leave Crowd Modal</Text>
       </TouchableOpacity>
 
       <LeaveCrowdModal
         toggleLeaveCrowdModal={toggleLeaveCrowdModal}
-        isLeaveCrowdModalVisible={isLeaveCrowdModalVisible}/>
+        isLeaveCrowdModalVisible={isLeaveCrowdModalVisible}
+      />
       {/* -------------------------- */}
       {/* ----------- Report Modal ----------- */}
       {/* -------------------------- */}
-      <TouchableOpacity style={styles.navigationButton} onPress={toggleReportModal}>
+      <TouchableOpacity
+        style={styles.navigationButton}
+        onPress={toggleReportModal}
+      >
         <Text style={styles.navigationButtonText}>Report Modal</Text>
       </TouchableOpacity>
 
       <ReportModal
         toggleReportModal={toggleReportModal}
-        isReportModalVisiable={isReportModalVisiable}/>
-        {/* -------------------------- */}
-        {/* ----------- Add New Event Modal ----------- */}
-        {/* -------------------------- */}
-      <TouchableOpacity style={styles.navigationButton} onPress={toggleAddNewEventModal}>
-        <Text style={styles.navigationButtonText}>Report Modal</Text>
+        isReportModalVisiable={isReportModalVisiable}
+      />
+      {/* -------------------------- */}
+      {/* ----------- Add New Event Modal ----------- */}
+      {/* -------------------------- */}
+      <TouchableOpacity
+        style={styles.navigationButton}
+        onPress={toggleAddNewEventModal}
+      >
+        <Text style={styles.navigationButtonText}>Add New Event</Text>
       </TouchableOpacity>
 
-      <ReportModal
+      <AddNewEventModal
         toggleAddNewEventModal={toggleAddNewEventModal}
-        addNewEventVisiable={addNewEventVisiable}/>
+        addNewEventVisiable={addNewEventVisiable}
+      />
     </View>
   );
 };
