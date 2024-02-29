@@ -186,9 +186,28 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
                     styles.inputField,
                     { paddingBottom: responsiveScreenHeight(8) },
                   ]}
-                  placeholder="Enter Crowd Description"
+                  placeholder="Event Agenda"
                 />
               </View>
+
+              {/* -------------------------- */}
+              {/* ----------- Add follow up message ----------- */}
+              {/* -------------------------- */}
+              <View style={styles.fieldContainer}>
+                <Text style={styles.Text}>Add Follow Up Message</Text>
+                <TextInput
+                  placeholderTextColor={"rgba(84, 106, 126, 1)"}
+                  style={[
+                    styles.inputField,
+                    { paddingBottom: responsiveScreenHeight(8) },
+                  ]}
+                  placeholder="Follow up message"
+                />
+              </View>
+
+              {/* -------------------------- */}
+              {/* ----------- Add Action  ----------- */}
+              {/* -------------------------- */}
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Read Only</Text>
                 <TextInput

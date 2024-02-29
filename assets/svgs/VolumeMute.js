@@ -1,7 +1,7 @@
 import * as React from "react";
 import Svg, { Path } from "react-native-svg";
 
-function SvgComponent(props) {
+function VolumeMute(props) {
   return (
     <Svg
       width={20}
@@ -28,4 +28,4 @@ function SvgComponent(props) {
   );
 }
 
-export default SvgComponent;
+export default VolumeMute;
