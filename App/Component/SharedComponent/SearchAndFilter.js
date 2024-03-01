@@ -22,14 +22,14 @@ import { RadioButton } from "react-native-paper";
 const SearchAndFilter = () => {
   const [value, setValue] = React.useState("hour");
   return (
-    <View style={styles.topContainer}>
-      <View style={styles.inputField}>
+    <View style={SearchAndFilterStyles.topContainer}>
+      <View style={SearchAndFilterStyles.inputField}>
         <TextInput
-          style={styles.textInput}
+          style={SearchAndFilterStyles.textInput}
           placeholder="Search..."
           placeholderTextColor="rgba(99, 99, 99, 1)"
         />
-        <Feather style={styles.inputFieldIcon} name="search" />
+        <Feather style={SearchAndFilterStyles.inputFieldIcon} name="search" />
       </View>
 
       <PopoverController>
@@ -45,34 +45,34 @@ const SearchAndFilter = () => {
               ref={setPopoverAnchor}
               onPress={openPopover}
               activeOpacity={0.8}
-              style={styles.filterButton}
+              style={SearchAndFilterStyles.filterButton}
             >
               <Feather
                 name="filter"
                 size={24}
                 color="black"
-                style={styles.filterButtonIcon}
+                style={SearchAndFilterStyles.filterButtonIcon}
               />
-              <Text style={styles.filterButtonText}>Filter</Text>
+              <Text style={SearchAndFilterStyles.filterButtonText}>Filter</Text>
             </TouchableOpacity>
             <Popover
-              contentStyle={styles.content}
-              arrowStyle={styles.arrow}
-              backgroundStyle={styles.background}
+              contentStyle={SearchAndFilterStyles.content}
+              arrowStyle={SearchAndFilterStyles.arrow}
+              backgroundStyle={SearchAndFilterStyles.background}
               visible={popoverVisible}
               onClose={closePopover}
               fromRect={popoverAnchorRect}
               placement="bottom"
               supportedOrientations={["portrait", "landscape"]}
             >
-              <View style={styles.container}>
+              <View style={SearchAndFilterStyles.container}>
                 {/* -------------------------- */}
                 {/* ----------- Heading Text ----------- */}
                 {/* -------------------------- */}
-                <View style={styles.headerContainer}>
-                  <Text style={styles.headerText}>Filters</Text>
+                <View style={SearchAndFilterStyles.headerContainer}>
+                  <Text style={SearchAndFilterStyles.headerText}>Filters</Text>
                   <TouchableOpacity activeOpacity={0.8} onPress={closePopover}>
-                    <View style={styles.cancelButton}>
+                    <View style={SearchAndFilterStyles.cancelButton}>
                       <CrossIcon />
                     </View>
                   </TouchableOpacity>
@@ -84,7 +84,7 @@ const SearchAndFilter = () => {
                   onValueChange={(newValue) => setValue(newValue)}
                   value={value}
                 >
-                  <View style={[styles.radioButton]}>
+                  <View style={[SearchAndFilterStyles.radioButton]}>
                     <RadioButton
                       value="hour"
                       color="rgba(253, 40, 43, 1)"
@@ -92,7 +92,7 @@ const SearchAndFilter = () => {
                     />
                     <Text
                       style={[
-                        styles.radioText,
+                        SearchAndFilterStyles.radioText,
                         {
                           color:
                             value === "hour" ? "black" : "rgba(0, 0, 0, 0.6)",
@@ -110,7 +110,7 @@ const SearchAndFilter = () => {
                       borderBottomWidth: 0.5,
                     }}
                   ></View>
-                  <View style={styles.radioButton}>
+                  <View style={SearchAndFilterStyles.radioButton}>
                     <RadioButton
                       color="rgba(253, 40, 43, 1)"
                       value="day"
@@ -118,7 +118,7 @@ const SearchAndFilter = () => {
                     />
                     <Text
                       style={[
-                        styles.radioText,
+                        SearchAndFilterStyles.radioText,
                         {
                           color:
                             value === "day" ? "black" : "rgba(0, 0, 0, 0.6)",
@@ -141,7 +141,7 @@ const SearchAndFilter = () => {
 
 export default SearchAndFilter;
 
-const styles = StyleSheet.create({
+const SearchAndFilterStyles = StyleSheet.create({
   // --------------------------
   // ----------- Radio Button -----------
   // --------------------------
