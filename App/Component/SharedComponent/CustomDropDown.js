@@ -15,7 +15,6 @@ import {
 } from "react-native-responsive-dimensions";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
-import DownArroIcon from "../../../assets/svgs/DownArrowIcon";
 
 export const CustomDropDown = ({ options }) => {
   const [clicked, setClicked] = useState(false);
@@ -45,7 +44,7 @@ export const CustomDropDown = ({ options }) => {
         >
           {crowdType == "" ? "Select Type" : crowdType}
         </Text>
-        {clicked ? <UpArrowIcon /> : <DownArroIcon />}
+        {clicked ? <UpArrowIcon /> : <DownArrowIcon />}
       </TouchableOpacity>
       {clicked ? (
         <View style={styles.dropdownOptions}>
@@ -74,7 +73,7 @@ export const CustomDropDown = ({ options }) => {
 
 export default CustomDropDown;
 const styles = StyleSheet.create({
-  dropdownOptions:{
+  dropdownOptions: {
     backgroundColor: "rgba(0, 0, 0, 0.03)",
     borderWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
@@ -86,8 +85,7 @@ const styles = StyleSheet.create({
     fontSize: responsiveScreenFontSize(1.5),
     color: "rgba(0, 0, 0, 0.5)",
     paddingHorizontal: responsiveScreenWidth(4),
-    paddingVertical: responsiveScreenHeight(1), 
-    
+    paddingVertical: responsiveScreenHeight(1),
   },
   inputField: {
     backgroundColor: "rgba(238, 238, 238, 1)",

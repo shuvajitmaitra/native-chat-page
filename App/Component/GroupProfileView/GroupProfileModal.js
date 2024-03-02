@@ -26,8 +26,6 @@ import MembersIcon from "../../../assets/svgs/MembersIcon";
 import LinkIcon from "../../../assets/svgs/LinkIcon";
 import GroupTabView from "./GroupTabView";
 
-import * as Clipboard from "expo-clipboard";
-
 const GroupProfileModal = ({
   toggleGroupProfileModal,
   isGroupProfileModalVisible,
@@ -98,7 +96,7 @@ const GroupProfileModal = ({
             {/* ----------- Copy Invitation link container ----------- */}
             {/* -------------------------- */}
             <TouchableOpacity
-              onPress={async () => await Clipboard.setStringAsync("Hello")}
+              // onPress={async () => await Clipboard.setStringAsync("Hello")}
               style={styles.invitationLinkContainer}
             >
               <LinkIcon />
