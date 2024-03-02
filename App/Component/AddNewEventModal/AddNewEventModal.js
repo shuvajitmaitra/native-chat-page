@@ -206,29 +206,33 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
               </View>
 
               {/* -------------------------- */}
-              {/* ----------- Add Action  ----------- */}
+              {/* ----------- Add Action Item  ----------- */}
+              {/* -------------------------- */}
+
+              <View style={styles.fieldContainer}>
+                <Text style={styles.Text}>Add Action Item</Text>
+                <TextInput
+                  placeholderTextColor={"rgba(84, 106, 126, 1)"}
+                  style={[
+                    styles.inputField,
+                    { paddingBottom: responsiveScreenHeight(8) },
+                  ]}
+                  placeholder="Action item"
+                />
+              </View>
+
+              {/* -------------------------- */}
+              {/* ----------- Add Meeting link ----------- */}
               {/* -------------------------- */}
               <View style={styles.fieldContainer}>
-                <Text style={styles.Text}>Read Only</Text>
+                <Text style={styles.Text}>Add Meeting Link</Text>
                 <TextInput
                   placeholderTextColor={"rgba(84, 106, 126, 1)"}
                   style={styles.inputField}
-                  placeholder="No"
+                  placeholder="Meeting link"
                 />
               </View>
-              <View
-                style={{
-                  borderBottomWidth: 0.5,
-                  borderBottomColor: "rgba(0, 0, 0, 0.3)",
-                }}
-              ></View>
               <View style={styles.buttonContainer}>
-                <CustomButton
-                  toggleModal={toggleAddNewEventModal}
-                  textColor="#27ac1f"
-                  backgroundColor="rgba(39, 172, 31, 0.1)"
-                  buttonText="Cancel"
-                />
                 <CustomButton
                   toggleModal={toggleAddNewEventModal}
                   textColor="white"
@@ -259,7 +263,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: responsiveScreenWidth(2.5),
     justifyContent: "center",
-    paddingVertical: responsiveScreenHeight(2.5),
+    paddingBottom: responsiveScreenHeight(2.5),
   },
   bottomBorder: {
     borderBottomWidth: 0.5,

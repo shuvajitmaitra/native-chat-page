@@ -27,8 +27,9 @@ export default CustomButton;
 
 const styles = StyleSheet.create({
   button: {
+    flex: 1,
     backgroundColor: "#27ac1f",
-    width: responsiveScreenWidth(35),
+    minWidth: responsiveScreenWidth(35),
     alignItems: "center",
     borderRadius: 10,
     padding: responsiveScreenWidth(3),
