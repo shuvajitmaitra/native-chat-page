@@ -4,6 +4,7 @@ import Home from "./App/Pages/Home";
 import TotalChats from "./App/Pages/TotalChats";
 import Thread from "./App/Pages/Thread";
 import ViewProfile from "./App/Component/ViewProfileModal/ViewProfile";
+import Calendar from "./App/Pages/Calendar/Calendar";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -38,6 +39,11 @@ export default function App() {
             },
           }}
           component={ViewProfile}
+        />
+        <Stack.Screen
+          // options={{ headerShown: false }}
+          name="Calendar"
+          component={Calendar}
         />
       </Stack.Navigator>
     </NavigationContainer>

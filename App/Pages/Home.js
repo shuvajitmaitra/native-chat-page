@@ -213,6 +213,13 @@ const Home = ({ navigation }) => {
         toggleAddNewEventModal={toggleAddNewEventModal}
         addNewEventVisible={addNewEventVisible}
       />
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Calendar")}
+        style={styles.navigationButton}
+      >
+        <Text style={styles.navigationButtonText}>My Calendar</Text>
+      </TouchableOpacity>
     </View>
   );
 };
