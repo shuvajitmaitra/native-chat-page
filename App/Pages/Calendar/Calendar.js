@@ -42,7 +42,7 @@ export const CalendarItems = (item) => {
             },
           ]}
         >
-          <Text style={{ color: "white", fontFamily: "WorkSans-Regular" }}>
+          <Text style={{ color: "white", fontFamily: "WorkSans-Medium" }}>
             {item.item.title}
           </Text>
           <Text
@@ -78,28 +78,28 @@ const Calendar = () => {
       status: "proposed new time",
     },
     {
-      title: "Show N Tell (Finished)",
+      title: "Interview with Pranto (Accepted) ",
       time: "10PM - 11PM",
       day: "Mon",
       date: 9,
       status: "accepted",
     },
     {
-      title: "Show N Tell (Finished)",
+      title: "Meeting with Shiblu Ahmad",
       time: "10PM - 11PM",
       day: "Mon",
       date: 12,
       status: "pending",
     },
     {
-      title: "Show N Tell (Finished)",
+      title: "Meeting with Shiblu Ahmad",
       time: "10PM - 11PM",
       day: "Mon",
       date: 14,
       status: "denied",
     },
     {
-      title: "Show N Tell (Finished)",
+      title: "Interview with Pranto (Accepted) ",
       time: "10PM - 11PM",
       day: "Mon",
       date: 25,
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   eventTitleAndDateContainer: {
     paddingHorizontal: responsiveScreenWidth(2),
     paddingVertical: responsiveScreenHeight(0.5),
-    borderRadius: 10,
+    borderRadius: 7,
     width: "100%",
   },
   eventDateNumber: {
