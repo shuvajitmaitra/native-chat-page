@@ -4,7 +4,7 @@ import Svg, { Path } from "react-native-svg";
 function RightArrowLong(props) {
   return (
     <Svg
-      width={25}
+      width={24}
       height={20}
       viewBox="0 0 22 8"
       fill="none"
