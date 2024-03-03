@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     paddingVertical: responsiveScreenHeight(1),
   },
   inputField: {
-    backgroundColor: "rgba(238, 238, 238, 1)",
+    backgroundColor: "#f8f8f8",
     borderWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
     borderRadius: 10,

@@ -35,7 +35,7 @@ export const CustomDropDown = ({ options }) => {
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
-            backgroundColor: "rgba(238, 238, 238, 1)",
+            backgroundColor: "#f8f8f8",
             borderWidth: 1,
             borderColor: "rgba(0, 0, 0, 0.1)",
             borderRadius: 10,
@@ -184,7 +184,6 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
                     styles.inputField,
                     {
                       borderColor: "rgba(39, 172, 31, 1)",
-                      fontWeight: "600",
                     },
                   ]}
                   placeholder="Add Invitation"
@@ -299,7 +298,7 @@ const styles = StyleSheet.create({
     color: "rgba(11, 42, 70, 1)",
   },
   inputField: {
-    backgroundColor: "rgba(238, 238, 238, 1)",
+    backgroundColor: "#f8f8f8",
     borderWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
     borderRadius: 10,

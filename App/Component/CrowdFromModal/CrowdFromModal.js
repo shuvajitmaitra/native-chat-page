@@ -62,12 +62,16 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
               {/* -------------------------- */}
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Crowd Name *</Text>
-                <TextInput placeholderTextColor={"rgba(84, 106, 126, 1)"} style={styles.inputField} placeholder="Group Name" />
+                <TextInput
+                  placeholderTextColor={"rgba(84, 106, 126, 1)"}
+                  style={styles.inputField}
+                  placeholder="Group Name"
+                />
               </View>
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Crowd Description</Text>
                 <TextInput
-                placeholderTextColor={"rgba(84, 106, 126, 1)"}
+                  placeholderTextColor={"rgba(84, 106, 126, 1)"}
                   style={[
                     styles.inputField,
                     { paddingBottom: responsiveScreenHeight(8) },
@@ -80,16 +84,22 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
               {/* -------------------------- */}
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Crowd Type</Text>
-                <CustomDropDown options={options}/>
+                <CustomDropDown options={options} />
               </View>
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Read Only</Text>
-                <TextInput placeholderTextColor={"rgba(84, 106, 126, 1)"} style={styles.inputField} placeholder="No" />
+                <TextInput
+                  placeholderTextColor={"rgba(84, 106, 126, 1)"}
+                  style={styles.inputField}
+                  placeholder="No"
+                />
               </View>
-              <View style={{ 
-    borderBottomWidth: 0.5,
-    borderBottomColor: "rgba(0, 0, 0, 0.3)",
-  }}></View>
+              <View
+                style={{
+                  borderBottomWidth: 0.5,
+                  borderBottomColor: "rgba(0, 0, 0, 0.3)",
+                }}
+              ></View>
               <View style={styles.buttonContainer}>
                 <CustomButton
                   toggleModal={toggleCrowdFromModal}
@@ -139,7 +149,7 @@ const styles = StyleSheet.create({
     color: "rgba(11, 42, 70, 1)",
   },
   inputField: {
-    backgroundColor: "rgba(238, 238, 238, 1)",
+    backgroundColor: "#f8f8f8",
     borderWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
     borderRadius: 10,
