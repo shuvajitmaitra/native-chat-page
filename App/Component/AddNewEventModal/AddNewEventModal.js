@@ -21,6 +21,7 @@ import CustomButton from "../CustomButton";
 import Fonts from "../../../assets/Fonts/Fonts";
 import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
 import DownArroIcon from "../../../assets/svgs/DownArrowIcon";
+import CalendarIcon from "../../../assets/svgs/CalendarIcon";
 
 // --------------------------
 // ----------- Custom dropdown components -----------
@@ -176,6 +177,49 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                 <CustomDropDown options={options} />
               </View>
               {/* -------------------------- */}
+              {/* ----------- Event Time & Date ----------- */}
+              {/* -------------------------- */}
+              <View
+                style={[
+                  styles.fieldContainer,
+                  {
+                    backgroundColor: "#f8f8f8",
+                    borderRadius: 10,
+                    paddingHorizontal: responsiveScreenWidth(4),
+                    paddingVertical: responsiveScreenHeight(1.5),
+                    borderColor: "rgba(0, 0, 0, 0.1)",
+                    borderWidth: 1,
+                  },
+                ]}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    gap: responsiveScreenWidth(1.5),
+                    paddingBottom: responsiveScreenHeight(1.5),
+                    alignItems: "center",
+                    borderBottomColor: "rgba(0, 0, 0, 0.1)",
+                    borderBottomWidth: 1,
+                  }}
+                >
+                  <CalendarIcon />
+                  <Text
+                    style={{
+                      fontFamily: "Inter-Medium",
+                      fontSize: responsiveScreenFontSize(1.8),
+                      color: "rgba(11, 42, 70, 1)",
+                    }}
+                  >
+                    Event Time & Date
+                  </Text>
+                </View>
+                <View>
+                  <Text>Start Time:</Text>
+                  <Text>Jan 16, 2024</Text>
+                  <Text>09:30 PM</Text>
+                </View>
+              </View>
+              {/* -------------------------- */}
               {/* ----------- Add invitation ----------- */}
               {/* -------------------------- */}
               <View style={styles.fieldContainer}>
@@ -257,15 +301,17 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
               {/* ----------- Add Notifications ----------- */}
               {/* -------------------------- */}
 
-              <Text
-                style={{
-                  marginBottom: responsiveScreenHeight(2),
-                  color: "#27ac1f",
-                  fontWeight: "500",
-                }}
-              >
-                Add Notification
-              </Text>
+              <TouchableOpacity activeOpacity={0.5}>
+                <Text
+                  style={{
+                    marginBottom: responsiveScreenHeight(2),
+                    color: "#27ac1f",
+                    fontWeight: "500",
+                  }}
+                >
+                  Add Notification
+                </Text>
+              </TouchableOpacity>
               {/* -------------------------- */}
               {/* ----------- Add Button ----------- */}
               {/* -------------------------- */}
