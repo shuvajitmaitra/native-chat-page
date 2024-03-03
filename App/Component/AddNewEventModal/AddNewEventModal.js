@@ -151,7 +151,7 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
               {/* ----------- Header Description ----------- */}
               {/* -------------------------- */}
               <View>
-                <Text style={styles.headerDescriptonText}>
+                <Text style={styles.headerDescriptionText}>
                   Kindly complete the form to initiate the creation of a new
                   event.
                 </Text>
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
   // --------------------------
   // ----------- Header description Text -----------
   // --------------------------
-  headerDescriptonText: {
+  headerDescriptionText: {
     fontFamily: "WorkSans-Regular",
     color: "rgba(84, 106, 126, 1)",
     marginBottom: responsiveScreenHeight(2),
