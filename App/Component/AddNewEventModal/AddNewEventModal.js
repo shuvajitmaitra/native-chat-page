@@ -252,7 +252,7 @@ export default AddNewEventModal;
 
 const styles = StyleSheet.create({
   // --------------------------
-  // ----------- Header description Text -----------
+  // ----------- Header description text -----------
   // --------------------------
   headerDescriptionText: {
     fontFamily: "WorkSans-Regular",
