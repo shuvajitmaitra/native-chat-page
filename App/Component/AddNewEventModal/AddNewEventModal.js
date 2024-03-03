@@ -252,7 +252,7 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
                   toggleModal={toggleAddNewEventModal}
                   textColor="white"
                   backgroundColor="#27ac1f"
-                  buttonText="Update"
+                  buttonText="ADD"
                 />
               </View>
             </View>
