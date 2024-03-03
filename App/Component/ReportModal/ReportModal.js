@@ -13,11 +13,11 @@ import CustomButton from "../CustomButton";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import CrossIcon from "../../../assets/svgs/CrossIcon";
 
-const ReportModal = ({ toggleReportModal, isReportModalVisiable }) => {
+const ReportModal = ({ toggleReportModal, isReportModalVisible }) => {
   const [value, setValue] = React.useState("Harassment");
 
   return (
-    <Modal isVisible={isReportModalVisiable}>
+    <Modal isVisible={isReportModalVisible}>
       <View style={styles.modalContainer}>
         <View style={styles.modalChild}>
           {/* Modal Back Button */}

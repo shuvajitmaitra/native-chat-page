@@ -1,4 +1,5 @@
 import {
+  RefreshControl,
   ScrollView,
   StyleSheet,
   Text,
@@ -112,10 +113,10 @@ export const CustomDropDown = ({ options }) => {
 // ----------- Main content start form here -----------
 // --------------------------
 
-const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
+const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
   const options = [{ type: "One-on-One" }, { type: "Group" }];
   return (
-    <Modal isVisible={addNewEventVisiable}>
+    <Modal isVisible={addNewEventVisible}>
       <View>
         <View style={styles.container}>
           {/* -------------------------- */}
@@ -239,7 +240,12 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
               {/* -------------------------- */}
               {/* ----------- Add Meeting link ----------- */}
               {/* -------------------------- */}
-              <View style={styles.fieldContainer}>
+              <View
+                style={[
+                  styles.fieldContainer,
+                  { marginBottom: responsiveScreenHeight(1) },
+                ]}
+              >
                 <Text style={styles.Text}>Add Meeting Link</Text>
                 <TextInput
                   placeholderTextColor={"rgba(84, 106, 126, 1)"}
@@ -247,12 +253,28 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
                   placeholder="Meeting link"
                 />
               </View>
+              {/* -------------------------- */}
+              {/* ----------- Add Notifications ----------- */}
+              {/* -------------------------- */}
+
+              <Text
+                style={{
+                  marginBottom: responsiveScreenHeight(2),
+                  color: "#27ac1f",
+                  fontWeight: "500",
+                }}
+              >
+                Add Notification
+              </Text>
+              {/* -------------------------- */}
+              {/* ----------- Add Button ----------- */}
+              {/* -------------------------- */}
               <View style={styles.buttonContainer}>
                 <CustomButton
                   toggleModal={toggleAddNewEventModal}
                   textColor="white"
                   backgroundColor="#27ac1f"
-                  buttonText="ADD"
+                  buttonText="Add"
                 />
               </View>
             </View>

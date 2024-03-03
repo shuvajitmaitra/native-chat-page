@@ -30,8 +30,8 @@ const Home = ({ navigation }) => {
   const [isCrowdFromVisible, setCrowdFromVisible] = useState(false);
 
   const [isLeaveCrowdModalVisible, setLeaveCrowdModalVisible] = useState(false);
-  const [isReportModalVisiable, setReportModalVisiable] = useState(false);
-  const [addNewEventVisiable, setAddNewEventVisiable] = useState(false);
+  const [isReportModalVisible, setReportModalVisible] = useState(false);
+  const [addNewEventVisible, setAddNewEventVisible] = useState(false);
   {
     /* -------------------------- */
   }
@@ -60,10 +60,10 @@ const Home = ({ navigation }) => {
     setLeaveCrowdModalVisible(!isLeaveCrowdModalVisible);
   };
   const toggleReportModal = () => {
-    setReportModalVisiable(!isReportModalVisiable);
+    setReportModalVisible(!isReportModalVisible);
   };
   const toggleAddNewEventModal = () => {
-    setAddNewEventVisiable(!addNewEventVisiable);
+    setAddNewEventVisible(!addNewEventVisible);
   };
 
   return (
@@ -197,7 +197,7 @@ const Home = ({ navigation }) => {
 
       <ReportModal
         toggleReportModal={toggleReportModal}
-        isReportModalVisiable={isReportModalVisiable}
+        isReportModalVisible={isReportModalVisible}
       />
       {/* -------------------------- */}
       {/* ----------- Add New Event Modal ----------- */}
@@ -211,7 +211,7 @@ const Home = ({ navigation }) => {
 
       <AddNewEventModal
         toggleAddNewEventModal={toggleAddNewEventModal}
-        addNewEventVisiable={addNewEventVisiable}
+        addNewEventVisible={addNewEventVisible}
       />
     </View>
   );
