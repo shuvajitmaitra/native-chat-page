@@ -22,6 +22,8 @@ import Fonts from "../../../assets/Fonts/Fonts";
 import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
 import DownArrowIcon from "../../../assets/svgs/DownArrowIcon";
 import CalendarIcon from "../../../assets/svgs/CalendarIcon";
+import NotifyBell from "../../../assets/svgs/NotifyBell";
+import RepeatIcon from "../../../assets/svgs/RepeatIcon";
 
 // --------------------------
 // ----------- Custom dropdown components -----------
@@ -121,6 +123,9 @@ export const RemainderDropdown = ({ options }) => {
 
   return (
     <>
+      {/* -------------------------- */}
+      {/* ----------- Remainder Dropdown  ----------- */}
+      {/* -------------------------- */}
       <View style={{ flex: 1 }}>
         <TouchableOpacity
           style={[
@@ -151,7 +156,20 @@ export const RemainderDropdown = ({ options }) => {
               color: "rgba(84, 106, 126, 1)",
             }}
           >
-            {remainderItems == "" ? "Select event type" : remainderItems}
+            {remainderItems == "" ? (
+              <View
+                style={{
+                  flexDirection: "row",
+                  gap: responsiveScreenWidth(1.5),
+                  alignItems: "center",
+                }}
+              >
+                <NotifyBell />
+                <Text>Early Reminder</Text>
+              </View>
+            ) : (
+              remainderItems
+            )}
           </Text>
           {remainderClicked ? <UpArrowIcon /> : <DownArrowIcon />}
         </TouchableOpacity>
@@ -200,6 +218,10 @@ export const RemainderDropdown = ({ options }) => {
         ) : null}
       </View>
 
+      {/* -------------------------- */}
+      {/* ----------- Repeat dropdown ----------- */}
+      {/* -------------------------- */}
+
       <View style={{ flex: 1 }}>
         <TouchableOpacity
           style={[
@@ -231,7 +253,20 @@ export const RemainderDropdown = ({ options }) => {
               color: "rgba(84, 106, 126, 1)",
             }}
           >
-            {repeatItem == "" ? "Select event type" : repeatItem}
+            {repeatItem == "" ? (
+              <View
+                style={{
+                  flexDirection: "row",
+                  gap: responsiveScreenWidth(1.5),
+                  alignItems: "center",
+                }}
+              >
+                <RepeatIcon />
+                <Text>Repeat</Text>
+              </View>
+            ) : (
+              repeatItem
+            )}
           </Text>
           {repeatClicked ? <UpArrowIcon /> : <DownArrowIcon />}
         </TouchableOpacity>
@@ -431,11 +466,10 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
               {/* -------------------------- */}
 
               <View style={styles.fieldContainer}>
-                <Text style={styles.Text}>Event Type *</Text>
                 <RemainderDropdown options={options} />
               </View>
               {/* -------------------------- */}
-              {/* ----------- Add meeting aganda ----------- */}
+              {/* ----------- Add meeting agenda ----------- */}
               {/* -------------------------- */}
               <View style={styles.fieldContainer}>
                 <Text style={styles.Text}>Add Meeting Agenda</Text>
