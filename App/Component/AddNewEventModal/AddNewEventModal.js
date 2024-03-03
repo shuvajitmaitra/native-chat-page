@@ -174,6 +174,22 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisiable }) => {
                 <Text style={styles.Text}>Event Type *</Text>
                 <CustomDropDown options={options} />
               </View>
+              {/* -------------------------- */}
+              {/* ----------- Add invitation ----------- */}
+              {/* -------------------------- */}
+              <View style={styles.fieldContainer}>
+                <TextInput
+                  placeholderTextColor={"rgba(39, 172, 31, 1)"}
+                  style={[
+                    styles.inputField,
+                    {
+                      borderColor: "rgba(39, 172, 31, 1)",
+                      fontWeight: "600",
+                    },
+                  ]}
+                  placeholder="Add Invitation"
+                />
+              </View>
 
               {/* -------------------------- */}
               {/* ----------- Add meeting aganda ----------- */}
