@@ -212,7 +212,9 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                     alignItems: "center",
                   }}
                 >
-                  <Text>Start Time:</Text>
+                  <Text style={{ color: "#546A7E", fontWeight: "500" }}>
+                    Start Date:
+                  </Text>
                   <Text style={styles.timeDateText}>Jan 16, 2024</Text>
                   <Text style={styles.timeDateText}>09:30 PM</Text>
                 </View>
@@ -223,7 +225,15 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                     alignItems: "center",
                   }}
                 >
-                  <Text>End Time:</Text>
+                  <Text
+                    style={{
+                      color: "#546A7E",
+                      fontWeight: "500",
+                      marginRight: 8,
+                    }}
+                  >
+                    End Date:
+                  </Text>
                   <Text style={styles.timeDateText}>Jan 16, 2024</Text>
                   <Text style={styles.timeDateText}>09:30 PM</Text>
                 </View>
