@@ -20,7 +20,7 @@ import {
 import CustomButton from "../CustomButton";
 import Fonts from "../../../assets/Fonts/Fonts";
 import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
-import DownArroIcon from "../../../assets/svgs/DownArrowIcon";
+import DownArrowIcon from "../../../assets/svgs/DownArrowIcon";
 import CalendarIcon from "../../../assets/svgs/CalendarIcon";
 
 // --------------------------
@@ -61,7 +61,7 @@ export const CustomDropDown = ({ options }) => {
         >
           {item == "" ? "Select event type" : item}
         </Text>
-        {clicked ? <UpArrowIcon /> : <DownArroIcon />}
+        {clicked ? <UpArrowIcon /> : <DownArrowIcon />}
       </TouchableOpacity>
       {clicked ? (
         <View
@@ -107,6 +107,179 @@ export const CustomDropDown = ({ options }) => {
         </View>
       ) : null}
     </View>
+  );
+};
+// --------------------------
+// ----------- Remainder and repeat alarm components -----------
+// --------------------------
+export const RemainderDropdown = ({ options }) => {
+  const [remainderClicked, setRemainderClicked] = useState(false);
+  const [repeatClicked, setRepeatClicked] = useState(false);
+
+  const [remainderItems, setRemainderItems] = useState("");
+  const [repeatItem, setRepeatItem] = useState("");
+
+  return (
+    <>
+      <View style={{ flex: 1 }}>
+        <TouchableOpacity
+          style={[
+            {
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              backgroundColor: "#f8f8f8",
+              borderWidth: 1,
+              borderBottomWidth: 0,
+              borderColor: "rgba(0, 0, 0, 0.1)",
+              borderRadius: 10,
+              paddingHorizontal: responsiveScreenWidth(4),
+              fontFamily: "Inter-Regular",
+              paddingVertical: responsiveScreenHeight(1),
+              position: "relative",
+              borderBottomLeftRadius: 0,
+              borderBottomRightRadius: 0,
+            },
+          ]}
+          onPress={() => {
+            setRemainderClicked(!remainderClicked);
+          }}
+        >
+          <Text
+            style={{
+              paddingVertical: responsiveScreenHeight(0.5),
+              color: "rgba(84, 106, 126, 1)",
+            }}
+          >
+            {remainderItems == "" ? "Select event type" : remainderItems}
+          </Text>
+          {remainderClicked ? <UpArrowIcon /> : <DownArrowIcon />}
+        </TouchableOpacity>
+        {remainderClicked ? (
+          <View
+            style={{
+              backgroundColor: "white",
+              borderWidth: 1,
+              borderColor: "rgba(0, 0, 0, 0.1)",
+              borderBottomRightRadius: 10,
+              borderBottomLeftRadius: 10,
+              position: "absolute",
+              width: "100%",
+              top: responsiveScreenHeight(5.3),
+              zIndex: 1,
+            }}
+          >
+            {options.map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => {
+                  setRemainderItems(item.type);
+                  setRemainderClicked(!remainderClicked);
+                }}
+              >
+                <Text
+                  style={{
+                    fontFamily: "Inter-Regular",
+                    fontSize: responsiveScreenFontSize(1.5),
+                    color: "rgba(0, 0, 0, 0.5)",
+                    paddingHorizontal: responsiveScreenWidth(4),
+                    paddingVertical: responsiveScreenHeight(1),
+                  }}
+                >
+                  {item.type}
+                </Text>
+                <View
+                  style={{
+                    borderBottomWidth: options.length == index + 1 ? 0 : 0.5,
+                    borderBottomColor: "rgba(0, 0, 0, 0.3)",
+                  }}
+                ></View>
+              </TouchableOpacity>
+            ))}
+          </View>
+        ) : null}
+      </View>
+
+      <View style={{ flex: 1 }}>
+        <TouchableOpacity
+          style={[
+            {
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              backgroundColor: "#f8f8f8",
+              borderWidth: 1,
+              borderColor: "rgba(0, 0, 0, 0.1)",
+              borderRadius: 10,
+              paddingHorizontal: responsiveScreenWidth(4),
+              fontFamily: "Inter-Regular",
+              paddingVertical: responsiveScreenHeight(1),
+              position: "relative",
+              borderTopLeftRadius: 0,
+              borderTopRightRadius: 0,
+            },
+            { borderBottomLeftRadius: repeatClicked ? 0 : 10 },
+            { borderBottomRightRadius: repeatClicked ? 0 : 10 },
+          ]}
+          onPress={() => {
+            setRepeatClicked(!repeatClicked);
+          }}
+        >
+          <Text
+            style={{
+              paddingVertical: responsiveScreenHeight(0.5),
+              color: "rgba(84, 106, 126, 1)",
+            }}
+          >
+            {repeatItem == "" ? "Select event type" : repeatItem}
+          </Text>
+          {repeatClicked ? <UpArrowIcon /> : <DownArrowIcon />}
+        </TouchableOpacity>
+        {repeatClicked ? (
+          <View
+            style={{
+              backgroundColor: "white",
+              borderWidth: 1,
+              borderColor: "rgba(0, 0, 0, 0.1)",
+              borderBottomRightRadius: 10,
+              borderBottomLeftRadius: 10,
+              position: "absolute",
+              width: "100%",
+              top: responsiveScreenHeight(5.3),
+              zIndex: 1,
+            }}
+          >
+            {options.map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => {
+                  setRepeatItem(item.type);
+                  setRepeatClicked(!repeatClicked);
+                }}
+              >
+                <Text
+                  style={{
+                    fontFamily: "Inter-Regular",
+                    fontSize: responsiveScreenFontSize(1.5),
+                    color: "rgba(0, 0, 0, 0.5)",
+                    paddingHorizontal: responsiveScreenWidth(4),
+                    paddingVertical: responsiveScreenHeight(1),
+                  }}
+                >
+                  {item.type}
+                </Text>
+                <View
+                  style={{
+                    borderBottomWidth: options.length == index + 1 ? 0 : 0.5,
+                    borderBottomColor: "rgba(0, 0, 0, 0.3)",
+                  }}
+                ></View>
+              </TouchableOpacity>
+            ))}
+          </View>
+        ) : null}
+      </View>
+    </>
   );
 };
 
@@ -253,7 +426,14 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                   placeholder="Add Invitation"
                 />
               </View>
+              {/* -------------------------- */}
+              {/* ----------- Remainder Container ----------- */}
+              {/* -------------------------- */}
 
+              <View style={styles.fieldContainer}>
+                <Text style={styles.Text}>Event Type *</Text>
+                <RemainderDropdown options={options} />
+              </View>
               {/* -------------------------- */}
               {/* ----------- Add meeting aganda ----------- */}
               {/* -------------------------- */}

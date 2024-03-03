@@ -1,14 +1,14 @@
-import * as React from "react"
-import Svg, { Path } from "react-native-svg"
+import * as React from "react";
+import Svg, { Path } from "react-native-svg";
 
-function DownArroIcon(props) {
+function DownArrowIcon(props) {
   return (
     <Svg
       className="svg-icon"
       style={{
         width: 22,
         height: 22,
-        verticalAlign: "middle"
+        verticalAlign: "middle",
       }}
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ function DownArroIcon(props) {
         fill="#888"
       />
     </Svg>
-  )
+  );
 }
 
-export default DownArroIcon
+export default DownArrowIcon;
