@@ -189,19 +189,11 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                     paddingVertical: responsiveScreenHeight(1.5),
                     borderColor: "rgba(0, 0, 0, 0.1)",
                     borderWidth: 1,
+                    gap: responsiveScreenHeight(2),
                   },
                 ]}
               >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    gap: responsiveScreenWidth(1.5),
-                    paddingBottom: responsiveScreenHeight(1.5),
-                    alignItems: "center",
-                    borderBottomColor: "rgba(0, 0, 0, 0.1)",
-                    borderBottomWidth: 1,
-                  }}
-                >
+                <View style={styles.timeDateContainer}>
                   <CalendarIcon />
                   <Text
                     style={{
@@ -213,10 +205,27 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                     Event Time & Date
                   </Text>
                 </View>
-                <View>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    gap: responsiveScreenWidth(2),
+                    alignItems: "center",
+                  }}
+                >
                   <Text>Start Time:</Text>
-                  <Text>Jan 16, 2024</Text>
-                  <Text>09:30 PM</Text>
+                  <Text style={styles.timeDateText}>Jan 16, 2024</Text>
+                  <Text style={styles.timeDateText}>09:30 PM</Text>
+                </View>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    gap: responsiveScreenWidth(2),
+                    alignItems: "center",
+                  }}
+                >
+                  <Text>End Time:</Text>
+                  <Text style={styles.timeDateText}>Jan 16, 2024</Text>
+                  <Text style={styles.timeDateText}>09:30 PM</Text>
                 </View>
               </View>
               {/* -------------------------- */}
@@ -334,6 +343,26 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
 export default AddNewEventModal;
 
 const styles = StyleSheet.create({
+  // --------------------------
+  // ----------- Event Time and date -----------
+  // --------------------------
+  timeDateText: {
+    backgroundColor: "white",
+    paddingVertical: 3,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    color: "rgba(39, 172, 31, 1)",
+    borderColor: "rgba(0, 0, 0, 0.1)",
+    borderWidth: 1,
+  },
+  timeDateContainer: {
+    flexDirection: "row",
+    gap: responsiveScreenWidth(1.5),
+    paddingBottom: responsiveScreenHeight(1.5),
+    alignItems: "center",
+    borderBottomColor: "rgba(0, 0, 0, 0.1)",
+    borderBottomWidth: 1,
+  },
   // --------------------------
   // ----------- Header description text -----------
   // --------------------------
