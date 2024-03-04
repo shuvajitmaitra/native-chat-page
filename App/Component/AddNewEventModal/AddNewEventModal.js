@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import Modal from "react-native-modal";
+import Modal, { ReactNativeModal } from "react-native-modal";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import CrossIcon from "../../../assets/svgs/CrossIcon";
 import CrowdIcon from "../../../assets/svgs/CrowdIcon";
@@ -24,6 +24,7 @@ import DownArrowIcon from "../../../assets/svgs/DownArrowIcon";
 import CalendarIcon from "../../../assets/svgs/CalendarIcon";
 import NotifyBell from "../../../assets/svgs/NotifyBell";
 import RepeatIcon from "../../../assets/svgs/RepeatIcon";
+import { Calendar } from "react-native-calendars";
 
 // --------------------------
 // ----------- Custom dropdown components -----------
@@ -324,6 +325,30 @@ export const RemainderDropdown = ({ options }) => {
 
 const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
   const options = [{ type: "One-on-One" }, { type: "Group" }];
+  // --------------------------
+  // ----------- For the current date -----------
+  // --------------------------
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const currentDate = new Date();
+  const formattedDate = `${
+    months[currentDate.getMonth()]
+  } ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
+
+  const [isDatePickerVisible, setDatePickerVisible] = useState(false);
+
   return (
     <Modal isVisible={addNewEventVisible}>
       <View>
@@ -423,7 +448,14 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                   <Text style={{ color: "#546A7E", fontWeight: "500" }}>
                     Start Date:
                   </Text>
-                  <Text style={styles.timeDateText}>Jan 16, 2024</Text>
+                  <TouchableOpacity
+                    onPress={() => setDatePickerVisible(!isDatePickerVisible)}
+                  >
+                    <Text style={styles.timeDateText}>{formattedDate}</Text>
+                  </TouchableOpacity>
+                  <ReactNativeModal isVisible={isDatePickerVisible}>
+                    <Calendar />
+                  </ReactNativeModal>
                   <Text style={styles.timeDateText}>09:30 PM</Text>
                 </View>
                 <View
@@ -442,7 +474,7 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                   >
                     End Date:
                   </Text>
-                  <Text style={styles.timeDateText}>Jan 16, 2024</Text>
+                  <Text style={styles.timeDateText}>{formattedDate}</Text>
                   <Text style={styles.timeDateText}>09:30 PM</Text>
                 </View>
               </View>
