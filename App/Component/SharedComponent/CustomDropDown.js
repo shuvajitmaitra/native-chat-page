@@ -15,6 +15,7 @@ import {
 } from "react-native-responsive-dimensions";
 import ArrowLeft from "../../../assets/svgs/ArrowLeft";
 import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
+import DownArrowIcon from "../../../assets/svgs/DownArrowIcon";
 
 export const CustomDropDown = ({ options }) => {
   const [clicked, setClicked] = useState(false);

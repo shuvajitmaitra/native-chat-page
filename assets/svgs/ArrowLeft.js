@@ -13,7 +13,7 @@ function ArrowLeft(props) {
     >
       <Path
         d="M9.57 5.93L3.5 12l6.07 6.07M20.5 12H3.67"
-        stroke="#474748"
+        stroke="rgba(84, 106, 126, 1)"
         strokeWidth={1.5}
         strokeMiterlimit={10}
         strokeLinecap="round"

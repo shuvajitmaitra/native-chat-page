@@ -10,6 +10,59 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import Fonts from "../../../assets/Fonts/Fonts";
 import { RadioButton, Text } from "react-native-paper";
 import CustomButton from "../CustomButton";
+import ArrowLeft from "../../../assets/svgs/ArrowLeft";
+import CrossIcon from "../../../assets/svgs/CrossIcon";
+
+const ModalBackAndCrossButton = ({ toggleModal }) => {
+  return (
+    <View style={backAndCrossStyles.topBarContainer}>
+      <TouchableOpacity
+        onPress={toggleModal}
+        style={backAndCrossStyles.modalArrowIcon}
+      >
+        <ArrowLeft />
+        <Text style={backAndCrossStyles.backButtonText}>Back</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={backAndCrossStyles.cancelButton}
+        onPress={toggleModal}
+      >
+        <CrossIcon />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const backAndCrossStyles = StyleSheet.create({
+  topBarContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    minWidth: "100%",
+    // backgroundColor: "red",
+    paddingBottom: responsiveScreenHeight(1.5),
+    borderBottomWidth: 1,
+    borderColor: "rgba(0, 0, 0, 0.1)",
+  },
+  modalArrowIcon: {
+    paddingBottom: responsiveScreenHeight(0.8),
+    flexDirection: "row",
+    alignItems: "center",
+    gap: responsiveScreenWidth(2),
+    color: "rgba(71, 71, 72, 1)",
+  },
+  backButtonText: {
+    color: "rgba(84, 106, 126, 1)",
+    fontFamily: "Inter-Medium",
+    fontSize: responsiveScreenFontSize(1.8),
+  },
+  cancelButton: {
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
+    padding: responsiveScreenWidth(2.5),
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
 const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
   const [value, setValue] = React.useState("admin");
@@ -18,17 +71,16 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
     <Modal isVisible={isModalVisible}>
       <View style={styles.modalContainer}>
         <View style={styles.modalChild}>
+          <ModalBackAndCrossButton />
           <View style={styles.modalHeading}>
-            <TouchableOpacity onPress={toggleModal}>
-              <FontAwesome6
-                name="arrow-left-long"
-                style={styles.modalArrowIcon}
-              />
-            </TouchableOpacity>
             <Text style={styles.modalHeadingText}>
               Role Options for Srijan Mondol
             </Text>
+            <Text style={styles.headingDescription}>
+              Choose the role you wish to give to Srijan Mandal.
+            </Text>
           </View>
+
           <View style={styles.buttonGroup}>
             <RadioButton.Group
               onValueChange={(newValue) => setValue(newValue)}
@@ -127,13 +179,10 @@ const styles = StyleSheet.create({
     paddingTop: responsiveScreenHeight(2),
   },
   modalHeading: {
-    flexDirection: "row",
+    // flexDirection: "row",
     justifyContent: "flex-start",
-    alignItems: "center",
-    paddingVertical: responsiveScreenHeight(2),
-    marginHorizontal: responsiveScreenWidth(1),
-    borderBottomWidth: 1,
-    borderColor: "rgba(0, 0, 0, 0.15)",
+    // alignItems: "center",
+    paddingTop: responsiveScreenHeight(1.7),
     gap: responsiveScreenWidth(2),
   },
   modalArrowIcon: {
@@ -141,9 +190,15 @@ const styles = StyleSheet.create({
     color: "rgba(71, 71, 72, 1)",
   },
   modalHeadingText: {
-    fontSize: responsiveScreenFontSize(2.3),
-    color: "rgba(71, 71, 72, 1)",
     fontFamily: "Inter-Medium",
+    fontWeight: "500",
+    fontSize: responsiveScreenFontSize(2.3),
+    color: "rgba(11, 42, 70, 1)",
+    fontFamily: "Inter-Medium",
+  },
+  headingDescription: {
+    color: "rgba(84, 106, 126, 1)",
+    width: "80%",
   },
   radioButton: {
     flexDirection: "row",
@@ -153,7 +208,8 @@ const styles = StyleSheet.create({
   buttonGroup: {
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.15)",
-    paddingVertical: responsiveScreenHeight(2.5),
+    paddingTop: responsiveScreenHeight(2),
+    paddingBottom: responsiveScreenHeight(2.5),
   },
   radioText: {
     fontSize: responsiveScreenFontSize(2.2),

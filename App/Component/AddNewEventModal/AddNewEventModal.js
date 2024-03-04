@@ -20,11 +20,11 @@ import {
 import CustomButton from "../CustomButton";
 import Fonts from "../../../assets/Fonts/Fonts";
 import UpArrowIcon from "../../../assets/svgs/UpArrowIcon";
-import DownArrowIcon from "../../../assets/svgs/DownArrowIcon";
 import CalendarIcon from "../../../assets/svgs/CalendarIcon";
 import NotifyBell from "../../../assets/svgs/NotifyBell";
 import RepeatIcon from "../../../assets/svgs/RepeatIcon";
 import { Calendar } from "react-native-calendars";
+import DownArrowIcon from "../../../assets/svgs/DownArrowIcon";
 
 // --------------------------
 // ----------- Custom dropdown components -----------

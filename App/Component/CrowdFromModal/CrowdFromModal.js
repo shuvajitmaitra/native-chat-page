@@ -18,6 +18,52 @@ import Modal from "react-native-modal";
 import CrowdIcon from "../../../assets/svgs/CrowdIcon";
 import CustomButton from "../CustomButton";
 import CustomDropDown from "../SharedComponent/CustomDropDown";
+export const ModalBackAndCrossButton = ({ toggleModal }) => {
+  return (
+    <View style={backAndCrossStyles.topBarContainer}>
+      <TouchableOpacity
+        onPress={toggleModal}
+        style={backAndCrossStyles.modalArrowIcon}
+      >
+        <ArrowLeft />
+        <Text style={backAndCrossStyles.backButtonText}>Back</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={backAndCrossStyles.cancelButton}
+        onPress={toggleModal}
+      >
+        <CrossIcon />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const backAndCrossStyles = StyleSheet.create({
+  topBarContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    minWidth: "100%",
+  },
+  modalArrowIcon: {
+    paddingBottom: responsiveScreenHeight(0.8),
+    flexDirection: "row",
+    alignItems: "center",
+    gap: responsiveScreenWidth(2),
+    color: "rgba(71, 71, 72, 1)",
+  },
+  backButtonText: {
+    color: "rgba(71, 71, 72, 1)",
+    fontFamily: "Inter-Regular",
+    fontSize: responsiveScreenFontSize(1.8),
+  },
+  cancelButton: {
+    backgroundColor: "#D0D0D0",
+    padding: responsiveScreenWidth(2.5),
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
 const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
   const options = [{ type: "Private" }, { type: "Public" }];
@@ -29,21 +75,7 @@ const CrowdFromModal = ({ isCrowdFromVisible, toggleCrowdFromModal }) => {
           {/* -------------------------- */}
           {/* ----------- Back Arrow button ----------- */}
           {/* -------------------------- */}
-          <View style={styles.topBarContainer}>
-            <TouchableOpacity
-              onPress={toggleCrowdFromModal}
-              style={styles.modalArrowIcon}
-            >
-              <ArrowLeft />
-              <Text style={styles.backButtonText}>Back</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.cancelButton}
-              onPress={toggleCrowdFromModal}
-            >
-              <CrossIcon />
-            </TouchableOpacity>
-          </View>
+          <ModalBackAndCrossButton toggleModal={toggleCrowdFromModal} />
           {/* <View style={styles.bottomBorder}></View> */}
           {/* -------------------------- */}
           {/* ----------- Main View Start form here ----------- */}
