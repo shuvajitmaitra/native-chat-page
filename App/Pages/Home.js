@@ -11,7 +11,6 @@ import {
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
-import RoleAssignModal from "../Component/RoleAssignModal";
 import ChatMuteModal from "../Component/ChatMuteModal";
 import ViewProfile from "../Component/ViewProfileModal/ViewProfile";
 import ThreeDotPopUp from "../Component/ThreeDotPopUp/ThreeDotPopUp";
@@ -20,6 +19,7 @@ import CrowdFromModal from "../Component/CrowdFromModal/CrowdFromModal";
 import LeaveCrowdModal from "../Component/LeaveCrowdModal/LeaveCrowdModal";
 import ReportModal from "../Component/ReportModal/ReportModal";
 import AddNewEventModal from "../Component/AddNewEventModal/AddNewEventModal";
+import RoleAssignModal from "../Component/RoleAssignModal/RoleAssignModal";
 
 const Home = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
