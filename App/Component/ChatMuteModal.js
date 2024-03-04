@@ -1,5 +1,4 @@
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
-import Modal from "react-native-modal";
 import React from "react";
 import {
   responsiveScreenFontSize,
@@ -9,36 +8,40 @@ import {
 import { FontAwesome6 } from "@expo/vector-icons";
 import { RadioButton, Text } from "react-native-paper";
 import CustomModalButton from "./CustomButton";
+import ReactNativeModal from "react-native-modal";
+import { ModalBackAndCrossButton } from "./SharedComponent/ModalBackAndCrossButton";
 
 const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
   const [value, setValue] = React.useState("hour");
 
   return (
-    <Modal isVisible={isMuteModalVisible}>
-      <View style={styles.modalContainer}>
-        <View style={styles.modalChild}>
+    <ReactNativeModal isVisible={isMuteModalVisible}>
+      <View style={muteModalStyles.modalContainer}>
+        <View style={muteModalStyles.modalChild}>
           {/* --------------------- */}
           {/* Modal Heading */}
           {/* --------------------- */}
 
-          <View style={styles.modalHeading}>
+          {/* <View style={muteModalStyles.modalHeading}>
             <TouchableOpacity onPress={toggleMuteModal}>
               <FontAwesome6
                 name="arrow-left-long"
-                style={styles.modalArrowIcon}
+                style={muteModalStyles.modalArrowIcon}
               />
             </TouchableOpacity>
-            <Text style={styles.modalHeadingText}>
+            <Text style={muteModalStyles.modalHeadingText}>
               Mute Options for Srijan Mondol
             </Text>
-          </View>
+          </View> */}
+
+          <ModalBackAndCrossButton />
 
           {/* --------------------- */}
           {/* Modal Descriptions */}
           {/* --------------------- */}
 
-          <View style={styles.modalDescription}>
-            <Text style={styles.modalDescriptionText}>
+          <View style={muteModalStyles.modalDescription}>
+            <Text style={muteModalStyles.modalDescriptionText}>
               Muted members can&apos;t send message in this channel but he/she
               can read message
             </Text>
@@ -48,12 +51,12 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
           {/* Modal radio button */}
           {/* --------------------- */}
 
-          <View style={styles.buttonGroup}>
+          <View style={muteModalStyles.buttonGroup}>
             <RadioButton.Group
               onValueChange={(newValue) => setValue(newValue)}
               value={value}
             >
-              <View style={styles.radioButton}>
+              <View style={muteModalStyles.radioButton}>
                 <RadioButton
                   value="hour"
                   color="#27ac1f"
@@ -61,7 +64,7 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
                 />
                 <Text
                   style={[
-                    styles.radioText,
+                    muteModalStyles.radioText,
                     {
                       color: value === "hour" ? "black" : "rgba(0, 0, 0, 0.6)",
                     },
@@ -70,7 +73,7 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
                   For 1 hour
                 </Text>
               </View>
-              <View style={styles.radioButton}>
+              <View style={muteModalStyles.radioButton}>
                 <RadioButton
                   color="#27ac1f"
                   value="day"
@@ -78,7 +81,7 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
                 />
                 <Text
                   style={[
-                    styles.radioText,
+                    muteModalStyles.radioText,
                     {
                       color: value === "day" ? "black" : "rgba(0, 0, 0, 0.6)",
                     },
@@ -87,7 +90,7 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
                   For 1 day
                 </Text>
               </View>
-              <View style={styles.radioButton}>
+              <View style={muteModalStyles.radioButton}>
                 <RadioButton
                   color="#27ac1f"
                   value="always"
@@ -95,7 +98,7 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
                 />
                 <Text
                   style={[
-                    styles.radioText,
+                    muteModalStyles.radioText,
                     {
                       color:
                         value === "always" ? "black" : "rgba(0, 0, 0, 0.6)",
@@ -105,7 +108,7 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
                   Mute until I turn back on
                 </Text>
               </View>
-              <View style={styles.radioButton}>
+              <View style={muteModalStyles.radioButton}>
                 <RadioButton
                   color="#27ac1f"
                   value="custom"
@@ -113,7 +116,7 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
                 />
                 <Text
                   style={[
-                    styles.radioText,
+                    muteModalStyles.radioText,
                     {
                       color:
                         value === "custom" ? "black" : "rgba(0, 0, 0, 0.6)",
@@ -129,18 +132,18 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
           {/* -------------------------- */}
           {/* ------- Add note Box ------- */}
           {/* --------------------------- */}
-          <View style={styles.noteContainer}>
-            <Text style={styles.noteTitle}>Add a note (optional)</Text>
+          <View style={muteModalStyles.noteContainer}>
+            <Text style={muteModalStyles.noteTitle}>Add a note (optional)</Text>
             <TextInput
               placeholder="Describe the reason"
-              style={styles.noteTextArea}
+              style={muteModalStyles.noteTextArea}
             />
           </View>
           {/* --------------------- */}
           {/* Modal Button Container */}
           {/* --------------------- */}
 
-          <View style={styles.buttonContainer}>
+          <View style={muteModalStyles.buttonContainer}>
             <CustomModalButton
               toggleModal={toggleMuteModal}
               textColor="#27ac1f"
@@ -156,13 +159,13 @@ const ChatMuteModal = ({ toggleMuteModal, isMuteModalVisible }) => {
           </View>
         </View>
       </View>
-    </Modal>
+    </ReactNativeModal>
   );
 };
 
 export default ChatMuteModal;
 
-const styles = StyleSheet.create({
+const muteModalStyles = StyleSheet.create({
   modalContainer: {
     // height: responsiveScreenHeight(100),
     flex: 1,

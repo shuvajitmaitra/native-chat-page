@@ -1,5 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
+import {
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+} from "react-native-responsive-dimensions";
+import ArrowLeft from "../../../assets/svgs/ArrowLeft";
+import CrossIcon from "../../../assets/svgs/CrossIcon";
 
 export const ModalBackAndCrossButton = ({ toggleModal }) => {
   return (
@@ -26,6 +33,7 @@ const backAndCrossStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     minWidth: "100%",
+    paddingTop: responsiveScreenHeight(1.5),
     paddingBottom: responsiveScreenHeight(2),
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.15)",

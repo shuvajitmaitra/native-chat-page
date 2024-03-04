@@ -38,10 +38,9 @@ const backAndCrossStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     minWidth: "100%",
-    // backgroundColor: "red",
-    paddingBottom: responsiveScreenHeight(1.5),
+    paddingVertical: responsiveScreenHeight(1.5),
     borderBottomWidth: 1,
-    borderColor: "rgba(0, 0, 0, 0.1)",
+    borderColor: "rgba(0, 0, 0, 0.15)",
   },
   modalArrowIcon: {
     paddingBottom: responsiveScreenHeight(0.8),
@@ -69,24 +68,24 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
 
   return (
     <Modal isVisible={isModalVisible}>
-      <View style={styles.modalContainer}>
-        <View style={styles.modalChild}>
-          <ModalBackAndCrossButton />
-          <View style={styles.modalHeading}>
-            <Text style={styles.modalHeadingText}>
+      <View style={roleAssignModalStyles.modalContainer}>
+        <View style={roleAssignModalStyles.modalChild}>
+          <ModalBackAndCrossButton toggleModal={toggleModal} />
+          <View style={roleAssignModalStyles.modalHeading}>
+            <Text style={roleAssignModalStyles.modalHeadingText}>
               Role Options for Srijan Mondol
             </Text>
-            <Text style={styles.headingDescription}>
+            <Text style={roleAssignModalStyles.headingDescription}>
               Choose the role you wish to give to Srijan Mandal.
             </Text>
           </View>
 
-          <View style={styles.buttonGroup}>
+          <View style={roleAssignModalStyles.buttonGroup}>
             <RadioButton.Group
               onValueChange={(newValue) => setValue(newValue)}
               value={value}
             >
-              <View style={styles.radioButton}>
+              <View style={roleAssignModalStyles.radioButton}>
                 <RadioButton
                   value="admin"
                   color="#27ac1f"
@@ -94,7 +93,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
                 />
                 <Text
                   style={[
-                    styles.radioText,
+                    roleAssignModalStyles.radioText,
                     {
                       color: value === "admin" ? "black" : "rgba(0, 0, 0, 0.6)",
                     },
@@ -103,7 +102,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
                   Admin
                 </Text>
               </View>
-              <View style={styles.radioButton}>
+              <View style={roleAssignModalStyles.radioButton}>
                 <RadioButton
                   color="#27ac1f"
                   value="moderator"
@@ -111,7 +110,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
                 />
                 <Text
                   style={[
-                    styles.radioText,
+                    roleAssignModalStyles.radioText,
                     {
                       color:
                         value === "moderator" ? "black" : "rgba(0, 0, 0, 0.6)",
@@ -121,7 +120,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
                   Moderator
                 </Text>
               </View>
-              <View style={styles.radioButton}>
+              <View style={roleAssignModalStyles.radioButton}>
                 <RadioButton
                   color="#27ac1f"
                   value="member"
@@ -129,7 +128,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
                 />
                 <Text
                   style={[
-                    styles.radioText,
+                    roleAssignModalStyles.radioText,
                     {
                       color:
                         value === "member" ? "black" : "rgba(0, 0, 0, 0.6)",
@@ -141,7 +140,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
               </View>
             </RadioButton.Group>
           </View>
-          <View style={styles.buttonContainer}>
+          <View style={roleAssignModalStyles.buttonContainer}>
             <CustomButton
               toggleModal={toggleModal}
               textColor="#27ac1f"
@@ -163,7 +162,7 @@ const RoleAssignModal = ({ toggleModal, isModalVisible }) => {
 
 export default RoleAssignModal;
 
-const styles = StyleSheet.create({
+const roleAssignModalStyles = StyleSheet.create({
   modalContainer: {
     height: responsiveScreenHeight(100),
     flex: 1,
@@ -176,7 +175,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: responsiveScreenWidth(4.5),
     paddingBottom: responsiveScreenHeight(0),
-    paddingTop: responsiveScreenHeight(2),
   },
   modalHeading: {
     // flexDirection: "row",

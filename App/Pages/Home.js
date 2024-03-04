@@ -22,7 +22,6 @@ import AddNewEventModal from "../Component/AddNewEventModal/AddNewEventModal";
 import RoleAssignModal from "../Component/RoleAssignModal/RoleAssignModal";
 
 const Home = ({ navigation }) => {
-  const [isModalVisible, setModalVisible] = useState(false);
   const [isMuteModalVisible, setMuteModalVisible] = useState(false);
   const [isProfileModalVisible, setProfileModalVisible] = useState(false);
   const [isGroupProfileModalVisible, setGroupProfileModalVisible] =
@@ -41,6 +40,7 @@ const Home = ({ navigation }) => {
   {
     /* -------------------------- */
   }
+  const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
