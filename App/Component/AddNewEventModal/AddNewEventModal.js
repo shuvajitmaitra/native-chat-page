@@ -347,7 +347,8 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
     months[currentDate.getMonth()]
   } ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
 
-  const [isDatePickerVisible, setDatePickerVisible] = useState(false);
+  const [isStartDatePickerVisible, setStartDatePickerVisible] = useState(false);
+  const [isEndDatePickerVisible, setEndDatePickerVisible] = useState(false);
 
   const [selectedStartDate, setSelectedStartDate] = useState("");
   const [selectedEndDate, setSelectedEndDate] = useState("");
@@ -453,16 +454,18 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                     Start Date:
                   </Text>
                   <TouchableOpacity
-                    onPress={() => setDatePickerVisible(!isDatePickerVisible)}
+                    onPress={() =>
+                      setStartDatePickerVisible(!isStartDatePickerVisible)
+                    }
                   >
                     <Text style={styles.timeDateText}>
                       {selectedStartDate ? selectedStartDate : formattedDate}
                     </Text>
                   </TouchableOpacity>
                   {/* -------------------------- */}
-                  {/* ----------- Calendar modal ----------- */}
+                  {/* ----------- Calendar Start modal ----------- */}
                   {/* -------------------------- */}
-                  <ReactNativeModal isVisible={isDatePickerVisible}>
+                  <ReactNativeModal isVisible={isStartDatePickerVisible}>
                     <Calendar
                       style={{ marginHorizontal: 10, borderRadius: 4 }}
                       theme={{
@@ -473,7 +476,7 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                         arrowColor: "rgba(39, 172, 31, 1)",
                       }}
                       onDayPress={(day) => {
-                        setDatePickerVisible(!isDatePickerVisible);
+                        setStartDatePickerVisible(!isStartDatePickerVisible);
                         setSelectedStartDate(
                           `${months[day.month - 1]} ${day.day}, ${day.year}`
                         );
@@ -498,11 +501,19 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                   >
                     End Date:
                   </Text>
-                  <Text style={styles.timeDateText}>{formattedDate}</Text>
+                  <TouchableOpacity
+                    onPress={() =>
+                      setEndDatePickerVisible(!isEndDatePickerVisible)
+                    }
+                  >
+                    <Text style={styles.timeDateText}>
+                      {selectedEndDate ? selectedEndDate : formattedDate}
+                    </Text>
+                  </TouchableOpacity>
                   {/* -------------------------- */}
-                  {/* ----------- Calendar modal ----------- */}
+                  {/* ----------- Calendar End modal ----------- */}
                   {/* -------------------------- */}
-                  <ReactNativeModal isVisible={isDatePickerVisible}>
+                  <ReactNativeModal isVisible={isEndDatePickerVisible}>
                     <Calendar
                       style={{ marginHorizontal: 10, borderRadius: 4 }}
                       theme={{
@@ -513,8 +524,8 @@ const AddNewEventModal = ({ toggleAddNewEventModal, addNewEventVisible }) => {
                         arrowColor: "rgba(39, 172, 31, 1)",
                       }}
                       onDayPress={(day) => {
-                        setDatePickerVisible(!isDatePickerVisible);
-                        setSelectedStartDate(
+                        setEndDatePickerVisible(!isEndDatePickerVisible);
+                        setSelectedEndDate(
                           `${months[day.month - 1]} ${day.day}, ${day.year}`
                         );
                       }}
