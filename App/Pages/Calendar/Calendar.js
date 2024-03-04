@@ -115,7 +115,8 @@ const Calendar = () => {
         </View>
         {data.map(
           (item, index) =>
-            item.date >= 1 && item.date <= 7 && <CalendarItems item={item} />
+            item.date >= 1 &&
+            item.date <= 7 && <CalendarItems key={index} item={item} />
         )}
 
         <View style={styles.weekContainer}>
@@ -124,7 +125,8 @@ const Calendar = () => {
         </View>
         {data.map(
           (item, index) =>
-            item.date >= 8 && item.date <= 14 && <CalendarItems item={item} />
+            item.date >= 8 &&
+            item.date <= 14 && <CalendarItems key={index} item={item} />
         )}
         <View style={styles.weekContainer}>
           <Text style={styles.weekText}>Week 3</Text>
@@ -132,7 +134,8 @@ const Calendar = () => {
         </View>
         {data.map(
           (item, index) =>
-            item.date >= 15 && item.date <= 21 && <CalendarItems item={item} />
+            item.date >= 15 &&
+            item.date <= 21 && <CalendarItems key={index} item={item} />
         )}
         <View style={styles.weekContainer}>
           <Text style={styles.weekText}>Week 4</Text>
@@ -140,7 +143,8 @@ const Calendar = () => {
         </View>
         {data.map(
           (item, index) =>
-            item.date >= 22 && item.date <= 28 && <CalendarItems item={item} />
+            item.date >= 22 &&
+            item.date <= 28 && <CalendarItems key={index} item={item} />
         )}
         <View style={styles.weekContainer}>
           <Text style={styles.weekText}>Week 5</Text>
@@ -148,7 +152,8 @@ const Calendar = () => {
         </View>
         {data.map(
           (item, index) =>
-            item.date >= 29 && item.date <= 31 && <CalendarItems item={item} />
+            item.date >= 29 &&
+            item.date <= 31 && <CalendarItems key={index} item={item} />
         )}
       </View>
     </ScrollView>
