@@ -15,6 +15,23 @@ import CrossIcon from "../../../assets/svgs/CrossIcon";
 
 const ReportModal = ({ toggleReportModal, isReportModalVisible }) => {
   const [value, setValue] = React.useState("Harassment");
+  const itemList = [
+    {
+      topic: "Harassment",
+    },
+    {
+      topic: "Sharing inappropriate things ",
+    },
+    {
+      topic: "Hate speech",
+    },
+    {
+      topic: "Scams",
+    },
+    {
+      topic: "Others",
+    },
+  ];
 
   return (
     <Modal isVisible={isReportModalVisible}>
@@ -50,102 +67,35 @@ const ReportModal = ({ toggleReportModal, isReportModalVisible }) => {
             {/* -------------------------- */}
             {/* ----------- Radio button are start from here ----------- */}
             {/* -------------------------- */}
-            <View style={styles.buttonGroup}>
-              <RadioButton.Group
-                onValueChange={(newValue) => setValue(newValue)}
-                value={value}
-              >
-                <View style={styles.radioButton}>
-                  <RadioButton
-                    value="Harassment"
-                    color="#27ac1f"
-                    uncheckedColor="rgba(0, 0, 0, 0.2)"
-                  />
-                  <Text
-                    style={[
-                      styles.radioText,
-                      {
-                        color:
-                          value === "hour" ? "black" : "rgba(0, 0, 0, 0.6)",
-                      },
-                    ]}
-                  >
-                    Harassment
-                  </Text>
-                </View>
-                <View style={styles.radioButton}>
-                  <RadioButton
-                    color="#27ac1f"
-                    value="Sharing inappropriate things"
-                    uncheckedColor="rgba(0, 0, 0, 0.2)"
-                  />
-                  <Text
-                    style={[
-                      styles.radioText,
-                      {
-                        color: value === "day" ? "black" : "rgba(0, 0, 0, 0.6)",
-                      },
-                    ]}
-                  >
-                    Sharing inappropriate things
-                  </Text>
-                </View>
-                <View style={styles.radioButton}>
-                  <RadioButton
-                    color="#27ac1f"
-                    value="Hate speech"
-                    uncheckedColor="rgba(0, 0, 0, 0.2)"
-                  />
-                  <Text
-                    style={[
-                      styles.radioText,
-                      {
-                        color:
-                          value === "always" ? "black" : "rgba(0, 0, 0, 0.6)",
-                      },
-                    ]}
-                  >
-                    Hate speech
-                  </Text>
-                </View>
-                <View style={styles.radioButton}>
-                  <RadioButton
-                    color="#27ac1f"
-                    value="Scams"
-                    uncheckedColor="rgba(0, 0, 0, 0.2)"
-                  />
-                  <Text
-                    style={[
-                      styles.radioText,
-                      {
-                        color:
-                          value === "custom" ? "black" : "rgba(0, 0, 0, 0.6)",
-                      },
-                    ]}
-                  >
-                    Scams
-                  </Text>
-                </View>
-                <View style={styles.radioButton}>
-                  <RadioButton
-                    color="#27ac1f"
-                    value="Others"
-                    uncheckedColor="rgba(0, 0, 0, 0.2)"
-                  />
-                  <Text
-                    style={[
-                      styles.radioText,
-                      {
-                        color:
-                          value === "custom" ? "black" : "rgba(0, 0, 0, 0.6)",
-                      },
-                    ]}
-                  >
-                    Others
-                  </Text>
-                </View>
-              </RadioButton.Group>
-            </View>
+            {itemList?.map((item, index) => (
+              <View key={index} style={styles.buttonGroup}>
+                <RadioButton.Group
+                  onValueChange={(newValue) => setValue(newValue)}
+                  value={value}
+                >
+                  <View style={styles.radioButton}>
+                    <RadioButton
+                      value={itemList.item}
+                      color="#27ac1f"
+                      uncheckedColor="rgba(0, 0, 0, 0.2)"
+                    />
+                    <Text
+                      style={[
+                        styles.radioText,
+                        {
+                          color:
+                            value === `${itemList?.item}`
+                              ? "black"
+                              : "rgba(0, 0, 0, 0.6)",
+                        },
+                      ]}
+                    >
+                      {itemList?.item}
+                    </Text>
+                  </View>
+                </RadioButton.Group>
+              </View>
+            ))}
             {/* -------------------------- */}
             {/* ----------- Border Bottom ----------- */}
             {/* -------------------------- */}
