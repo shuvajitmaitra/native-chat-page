@@ -14,8 +14,6 @@ import {
 } from "react-native-responsive-dimensions";
 import { Popover, PopoverController } from "react-native-modal-popover";
 import Fonts from "../../../assets/Fonts/Fonts";
-import SearchIcon from "../../../assets/svgs/SearchIcon";
-import VolumeIcon from "../../../assets/svgs/Volume";
 import CrossIcon from "../../../assets/svgs/CrossIcon";
 import { RadioButton } from "react-native-paper";
 
